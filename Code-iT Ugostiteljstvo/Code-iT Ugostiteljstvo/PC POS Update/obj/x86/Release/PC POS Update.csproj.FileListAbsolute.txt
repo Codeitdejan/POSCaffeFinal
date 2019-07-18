@@ -1,0 +1,9 @@
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\bin\Release\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\bin\Release\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Release\ResolveAssemblyReference.cache
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Release\PC_POS_Update.frmUpdate.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Release\PC_POS_Update.Properties.Resources.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Release\GenerateResource.read.1.tlog
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Release\GenerateResource.write.1.tlog
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Release\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Release\PC POS Update.pdb
