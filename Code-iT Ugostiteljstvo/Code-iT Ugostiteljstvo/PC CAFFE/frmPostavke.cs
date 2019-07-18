@@ -591,22 +591,20 @@ namespace PCPOS
         {
             try
             {
-                FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://5.189.154.50:5432/Live_Caffe");
-                request.Credentials = new NetworkCredential("Administrator", "rOKBhH6L24uvU");
-                request.Method = WebRequestMethods.Ftp.ListDirectory;
-                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                StreamReader streamReader = new StreamReader(response.GetResponseStream());
-
-                List<string> directories = new List<string>();
-
-                string line = streamReader.ReadLine();
-                while (!string.IsNullOrEmpty(line))
+                string fileName = @"PC POS.exe";
+                string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
+                using (WebClient req = new WebClient())
                 {
-                    directories.Add(line);
-                    line = streamReader.ReadLine();
-                }
+                    req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
+                    byte[] fileData = req.DownloadData(url);
 
-                streamReader.Close();
+                    using (FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"dela\{fileName}")))
+                    {
+                        file.Write(fileData, 0, fileData.Length);
+                    }
+                }
+                MessageBox.Show("Dela");
+
             }
             catch (Exception ex)
             {
