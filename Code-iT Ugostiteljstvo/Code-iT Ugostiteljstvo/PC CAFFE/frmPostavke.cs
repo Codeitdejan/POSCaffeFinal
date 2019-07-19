@@ -659,14 +659,25 @@ namespace PCPOS
 
         private void btnNadogradi_Click(object sender, EventArgs e)
         {
-            ConnectToFtp();
-            //ProvjeraBaze.IncomingWithUpdate();
-            //File.WriteAllText("ProvjeraTablicaBaze" + Util.Korisno.GodinaKojaSeKoristiUbazi.ToString(), Properties.Settings.Default.verzija_programa.ToString());
+            string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
+            string fileName = @"NadogradnjaPrograma.exe";
+            string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
+            using (WebClient req = new WebClient())
+            {
+                req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
+                byte[] fileData = req.DownloadData(url);
 
-            /*string path = GetApplicationPath();
-            File.WriteAllText(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PC POS update.txt", path, Encoding.UTF8);
+                using (FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"{fileName}")))
+                {
+                    file.Write(fileData, 0, fileData.Length);
+                }
+            }
 
-            Process.Start(path + "\\PC POS Update.exe");*/
+            MessageBox.Show($@"Program će se automatski ažurirati. Molimo pričekajte 10 - 20 sekundi.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Threading.Thread.Sleep(500); // Potrebno zbog toga što environment.Exit() prekida sve procese iako se izvršavaju. Pa dajemo
+                                                // programu još PUNO vremena (gledajući iz perspektive procesora) da se sve završi.
+            Process.Start("NadogradnjaPrograma.exe"); // Pokretanje programa za update
+            Environment.Exit(0); // Izlaz iz trenutnog programa
         }
 
         private static string GetApplicationPath()
@@ -678,25 +689,6 @@ namespace PCPOS
         {
             frmCreateRemoteDB crb = new frmCreateRemoteDB();
             crb.ShowDialog();
-        }
-
-        private void btnProvjeriNadogradnju_Click(object sender, EventArgs e)
-        {
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile("http://www.pc1.hr/caffe/update/verzija.txt", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\verzija.txt");
-            string VerzijaNaNetu = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\verzija.txt");
-
-            if (Properties.Settings.Default.verzija_programa < Convert.ToDecimal(VerzijaNaNetu))
-            {
-                if (MessageBox.Show("Na internetu postoji novija inačica programa.\r\n\r\nVaša verziju programa je: " + Properties.Settings.Default.verzija_programa + ".\r\nŽelite li skinuti noviju verziju programa.", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    btnNadogradi.PerformClick();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Trenutno koristite najnoviju inačicu programa.\r\nVaša verziju programa je: " + Properties.Settings.Default.verzija_programa + ".", "Update");
-            }
         }
 
         private void btnSpremiWeb_Click(object sender, EventArgs e)
@@ -1902,7 +1894,7 @@ order by x.naziv;", cbDucan.SelectedValue, dRow[0].ToString());
             cbJezik.DisplayMember = "naziv";
             cbJezik.ValueMember = "id";
 
-            cbJezik.SelectedValue = Convert.ToInt32(DTpostavke.Rows[0]["default_jezik"].ToString());
+            cbJezik.SelectedIndex = 1;
         }
 
         private void cbJezik_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1917,6 +1909,32 @@ order by x.naziv;", cbDucan.SelectedValue, dRow[0].ToString());
             {
                 MessageBox.Show("Došlo je do greške kod promjene jezika, molimo nadogradite bazu.", "Greška");
             }
+        }
+
+        private void buttonNadograditiProgram_Click(object sender, EventArgs e)
+        {
+            string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
+            if (!File.Exists(nadogradnjaProgramaPath))
+            {
+                string fileName = @"NadogradnjaPrograma.exe";
+                string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
+                using (WebClient req = new WebClient())
+                {
+                    req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
+                    byte[] fileData = req.DownloadData(url);
+
+                    using (FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"{fileName}")))
+                    {
+                        file.Write(fileData, 0, fileData.Length);
+                    }
+                }
+            }
+
+            MessageBox.Show($@"Program će se automatski ažurirati.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Threading.Thread.Sleep(1000); // Potrebno zbog toga što environment.Exit() prekida sve procese iako se izvršavaju. Pa dajemo
+                                                 // programu još PUNO vremena (gledajući iz perspektive procesora) da se sve završi.
+            Process.Start("NadogradnjaPrograma.exe"); // Pokretanje programa za update
+            Environment.Exit(0); // Izlaz iz trenutnog programa
         }
     }
 }

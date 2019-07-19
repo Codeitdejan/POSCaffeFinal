@@ -13,40 +13,48 @@ using System.Diagnostics;
 using System.Threading;
 
 namespace PC_POS_Update {
-    public partial class frmUpdate:Form {
-        public frmUpdate () {
+    public partial class frmUpdate : Form
+    {
+        public frmUpdate()
+        {
             InitializeComponent();
         }
         bool status;
-        private void frmUpdate_Load (object sender, EventArgs e) {
+        private void frmUpdate_Load(object sender, EventArgs e)
+        {
             this.Paint += new PaintEventHandler(Form1_Paint);
             bgWorker1.RunWorkerAsync();
         }
 
-        void Form1_Paint (object sender, PaintEventArgs e) {
+        void Form1_Paint(object sender, PaintEventArgs e)
+        {
             Graphics c = e.Graphics;
             Brush bG = new LinearGradientBrush(new Rectangle(0, 0, Width, Height), Color.AliceBlue, Color.LightSlateGray, 250);
             c.FillRectangle(bG, 0, 0, Width, Height);
         }
 
-        private void bgWorker1_DoWork (object sender, DoWorkEventArgs e) {
+        private void bgWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
 
             Process[] pArry = Process.GetProcesses();
 
-            foreach (Process p in pArry) {
+            foreach (Process p in pArry)
+            {
                 string s = p.ProcessName;
                 //s = s.ToLower();
-                if (s.CompareTo("PC POS") == 0) {
+                if (s.CompareTo("PC POS") == 0)
+                {
                     p.Kill();
                 }
             }
 
-            
+
             string sUrlToDnldFile;
             sUrlToDnldFile = "http://www.pc1.hr/caffe/update/PC POS.exe";
 
 
-            try {
+            try
+            {
                 Uri url = new Uri(sUrlToDnldFile);
                 string sFileSavePath = "";
                 string sFileName = Path.GetFileName(url.LocalPath);
@@ -80,7 +88,8 @@ namespace PC_POS_Update {
 
                 byte[] byteBuffer = new byte[1024];
 
-                while ((iByteSize = strRemote.Read(byteBuffer, 0, byteBuffer.Length)) > 0) {
+                while ((iByteSize = strRemote.Read(byteBuffer, 0, byteBuffer.Length)) > 0)
+                {
 
                     // write the bytes to the file system at the file path specified
 
@@ -110,7 +119,9 @@ namespace PC_POS_Update {
 
                 status = true;
 
-            } catch (Exception exM) {
+            }
+            catch (Exception exM)
+            {
 
                 //Show if any error Occured
 
@@ -122,40 +133,11 @@ namespace PC_POS_Update {
 
         }
 
-        private void bgWorker1_ProgressChanged (object sender, ProgressChangedEventArgs e) {
+        private void bgWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
             progressBar1.Value = e.ProgressPercentage;
         }
 
-        private void bgWorker1_RunWorkerCompleted (object sender, RunWorkerCompletedEventArgs e) {
-
-            if (status == true) {
-                GC.Collect();
-
-
-
-                MessageBox.Show("Program je uspješno instaliran.");
-
-                if (File.Exists("PC POS.exe")) {
-                    File.Delete("PC POS.exe");
-                }
-
-                File.Copy(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//PC POS.exe", "PC POS.exe");
-
-
-                string path = (File.ReadAllText(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PC POS update.txt")).Replace("file:\\", "");
-                Process.Start(path + "\\PC POS.exe");
-                Application.Exit();
-            } else {
-                MessageBox.Show("FILE Not Downloaded");
-                GC.Collect();
-            }
-
-
-        }
-        private static string GetApplicationPath () {
-            return System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-        }
     }
-
 }
 

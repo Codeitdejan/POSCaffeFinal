@@ -2528,12 +2528,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PC POS Update\PC POS Update.csproj">
-      <Project>{2B6279AA-533B-42C6-A4D3-2943C6AE5736}</Project>
-      <Name>PC POS Update</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
@@ -2560,7 +2554,12 @@
       <CachedSettingsPropName>PC_POS_wsSoftKontrol_wsSoftKontrol</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PC POS Update\PC POS Update.csproj">
+      <Project>{2b6279aa-533b-42c6-a4d3-2943c6ae5736}</Project>
+      <Name>PC POS Update</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
