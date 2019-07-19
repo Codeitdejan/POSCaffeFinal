@@ -657,7 +657,7 @@ namespace PCPOS
             Application.Restart();
         }
 
-        private void btnNadogradi_Click(object sender, EventArgs e)
+      /*  private void btnNadogradi_Click(object sender, EventArgs e)
         {
             string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
             string fileName = @"NadogradnjaPrograma.exe";
@@ -679,6 +679,7 @@ namespace PCPOS
             Process.Start("NadogradnjaPrograma.exe"); // Pokretanje programa za update
             Environment.Exit(0); // Izlaz iz trenutnog programa
         }
+        */
 
         private static string GetApplicationPath()
         {
@@ -1913,20 +1914,17 @@ order by x.naziv;", cbDucan.SelectedValue, dRow[0].ToString());
 
         private void buttonNadograditiProgram_Click(object sender, EventArgs e)
         {
-            string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
-            if (!File.Exists(nadogradnjaProgramaPath))
+           // string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
+            string fileName = $@"NadogradnjaPrograma.exe";
+            string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
+            using (WebClient req = new WebClient())
             {
-                string fileName = @"NadogradnjaPrograma.exe";
-                string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
-                using (WebClient req = new WebClient())
-                {
-                    req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
-                    byte[] fileData = req.DownloadData(url);
+                req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
+                byte[] fileData = req.DownloadData(url);
 
-                    using (FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"{fileName}")))
-                    {
-                        file.Write(fileData, 0, fileData.Length);
-                    }
+                using (FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"{fileName}")))
+                {
+                    file.Write(fileData, 0, fileData.Length);
                 }
             }
 
@@ -1936,5 +1934,6 @@ order by x.naziv;", cbDucan.SelectedValue, dRow[0].ToString());
             Process.Start("NadogradnjaPrograma.exe"); // Pokretanje programa za update
             Environment.Exit(0); // Izlaz iz trenutnog programa
         }
+
     }
 }

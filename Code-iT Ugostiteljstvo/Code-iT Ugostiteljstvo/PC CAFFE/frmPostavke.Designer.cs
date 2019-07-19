@@ -69,6 +69,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.chbDodatnaDopustenja = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.buttonNadograditiProgram = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnProvjeriNadogradnju = new System.Windows.Forms.Button();
             this.btnSpremi = new System.Windows.Forms.Button();
@@ -206,7 +207,6 @@
             this.chbUseUdsGame = new System.Windows.Forms.CheckBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonNadograditiProgram = new System.Windows.Forms.Button();
             this.tabSettings.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox15.SuspendLayout();
@@ -721,6 +721,22 @@
             this.groupBox5.TabIndex = 50;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Nadogradnja programa";
+            // 
+            // buttonNadograditiProgram
+            // 
+            this.buttonNadograditiProgram.BackColor = System.Drawing.Color.White;
+            this.buttonNadograditiProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(53)))), ((int)(((byte)(79)))));
+            this.buttonNadograditiProgram.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.buttonNadograditiProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.buttonNadograditiProgram.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonNadograditiProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNadograditiProgram.Location = new System.Drawing.Point(21, 59);
+            this.buttonNadograditiProgram.Name = "buttonNadograditiProgram";
+            this.buttonNadograditiProgram.Size = new System.Drawing.Size(240, 29);
+            this.buttonNadograditiProgram.TabIndex = 4;
+            this.buttonNadograditiProgram.Text = "Nadogradi program";
+            this.buttonNadograditiProgram.UseVisualStyleBackColor = false;
+            this.buttonNadograditiProgram.Click += new System.EventHandler(this.buttonNadograditiProgram_Click);
             // 
             // button4
             // 
@@ -2341,22 +2357,6 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
-            // 
-            // buttonNadograditiProgram
-            // 
-            this.buttonNadograditiProgram.BackColor = System.Drawing.Color.White;
-            this.buttonNadograditiProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(53)))), ((int)(((byte)(79)))));
-            this.buttonNadograditiProgram.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.buttonNadograditiProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.buttonNadograditiProgram.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonNadograditiProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNadograditiProgram.Location = new System.Drawing.Point(21, 59);
-            this.buttonNadograditiProgram.Name = "buttonNadograditiProgram";
-            this.buttonNadograditiProgram.Size = new System.Drawing.Size(240, 29);
-            this.buttonNadograditiProgram.TabIndex = 4;
-            this.buttonNadograditiProgram.Text = "Nadogradi program";
-            this.buttonNadograditiProgram.UseVisualStyleBackColor = false;
-            this.buttonNadograditiProgram.Click += new System.EventHandler(this.buttonNadograditiProgram_Click);
             // 
             // frmPostavke
             // 

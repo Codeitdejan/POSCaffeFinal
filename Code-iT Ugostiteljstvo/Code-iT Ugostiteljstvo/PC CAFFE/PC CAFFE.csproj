@@ -2554,12 +2554,6 @@
       <CachedSettingsPropName>PC_POS_wsSoftKontrol_wsSoftKontrol</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PC POS Update\PC POS Update.csproj">
-      <Project>{2b6279aa-533b-42c6-a4d3-2943c6ae5736}</Project>
-      <Name>PC POS Update</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
