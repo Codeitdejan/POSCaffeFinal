@@ -241,36 +241,10 @@ namespace PCPOS.Util
         {
             DWnadogradnja.WorkerReportsProgress = true;
             DWnadogradnja.WorkerSupportsCancellation = true;
-            DWnadogradnja.DoWork += new DoWorkEventHandler(DWnadogradnja_DoWorkNadogradnje);
             oib_nadogradnja = _oib_nadogradnja;
             DWnadogradnja.RunWorkerAsync();
         }
 
-        private void DWnadogradnja_DoWorkNadogradnje(object sender, DoWorkEventArgs e)
-        {
-            pomagala_syn web = new pomagala_syn();
-            DataTable DT = web.MyWebRequestXML("", Properties.Settings.Default.domena_za_nadogradnju);
-
-            if (DT.Rows.Count > 0)
-            {
-                decimal trenutna_vertija, nova_verzija;
-                DataRow[] r = DT.Select("oib='svi'");
-                if (r.Length == 0)
-                    r = DT.Select("oib='" + oib_nadogradnja + "'");
-
-                if (r.Length > 0)
-                {
-                    decimal.TryParse(Properties.Settings.Default.verzija_programa.ToString(), out trenutna_vertija);
-                    decimal.TryParse(r[0]["verzija"].ToString().Replace(".", ","), out nova_verzija);
-                    if (trenutna_vertija < nova_verzija)
-                    {
-                        string path = GetApplicationPath();
-                        File.WriteAllText(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PC POS update.txt", path, Encoding.UTF8);
-                        Process.Start(path + "\\PC POS Update.exe");
-                    }
-                }
-            }
-        }
 
         private BackgroundWorker bw = new BackgroundWorker();
 
@@ -557,23 +531,17 @@ where dokumenat in ('POČETNO STANJE', 'POZAJMNICA', 'POCETNI POLOG BLAGAJNE', '
         {
             if (!sPorukom)
             {
-                Nadogradi();
+                //Nadogradi();
                 return;
             }
 
             if (MessageBox.Show("Na Internetu postoji novija inačica programa.\r\nŽelite li skinuti noviju verziju programa.", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Nadogradi();
+               // Nadogradi();
             }
         }
 
-        public static void Nadogradi()
-        {
-            string path = GetApplicationPath();
-            File.WriteAllText(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PC POS update.txt", path, Encoding.UTF8);
 
-            Process.Start(path + "\\PC POS Update.exe");
-        }
 
         private static string GetApplicationPath()
         {

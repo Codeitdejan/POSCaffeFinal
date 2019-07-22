@@ -907,43 +907,6 @@ namespace PCPOS
             PS.ShowDialog();
         }
 
-        private void timerProvjeraNadogradnje_Tick(object sender, EventArgs e)
-        {
-            /*try
-            {
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile("http://www.pc1.hr/caffe/update/verzija.txt", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\verzija.txt");
-                string VerzijaNaNetu = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\verzija.txt");
-
-                if (Properties.Settings.Default.verzija_programa < Convert.ToDecimal(VerzijaNaNetu))
-                {
-                    if (MessageBox.Show("Na internetu postoji novija inačica programa.\r\nŽelite li skinuti noviju verziju programa.", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        string path = GetApplicationPath();
-                        File.WriteAllText(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PC POS update.txt", path, Encoding.UTF8);
-
-                        Process.Start(path + "\\PC POS Update.exe");
-                    }
-                }
-            }
-            catch
-            {
-            }
-
-            timerProvjeraNadogradnje.Stop();
-            if ((baza.UzmiGodinuKojaSeKoristi() == 2014) && (DateTime.Now.Year == 2014) && (DTpostavke.Rows[0]["promjena_poreza"].ToString() == "1"))
-            {
-                DataTable DTtest = classSQL.select("SELECT * FROM roba WHERE CAST(REPLACE(porez,',','.') AS numeric)=10;", "porezoddeset").Tables[0];
-                if (DTtest.Rows.Count != 0)
-                {
-                    Until.frmPorezUpozorenje frm = new Until.frmPorezUpozorenje();
-                    frm.ShowDialog();
-                    DTpostavke = classSQL.select_settings("SELECT * FROM postavke", "postavke").Tables[0];
-                }
-            }
-
-            timerProvjeraNadogradnje.Start();*/
-        }
 
         private static string GetApplicationPath()
         {

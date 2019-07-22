@@ -1090,7 +1090,6 @@ namespace PCPOS
             // timerProvjeraNadogradnje
             // 
             this.timerProvjeraNadogradnje.Interval = 1800000;
-            this.timerProvjeraNadogradnje.Tick += new System.EventHandler(this.timerProvjeraNadogradnje_Tick);
             // 
             // backgroundWorkerDownload
             // 
