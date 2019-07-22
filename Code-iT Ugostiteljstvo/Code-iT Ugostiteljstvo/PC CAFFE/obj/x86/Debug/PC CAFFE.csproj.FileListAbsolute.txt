@@ -3327,3 +3327,4 @@ C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostit
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PC CAFFE.csproj.CopyComplete
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PC POS.exe
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PC POS.pdb
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.frmNewInfo.resources

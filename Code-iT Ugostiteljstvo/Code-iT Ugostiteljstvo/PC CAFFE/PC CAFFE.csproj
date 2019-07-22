@@ -532,6 +532,12 @@
     <Compile Include="frmNaknadnaFiskalizacija.Designer.cs">
       <DependentUpon>frmNaknadnaFiskalizacija.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewInfo.Designer.cs">
+      <DependentUpon>frmNewInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOsobe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1726,6 +1732,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNaknadnaFiskalizacija.resx">
       <DependentUpon>frmNaknadnaFiskalizacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewInfo.resx">
+      <DependentUpon>frmNewInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOsobe.resx">
       <DependentUpon>frmOsobe.cs</DependentUpon>

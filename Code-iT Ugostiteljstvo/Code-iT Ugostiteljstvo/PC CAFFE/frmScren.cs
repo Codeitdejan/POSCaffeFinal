@@ -751,8 +751,10 @@ namespace PCPOS
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            Until.frmHtmlInfo iss = new Until.frmHtmlInfo();
-            iss.Show();
+            /*Until.frmHtmlInfo iss = new Until.frmHtmlInfo();
+            iss.Show();*/
+            frmNewInfo frmNewInfoX = new frmNewInfo();
+            frmNewInfoX.ShowDialog();
         }
 
         protected override CreateParams CreateParams
