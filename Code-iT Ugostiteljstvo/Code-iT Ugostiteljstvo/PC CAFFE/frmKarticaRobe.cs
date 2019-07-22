@@ -99,10 +99,8 @@ namespace PCPOS
         /// </summary>
         private void SetSeparateAmounts()
         {
-            lblPocetnoStanje.Text = pocetnoStanje.ToString("#0.00");
-            //lblKalkulacije.Text = kalkulacijeStanje.ToString("#0.00");
+            PocetnoStanje();
             KolKalkulacija();
-            // lblPrimke.Text = primkeStanje.ToString("#0.00");
             KolPrimka();
             lblMedjuskladisnice.Text = medjuskladisniceStanje.ToString("#0.00");
             lblMaloprodaja.Text = maloprodajaStanje.ToString("#0.00");
@@ -190,9 +188,24 @@ namespace PCPOS
             return classSQL.select(query, "primka").Tables[0];
         }
 
+        private void PocetnoStanje()
+        {
+            string query = $@"SELECT kolicina FROM pocetno WHERE sifra='{txtSifraArtikla.Text}' AND novo = TRUE ";
+            DataTable table = classSQL.select(query, "pocetno").Tables[0];
+            double ukupno = 0;
+            double broj = 0;
+
+            foreach (DataRow item in table.Rows)
+            {
+                broj = Convert.ToDouble(item[0]);
+                ukupno += broj;
+            }
+            lblPocetnoStanje.Text = ukupno.ToString("#0.00");
+        }
+
         private void KolPrimka()
         {
-            string query = $@"SELECT kolicina FROM primka_stavke WHERE sifra='{txtSifraArtikla.Text}' AND is_kalkulacija = TRUE ";
+            string query = $@"SELECT kolicina FROM primka_stavke WHERE sifra='{txtSifraArtikla.Text}' AND is_kalkulacija = FALSE ";
             DataTable table = classSQL.select(query, "primka_stavke").Tables[0];
             double ukupno=0;
             double broj=0;
@@ -207,7 +220,7 @@ namespace PCPOS
         }
         private void KolKalkulacija()
         {
-            string query = $@"SELECT kolicina FROM primka_stavke WHERE sifra='{txtSifraArtikla.Text}' AND is_kalkulacija = FALSE ";
+            string query = $@"SELECT kolicina FROM primka_stavke WHERE sifra='{txtSifraArtikla.Text}' AND is_kalkulacija = TRUE ";
             DataTable table = classSQL.select(query, "primka_stavke").Tables[0];
             double ukupno = 0;
             double broj = 0;
