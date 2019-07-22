@@ -100,8 +100,10 @@ namespace PCPOS
         private void SetSeparateAmounts()
         {
             lblPocetnoStanje.Text = pocetnoStanje.ToString("#0.00");
-            lblKalkulacije.Text = kalkulacijeStanje.ToString("#0.00");
-            lblPrimke.Text = primkeStanje.ToString("#0.00");
+            //lblKalkulacije.Text = kalkulacijeStanje.ToString("#0.00");
+            KolKalkulacija();
+            // lblPrimke.Text = primkeStanje.ToString("#0.00");
+            KolPrimka();
             lblMedjuskladisnice.Text = medjuskladisniceStanje.ToString("#0.00");
             lblMaloprodaja.Text = maloprodajaStanje.ToString("#0.00");
             lblFakture.Text = faktureStanje.ToString("#0.00");
@@ -172,7 +174,7 @@ namespace PCPOS
         /// <returns></returns>
         private DataTable GetPrimkaOrKalkulacija(bool isKalkulacija)
         {
-            DateTime date = Global.Database.GetPocetnoDate();
+           DateTime date = Global.Database.GetPocetnoDate();
             string query = $@"SELECT primka.broj_primke AS sifra_dokument
                                 ,roba_prodaja.sifra
 	                            ,roba_prodaja.naziv
@@ -184,8 +186,42 @@ namespace PCPOS
                             LEFT JOIN caffe_normativ ON caffe_normativ.sifra = primka_stavke.sifra
                             LEFT JOIN roba_prodaja ON roba_prodaja.sifra = primka_stavke.sifra
                             WHERE roba_prodaja.sifra = '{txtSifraArtikla.Text}' AND primka.datum >= '{date.ToString("dd-MM-yyyy HH:mm")}' AND primka.is_kalkulacija = {(isKalkulacija ? "TRUE" : "FALSE")} AND primka_stavke.is_kalkulacija = {(isKalkulacija ? "TRUE" : "FALSE")}";
+            
             return classSQL.select(query, "primka").Tables[0];
         }
+
+        private void KolPrimka()
+        {
+            string query = $@"SELECT kolicina FROM primka_stavke WHERE sifra='{txtSifraArtikla.Text}' AND is_kalkulacija = TRUE ";
+            DataTable table = classSQL.select(query, "primka_stavke").Tables[0];
+            double ukupno=0;
+            double broj=0;
+
+            foreach (DataRow item in table.Rows)
+            {
+                broj = Convert.ToDouble(item[0]);
+                ukupno += broj;
+            }
+
+            lblPrimke.Text = ukupno.ToString("#0.00");
+        }
+        private void KolKalkulacija()
+        {
+            string query = $@"SELECT kolicina FROM primka_stavke WHERE sifra='{txtSifraArtikla.Text}' AND is_kalkulacija = FALSE ";
+            DataTable table = classSQL.select(query, "primka_stavke").Tables[0];
+            double ukupno = 0;
+            double broj = 0;
+
+            foreach (DataRow item in table.Rows)
+            {
+                broj = Convert.ToDouble(item[0]);
+                ukupno += broj;
+            }
+
+            lblKalkulacije.Text = ukupno.ToString("#0.00");
+        }
+
+
 
         /// <summary>
         /// 
@@ -255,8 +291,8 @@ namespace PCPOS
                     faktureStanje += amount;
                     break;
                 case "Primka":
-                    primkeStanje += amount;
-                    break;
+                      primkeStanje += amount;
+                      break;
                 case "Kalkulacija":
                     kalkulacijeStanje += amount;
                     break;

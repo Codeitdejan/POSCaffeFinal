@@ -136,3 +136,12 @@ D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Updat
 D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.exe
 D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.pdb
 D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csprojAssemblyReference.cache
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csprojAssemblyReference.cache
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.cache
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.CoreCompileInputs.cache
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\Toni\Desktop\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.pdb
