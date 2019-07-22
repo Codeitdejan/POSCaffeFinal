@@ -71,7 +71,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonNadograditiProgram = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnProvjeriNadogradnju = new System.Windows.Forms.Button();
             this.btnSpremi = new System.Windows.Forms.Button();
             this.cbSustavPDV = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -713,7 +712,6 @@
             this.groupBox5.BackColor = System.Drawing.Color.Transparent;
             this.groupBox5.Controls.Add(this.buttonNadograditiProgram);
             this.groupBox5.Controls.Add(this.button4);
-            this.groupBox5.Controls.Add(this.btnProvjeriNadogradnju);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupBox5.Location = new System.Drawing.Point(449, 9);
             this.groupBox5.Name = "groupBox5";
@@ -730,7 +728,7 @@
             this.buttonNadograditiProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
             this.buttonNadograditiProgram.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.buttonNadograditiProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNadograditiProgram.Location = new System.Drawing.Point(21, 59);
+            this.buttonNadograditiProgram.Location = new System.Drawing.Point(21, 23);
             this.buttonNadograditiProgram.Name = "buttonNadograditiProgram";
             this.buttonNadograditiProgram.Size = new System.Drawing.Size(240, 29);
             this.buttonNadograditiProgram.TabIndex = 4;
@@ -753,21 +751,6 @@
             this.button4.Text = "Nadogradi bazu";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // btnProvjeriNadogradnju
-            // 
-            this.btnProvjeriNadogradnju.BackColor = System.Drawing.Color.White;
-            this.btnProvjeriNadogradnju.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(53)))), ((int)(((byte)(79)))));
-            this.btnProvjeriNadogradnju.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnProvjeriNadogradnju.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
-            this.btnProvjeriNadogradnju.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnProvjeriNadogradnju.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProvjeriNadogradnju.Location = new System.Drawing.Point(21, 25);
-            this.btnProvjeriNadogradnju.Name = "btnProvjeriNadogradnju";
-            this.btnProvjeriNadogradnju.Size = new System.Drawing.Size(240, 33);
-            this.btnProvjeriNadogradnju.TabIndex = 1;
-            this.btnProvjeriNadogradnju.Text = "Provjeri dali postoji nadogradnja";
-            this.btnProvjeriNadogradnju.UseVisualStyleBackColor = false;
             // 
             // btnSpremi
             // 
@@ -2472,7 +2455,6 @@
         private System.Windows.Forms.ComboBox cbSustavPDV;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button btnProvjeriNadogradnju;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.CheckBox chbWebActive;
         private System.Windows.Forms.TextBox txtPasswordWeb;
