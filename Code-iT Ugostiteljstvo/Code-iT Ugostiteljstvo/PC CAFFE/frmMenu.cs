@@ -120,7 +120,7 @@ namespace PCPOS
             //OVO MORA BITI NA VRHU
             Util.Korisno.VratiDucanIBlagajnu();
             Util.Korisno.getKarticaKupca();
-            Util.Korisno.getDomenaZaSinkronizaciju();
+           // Util.Korisno.getDomenaZaSinkronizaciju();
             Util.Korisno.getOib();
             Class.Registracija.getPodaci();
             Class.PodaciTvrtka.getPodaci();
@@ -938,7 +938,7 @@ namespace PCPOS
                         
                         
                         
-                        /podrska/help.doc", Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Podrška POWER COMPUTERS.exe");
+                       // /podrska/help.doc", Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Podrška POWER COMPUTERS.exe");
                     }
                 }
             }

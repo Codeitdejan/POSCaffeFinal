@@ -70,12 +70,13 @@ namespace PCPOS.Caffe
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            /*this.Hide();
             Caffe.frmGasenjePrograma GP = new frmGasenjePrograma();
             GP.Closed += (s, args) => this.Close();
             MainForm.Close();
             this.Close();
-            GP.ShowDialog();
+            GP.ShowDialog();*/
+            Environment.Exit(0);
         }
 
         private void button14_Click(object sender, EventArgs e)
