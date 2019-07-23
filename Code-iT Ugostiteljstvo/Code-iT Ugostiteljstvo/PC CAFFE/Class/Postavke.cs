@@ -183,7 +183,9 @@ namespace PCPOS.Class
 
     public static class Postavke
     {
-        public const string OIB_PC1 = "47165970760";
+        public const string OIB_PC1
+            
+            = "47165970760";
 
         public static bool is_caffe { get; internal set; }
         public static bool skidaj_kolicinu_po_dokumentima { get; internal set; }

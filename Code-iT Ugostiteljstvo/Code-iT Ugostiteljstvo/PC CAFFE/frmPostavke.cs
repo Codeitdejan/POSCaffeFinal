@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using PCPOS.Sinkronizacija;
 using PCPOS.Until;
 using System;
 using System.Collections.Generic;
@@ -1031,14 +1030,14 @@ namespace PCPOS
         {
             if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1" && System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
             {
-                Sinkronizacija.uzmi_sve_artikle.synArtikli a = new Sinkronizacija.uzmi_sve_artikle.synArtikli();
-                a.UzmiPodatkeSaWeba();
+                //Sinkronizacija.uzmi_sve_artikle.synArtikli a = new Sinkronizacija.uzmi_sve_artikle.synArtikli();
+               // a.UzmiPodatkeSaWeba();
 
-                Sinkronizacija.uzmi_sve_artikle.synNormativ n = new Sinkronizacija.uzmi_sve_artikle.synNormativ();
-                n.UzmiPodatkeSaWeba();
+//Sinkronizacija.uzmi_sve_artikle.synNormativ n = new Sinkronizacija.uzmi_sve_artikle.synNormativ();
+              //  n.UzmiPodatkeSaWeba();
 
-                Sinkronizacija.uzmi_sve_artikle.synRobaProdaja rp = new Sinkronizacija.uzmi_sve_artikle.synRobaProdaja();
-                rp.UzmiPodatkeSaWeba();
+              //  Sinkronizacija.uzmi_sve_artikle.synRobaProdaja rp = new Sinkronizacija.uzmi_sve_artikle.synRobaProdaja();
+              //  rp.UzmiPodatkeSaWeba();
 
                 MessageBox.Show("Izvršeno");
             }
@@ -1050,7 +1049,7 @@ namespace PCPOS
 
         private void btnPosaljiNaWeb_Click(object sender, EventArgs e)
         {
-            synRacuni Racuni = new synRacuni(true);
+           /* synRacuni Racuni = new synRacuni(true);
             synPrimka Primka = new synPrimka(true);
             synGrupe Grupe = new synGrupe(true);
             synZaposlenici Zaposlenici = new synZaposlenici(true);
@@ -1103,7 +1102,7 @@ namespace PCPOS
                     Util.Korisno.RadimSinkronizaciju = false;
                     MessageBox.Show("Izvršeno");
                 }
-            }
+            }*/
         }
 
         private void btnBrisiSve_Click(object sender, EventArgs e)
@@ -1578,7 +1577,7 @@ namespace PCPOS
                 {
                     return;
                 }
-                synRacuni Racuni = new synRacuni(true);
+                /*synRacuni Racuni = new synRacuni(true);
                 synPrimka Primka = new synPrimka(true);
                 synGrupe Grupe = new synGrupe(true);
                 synZaposlenici Zaposlenici = new synZaposlenici(true);
@@ -1594,7 +1593,7 @@ namespace PCPOS
                 synArtikli ProdajnaRoba = new synArtikli(true);
                 synRobaProdaja Repromaterijal = new synRobaProdaja(true);
                 synPredracuni Predracuni = new synPredracuni(true);
-                synSkladiste Skladista = new synSkladiste(true);
+                synSkladiste Skladista = new synSkladiste(true);*/
 
                 if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1" && System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
                 {
@@ -1602,7 +1601,7 @@ namespace PCPOS
                     {
                         Util.Korisno.RadimSinkronizaciju = true;
 
-                        ProdajnaRoba.UzmiPodatkeSaWeba();
+                        /*ProdajnaRoba.UzmiPodatkeSaWeba();
                         Repromaterijal.UzmiPodatkeSaWeba();
 
                         Racuni.UzmiPodatkeSaWeba();
@@ -1622,7 +1621,7 @@ namespace PCPOS
                         //Predracuni.UzmiPodatkeSaWeba();
                         //Skladista.UzmiPodatkeSaWeba();
                         Util.Korisno.RadimSinkronizaciju = false;
-                        MessageBox.Show("Izvršeno");
+                        MessageBox.Show("Izvršeno");*/
                     }
                 }
             }

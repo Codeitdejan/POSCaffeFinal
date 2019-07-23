@@ -453,7 +453,6 @@ namespace PCPOS
                 if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1" && System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
                 {
                     string domena = Util.Korisno.domena_za_sinkronizaciju;
-                    Sinkronizacija.pomagala_syn Pomagala = new Sinkronizacija.pomagala_syn();
 
                     string queryWeb = "DELETE FROM potrosni_materijal WHERE " +
                         " broj='" + txtBroj.Text + "'" +
@@ -461,7 +460,7 @@ namespace PCPOS
                         " AND poslovnica='" + poslovnica + "'" +
                         " AND oib='" + DTpostavke.Rows[0]["oib"].ToString() + "';";
 
-                    string[] odg = Pomagala.MyWebRequest(queryWeb + "&lozinka=sinkronizacija_za_caffeq1w2e3r4&godina=" + Util.Korisno.GodinaKojaSeKoristiUbazi, Util.Korisno.domena_za_sinkronizaciju + "include/primam_post_sql_query.php").Split(';');
+                    //string[] odg = //Pomagala.MyWebRequest(queryWeb + "&lozinka=sinkronizacija_za_caffeq1w2e3r4&godina=" + Util.Korisno.GodinaKojaSeKoristiUbazi, Util.Korisno.domena_za_sinkronizaciju + "include/primam_post_sql_query.php").Split(';');
                 }
             }
             catch { }
@@ -996,12 +995,11 @@ namespace PCPOS
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+        
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false);
+            //PokretacSinkronizacije.PokreniSinkronizaciju(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false);
         }
 
         private void btnDodajNaPopis_Click(object sender, EventArgs e)

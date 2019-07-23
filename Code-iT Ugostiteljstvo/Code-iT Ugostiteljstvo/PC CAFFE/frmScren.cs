@@ -600,7 +600,7 @@ namespace PCPOS
             MessageBox.Show("Slijedi skidanje programa kojim ćete se moći spojiti na Code-iT...");
 
             string sUrlToDnldFile;
-            sUrlToDnldFile = "http://www.pc1.hr/pcpos/update/help1.exe";
+            sUrlToDnldFile = "";//"http://www./pcpos/update/help1.exe";
 
             bool status = false;
 

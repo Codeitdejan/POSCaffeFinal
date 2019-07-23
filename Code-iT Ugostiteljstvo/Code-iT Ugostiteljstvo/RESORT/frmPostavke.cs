@@ -145,7 +145,7 @@ namespace RESORT
             return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
         }
 
-        private void btnProvjeriNadogradnju_Click(object sender, EventArgs e)
+       /* private void btnProvjeriNadogradnju_Click(object sender, EventArgs e)
         {
             WebClient webClient = new WebClient();
             webClient.DownloadFile("http://www.pc1.hr/update/resort/verzija.txt", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\verzija.txt");
@@ -162,7 +162,7 @@ namespace RESORT
             {
                 MessageBox.Show("Trenutno koristite najnoviju inačicu programa.\r\nVaša verziju programa je: " + Properties.Settings.Default.verzija_programa + ".", "Update");
             }
-        }
+        }*/
 
         private void btnBackup_Click(object sender, EventArgs e)
         {

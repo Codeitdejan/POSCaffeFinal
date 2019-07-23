@@ -3195,7 +3195,6 @@ C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostit
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.frmPocetnoStanje.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.frmPostavaBaze.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.frmPostavkeUdaljeneBaze.resources
-C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.frmSinkronizacija.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.IzlazniDokumenti.ObracunForm.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.IzlazniDokumenti.ObracunGrupeProizvodaForm.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.IzlazniDokumenti.PPMIPOForm.resources
@@ -3309,7 +3308,6 @@ C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostit
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.Sifarnik.frmZemlje.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.frmSveMeduskladisnice.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.SinkronizacijaDobavljac.frmRoto.resources
-C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.Sinkronizacija.frmPoruka.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.Until.frmHtmlInfo.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.Until.frmPorezUpozorenje.resources
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.Until.frmPromjenaGodine.resources

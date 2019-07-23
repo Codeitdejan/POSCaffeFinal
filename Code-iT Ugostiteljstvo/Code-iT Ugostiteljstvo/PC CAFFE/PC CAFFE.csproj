@@ -750,12 +750,6 @@
     <Compile Include="frmPostavkeUdaljeneBaze.Designer.cs">
       <DependentUpon>frmPostavkeUdaljeneBaze.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSinkronizacija.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSinkronizacija.Designer.cs">
-      <DependentUpon>frmSinkronizacija.cs</DependentUpon>
-    </Compile>
     <Compile Include="IniFiles.cs" />
     <Compile Include="Kasa\frmPorezNaPotrosnju.cs">
       <SubType>Form</SubType>
@@ -1435,39 +1429,6 @@
     <Compile Include="SinkronizacijaDobavljac\frmRoto.Designer.cs">
       <DependentUpon>frmRoto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sinkronizacija\synIzdatnice.cs" />
-    <Compile Include="Sinkronizacija\synNaplatniUredaji.cs" />
-    <Compile Include="Sinkronizacija\synOtpremnica.cs" />
-    <Compile Include="Sinkronizacija\synFaktura.cs" />
-    <Compile Include="Sinkronizacija\synPotrosniMaterijal.cs" />
-    <Compile Include="Sinkronizacija\frmPoruka.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sinkronizacija\frmPoruka.Designer.cs">
-      <DependentUpon>frmPoruka.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sinkronizacija\synMeduskladisnica.cs" />
-    <Compile Include="Sinkronizacija\synPoslovnice.cs" />
-    <Compile Include="Sinkronizacija\synBlagajnickiIzvjestaj.cs" />
-    <Compile Include="Sinkronizacija\synPartner.cs" />
-    <Compile Include="Sinkronizacija\synPredracuni.cs" />
-    <Compile Include="Sinkronizacija\synPromjena_cijene.cs" />
-    <Compile Include="Sinkronizacija\synPocetnoStanje.cs" />
-    <Compile Include="Sinkronizacija\synInventura.cs" />
-    <Compile Include="Sinkronizacija\synOtpisRobe.cs" />
-    <Compile Include="Sinkronizacija\synNormativ.cs" />
-    <Compile Include="Sinkronizacija\synSkladiste.cs" />
-    <Compile Include="Sinkronizacija\synZaposlenici.cs" />
-    <Compile Include="Sinkronizacija\synGrupe.cs" />
-    <Compile Include="Sinkronizacija\synPokretac.cs" />
-    <Compile Include="Sinkronizacija\synRobaProdaja.cs" />
-    <Compile Include="Sinkronizacija\synArtikli.cs" />
-    <Compile Include="Sinkronizacija\pomagala_syn.cs" />
-    <Compile Include="Sinkronizacija\synPrimka.cs" />
-    <Compile Include="Sinkronizacija\synRacuni.cs" />
-    <Compile Include="Sinkronizacija\uzmi_sve_artikle\synArtikli.cs" />
-    <Compile Include="Sinkronizacija\uzmi_sve_artikle\synNormativ.cs" />
-    <Compile Include="Sinkronizacija\uzmi_sve_artikle\synRobaProdaja.cs" />
     <Compile Include="SQL\claasConnectDatabase.cs" />
     <Compile Include="SQL\ClassSkladiste.cs" />
     <Compile Include="SQL\SQLinventura.cs" />
@@ -1788,9 +1749,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPostavkeUdaljeneBaze.resx">
       <DependentUpon>frmPostavkeUdaljeneBaze.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSinkronizacija.resx">
-      <DependentUpon>frmSinkronizacija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IzlazniDokumenti\ObracunForm.resx">
       <DependentUpon>ObracunForm.cs</DependentUpon>
@@ -2192,9 +2150,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SinkronizacijaDobavljac\frmRoto.resx">
       <DependentUpon>frmRoto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sinkronizacija\frmPoruka.resx">
-      <DependentUpon>frmPoruka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Until\frmHtmlInfo.resx">
       <DependentUpon>frmHtmlInfo.cs</DependentUpon>

@@ -1946,11 +1946,11 @@ sql);
 
                 ///OVO POKREČE SINKRONIZACIJU SA WEBOM///
                 ///
-                if (!Util.Korisno.RadimSinkronizaciju)
+                /*if (!Util.Korisno.RadimSinkronizaciju)
                 {
                     Util.Korisno.RadimSinkronizaciju = true;
                     bgSinkronizacija.RunWorkerAsync();
-                }
+                }*/
             }
 
             lblKupac.Text = "";
@@ -1967,16 +1967,16 @@ sql);
             return MessageBox.Show(message, "Obavijest", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+        //private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            //PokretacSinkronizacije.PokreniSinkronizaciju(false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
         }
 
         private void bgSinkronizacija_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Util.Korisno.RadimSinkronizaciju = false;
+            //Util.Korisno.RadimSinkronizaciju = false;
         }
 
         private int getBrojNarudzbe(string id_ducan)
