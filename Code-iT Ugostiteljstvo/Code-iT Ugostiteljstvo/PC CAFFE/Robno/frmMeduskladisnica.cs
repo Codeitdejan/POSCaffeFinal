@@ -1,4 +1,4 @@
-﻿using PCPOS.Sinkronizacija;
+﻿
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -50,8 +50,8 @@ namespace PCPOS.Robno
             DataTable DT = classSQL.select("SELECT * FROM poslovnice", "poslovnice").Tables[0];
             if (DT.Rows.Count == 0)
             {
-                synPoslovnice Poslovnice = new synPoslovnice(true);
-                Poslovnice.Send();
+                //synPoslovnice Poslovnice = new synPoslovnice(true);
+                //Poslovnice.Send();
             }
 
             DataTable DT_poslovnica = classSQL.select("SELECT * FROM poslovnice", "poslovnice").Tables[0];
@@ -657,11 +657,11 @@ namespace PCPOS.Robno
             }
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+       // private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false);
+       //     PokretacSinkronizacije.PokreniSinkronizaciju(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false);
         }
 
         private void bgSinkronizacija_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

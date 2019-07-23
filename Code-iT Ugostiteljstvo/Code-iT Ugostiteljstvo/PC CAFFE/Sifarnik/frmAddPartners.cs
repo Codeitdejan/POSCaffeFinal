@@ -608,11 +608,11 @@ WHERE id_partner='" + txtSifra.Text + "'" +
             }
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+       // private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false);
+        //    PokretacSinkronizacije.PokreniSinkronizaciju(false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false);
         }
 
         protected override CreateParams CreateParams

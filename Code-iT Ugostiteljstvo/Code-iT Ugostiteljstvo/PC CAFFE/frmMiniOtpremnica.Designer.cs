@@ -33,7 +33,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnSpremi = new System.Windows.Forms.Button();
             this.btnOdustani = new System.Windows.Forms.Button();
-            this.bgSinkronizacija = new System.ComponentModel.BackgroundWorker();
+            //this.bg = new System.ComponentModel.BackgroundWorker();
             this.rbNaPartnera = new System.Windows.Forms.RadioButton();
             this.rbNaSobu = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -182,8 +182,8 @@
             // 
             // bgSinkronizacija
             // 
-            this.bgSinkronizacija.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgSinkronizacija_DoWork);
-            this.bgSinkronizacija.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgSinkronizacija_RunWorkerCompleted);
+          //  this.bgSinkronizacija.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgSinkronizacija_DoWork);
+           // this.bgSinkronizacija.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgSinkronizacija_RunWorkerCompleted);
             // 
             // rbNaPartnera
             // 

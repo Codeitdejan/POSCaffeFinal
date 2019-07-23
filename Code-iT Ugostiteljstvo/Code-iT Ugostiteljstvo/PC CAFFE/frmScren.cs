@@ -34,7 +34,34 @@ namespace PCPOS
 
             try
             {
-                label4.Text = "Verzija programa: " + Properties.Settings.Default.verzija_programa;
+                //Preuzmi last version.txt
+                GetTxtLastVersion();
+                string lastVersion;
+                string currentPathLastVersion = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"lastVersion.txt");
+                using (StreamReader reader = new StreamReader(currentPathLastVersion))
+                {
+                    lastVersion = reader.ReadLine();
+                }
+
+                
+                string currentVersion = "Potrebna nova verzija.";
+                string currentPathCurrentVersion = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"currentVersion.txt");
+
+                if (File.Exists(currentPathCurrentVersion))
+                {
+                    using (StreamReader reader = new StreamReader(currentPathCurrentVersion))
+                    {
+                        currentVersion= reader.ReadLine();
+                    }
+                }
+
+                if (!lastVersion.Equals(currentVersion))
+                {
+                    currentVersion = "Potrebna nova verzija.";
+                }
+
+                //label4.Text = "Verzija programa: " + Properties.Settings.Default.verzija_programa;
+                label4.Text = "Verzija programa: " + currentVersion;
                 PCPOS.Until.classFukcijeZaUpravljanjeBazom B = new Until.classFukcijeZaUpravljanjeBazom("CAFFE", "DB");
                 int trenutnaG = B.UzmiGodinuKojaSeKoristi();
 
@@ -67,6 +94,22 @@ namespace PCPOS
             }
             catch
             {
+            }
+        }
+
+        private void GetTxtLastVersion()
+        {
+            string fileName = @"lastVersion.txt";
+            string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
+            using (WebClient req = new WebClient())
+            {
+                req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
+                byte[] fileData = req.DownloadData(url);
+
+                using(FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"{fileName}")))
+                {
+                    file.Write(fileData, 0, fileData.Length);
+                }
             }
         }
 
@@ -557,7 +600,7 @@ namespace PCPOS
             MessageBox.Show("Slijedi skidanje programa kojim ćete se moći spojiti na Code-iT...");
 
             string sUrlToDnldFile;
-            sUrlToDnldFile = "http://www.pc1.hr/pcpos/update/help1.exe";
+            sUrlToDnldFile = "";//"http://www./pcpos/update/help1.exe";
 
             bool status = false;
 
@@ -708,8 +751,10 @@ namespace PCPOS
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            Until.frmHtmlInfo iss = new Until.frmHtmlInfo();
-            iss.Show();
+            /*Until.frmHtmlInfo iss = new Until.frmHtmlInfo();
+            iss.Show();*/
+            frmNewInfo frmNewInfoX = new frmNewInfo();
+            frmNewInfoX.ShowDialog();
         }
 
         protected override CreateParams CreateParams

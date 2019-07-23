@@ -1400,11 +1400,11 @@ namespace PCPOS
                 row["mpc"] = dg(i, "mpc");
                 DTsend.Rows.Add(row);
 
-                if (!Util.Korisno.RadimSinkronizaciju)
+               /* if (!Util.Korisno.RadimSinkronizaciju)
                 {
                     Util.Korisno.RadimSinkronizaciju = true;
-                    bgSinkronizacija.RunWorkerAsync();
-                }
+                   bgSinkronizacija.RunWorkerAsync();
+                }*/
             }
 
             string barcode = "000" + ttxBrojFakture.Text;
@@ -2379,16 +2379,16 @@ namespace PCPOS
             }
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+        //private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false);
+          //  PokretacSinkronizacije.PokreniSinkronizaciju(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false);
         }
 
         private void bgSinkronizacija_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Util.Korisno.RadimSinkronizaciju = false;
+          // Util.Korisno.RadimSinkronizaciju = false;
         }
 
         protected override CreateParams CreateParams
