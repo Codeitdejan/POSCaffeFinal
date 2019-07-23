@@ -27,14 +27,14 @@ namespace PCPOS
         {
             string fileString = "";
             string fileName = @"promjene.txt";
-            string url = "ftp://5.189.154.50/CodeCaffe/{fileName}";
+            string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
             using (WebClient req = new WebClient())
             {
                 try
                 {
                     req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
                     byte[] fileData = req.DownloadData(url);
-                    fileName = Encoding.UTF8.GetString(fileData);
+                    fileString = Encoding.UTF8.GetString(fileData);
                 }
                 catch (Exception ex)
                 {
