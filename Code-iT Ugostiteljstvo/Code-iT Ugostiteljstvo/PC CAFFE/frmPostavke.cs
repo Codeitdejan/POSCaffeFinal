@@ -1933,6 +1933,5 @@ order by x.naziv;", cbDucan.SelectedValue, dRow[0].ToString());
             Process.Start("NadogradnjaPrograma.exe"); // Pokretanje programa za update
             Environment.Exit(0); // Izlaz iz trenutnog programa
         }
-
     }
 }
