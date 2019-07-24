@@ -129,26 +129,26 @@ namespace PCPOS.Caffe
             button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             button1.Location = new System.Drawing.Point(x, y);
             button1.Name = id_stol;
-            button1.Text = naziv_stola + "\r\n" + Convert.ToDouble(ukupno).ToString("#0.00") + " kn";
+            button1.Text = id_stol + "|"+naziv_stola + "\r\n" + Convert.ToDouble(ukupno).ToString("#0.00") + " kn";
             button1.Size = new System.Drawing.Size(150 - (int)((decimal)150 * postotakSmanji / 100m), 80);
 
             button1.TabIndex = i;
             button1.UseVisualStyleBackColor = false;
             button1.Click += new System.EventHandler(this.btnTable_Click);
-            button1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button1.Font = new System.Drawing.Font("Arial Narrow", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AllKeyDown);
             return button1;
         }
 
         private void SetArtDgw(string id_stol)
         {
-            string sql = "SELECT racun_stavke.sifra_robe,racun_stavke.kolicina,roba.naziv,racuni.broj_racuna,racun_stavke.mpc FROM racuni " +
+            string sql = "SELECT racun_stavke.sifra_robe,racun_stavke.kolicina,roba.naziv,roba.id_podgrupa,racuni.broj_racuna,racun_stavke.mpc FROM racuni " +
                 " LEFT JOIN racun_stavke ON racun_stavke.broj_racuna=racuni.broj_racuna AND racuni.id_ducan=racun_stavke.id_ducan " +
                 " AND racuni.id_kasa=racun_stavke.id_blagajna LEFT JOIN roba ON roba.sifra=racun_stavke.sifra_robe " +
                 " WHERE racuni.ukupno_gotovina='0' AND racuni.ukupno_kartice='0' AND id_stol='" + id_stol + "'";
             DataTable DT = classSQL.select(sql, "racuni").Tables[0];
             dgw.Rows.Clear();
-            for (int i = 0; i < DT.Rows.Count; i++)
+            for (int i = 0; i < DT.Rows.Count; i++) 
             {
                 dgw.Rows.Add(DT.Rows[i]["sifra_robe"].ToString(), DT.Rows[i]["naziv"].ToString(), DT.Rows[i]["kolicina"].ToString(), DT.Rows[i]["mpc"].ToString());
             }
@@ -870,6 +870,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 DTsend.Columns.Add("jelo");
                 DTsend.Columns.Add("dod");
                 DTsend.Columns.Add("pol");
+                DTsend.Columns.Add("id_podgrupa");
                 DataRow row;
 
                 for (int i = 0; i < dgw.Rows.Count; i++)
@@ -896,6 +897,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                             row["jelo"] = dg(i, "jelo");
                             row["dod"] = dg(i, "dod");
                             row["pol"] = dg(i, "polapola");
+                            row["id_podgrupa"] = dg(i, "id_podgrupa");
                             DTsend.Rows.Add(row);
                         }
                     }
@@ -904,12 +906,13 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 string printer1Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name"].ToString();
                 string printer2Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name2"].ToString();
                 string printer3Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name3"].ToString();
+                string printer4Naziv = DTpostavkePrinter.Rows[0]["windows_printer_sank"].ToString();
 
                 if (printer1Naziv != "Nije instaliran" && printer1Naziv != "")
                 {
                     PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
                     PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
-                }
+}
 
                 if (printer2Naziv != "Nije instaliran" && printer2Naziv != "")
                 {
@@ -921,6 +924,11 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 {
                     PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
                     PosPrint.classPosPrintKuhinja.PrintOnPrinter3(DTsend);
+                }
+                if (printer4Naziv != "Nije instaliran" && printer4Naziv != "")
+                {
+                    PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter2(DTsend);
                 }
             }
         }
@@ -1335,6 +1343,16 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmStoloviNapredno frm = new frmStoloviNapredno();
+            frm.ShowDialog();
+            //Refresh
+            SetStolovi();
+            IscrtajZidove();
+            this.Paint += new PaintEventHandler(Class.Postavke.changeBackground);
         }
     }
 }
