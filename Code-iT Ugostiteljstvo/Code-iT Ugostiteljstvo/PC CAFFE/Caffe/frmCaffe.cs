@@ -9,6 +9,7 @@ using System.Threading;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
+using PCPOS.PosPrint;
 using System.Resources;
 
 namespace PCPOS.Caffe
@@ -1740,6 +1741,7 @@ namespace PCPOS.Caffe
             }
 
             brRac = brojRacuna();
+            classPosPrintKuhinja.broj_narudzbe = brRac;
 
             string sql = "INSERT INTO racuni (broj_racuna,id_kupac,datum_racuna,id_ducan,id_kasa,id_blagajnik," +
                 "ukupno_gotovina,ukupno_kartice,ukupno,storno,dobiveno_gotovina,id_stol,novo,godina,nacin_placanja,popust_cijeli_racun, popust_racun_kartica_kupca, napomena" + (Class.Postavke.is_beauty ? ", beauty_partner" : "") + ") " +

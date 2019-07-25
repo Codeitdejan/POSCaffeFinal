@@ -129,7 +129,7 @@ namespace PCPOS.Caffe
             button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             button1.Location = new System.Drawing.Point(x, y);
             button1.Name = id_stol;
-            button1.Text = id_stol + "|"+naziv_stola + "\r\n" + Convert.ToDouble(ukupno).ToString("#0.00") + " kn";
+            button1.Text = id_stol + "|" + naziv_stola + "\r\n" + Convert.ToDouble(ukupno).ToString("#0.00") + " kn";
             button1.Size = new System.Drawing.Size(150 - (int)((decimal)150 * postotakSmanji / 100m), 80);
 
             button1.TabIndex = i;
@@ -148,7 +148,7 @@ namespace PCPOS.Caffe
                 " WHERE racuni.ukupno_gotovina='0' AND racuni.ukupno_kartice='0' AND id_stol='" + id_stol + "'";
             DataTable DT = classSQL.select(sql, "racuni").Tables[0];
             dgw.Rows.Clear();
-            for (int i = 0; i < DT.Rows.Count; i++) 
+            for (int i = 0; i < DT.Rows.Count; i++)
             {
                 dgw.Rows.Add(DT.Rows[i]["sifra_robe"].ToString(), DT.Rows[i]["naziv"].ToString(), DT.Rows[i]["kolicina"].ToString(), DT.Rows[i]["mpc"].ToString());
             }
@@ -534,53 +534,19 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!File.Exists("belveder"))
+            if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                for (int i = 0; i < dgw.Rows.Count; i++)
                 {
-                    for (int i = 0; i < dgw.Rows.Count; i++)
+                    if (dgw.Rows[i].Cells["chb_naplati"].FormattedValue.ToString() == "False")
                     {
-                        if (dgw.Rows[i].Cells["chb_naplati"].FormattedValue.ToString() == "False")
-                        {
-                            string sql = "DELETE FROM na_stol WHERE broj_narudzbe='" + dg(i, "runda") + "' AND id_poslovnica='" + DTpostavke.Rows[0]["default_ducan"].ToString() + "' AND sifra='" + dg(i, "sifra") + "' AND id_stol='" + _odabraniStol + "' AND br='" + dg(i, "br") + "'";
-                            classSQL.delete(sql);
-                        }
-                    }
-
-                    dgw.Rows.Clear();
-                    PaintRows(dgw);
-                }
-            }
-            else
-            {
-                Caffe.Dodaci.frmVracaNekuVrijednost v = new Dodaci.frmVracaNekuVrijednost();
-                Properties.Settings.Default.privremena_vrijednost = "";
-                v.txtBroj.PasswordChar = '*';
-                v._title = "Unesite ključ:";
-                v.ShowDialog();
-
-                string key = File.ReadAllText("belveder");
-                if (Properties.Settings.Default.privremena_vrijednost == key)
-                {
-                    if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        for (int i = 0; i < dgw.Rows.Count; i++)
-                        {
-                            if (dgw.Rows[i].Cells["chb_naplati"].FormattedValue.ToString() == "False")
-                            {
-                                string sql = "DELETE FROM na_stol WHERE broj_narudzbe='" + dg(i, "runda") + "' AND id_poslovnica='" + DTpostavke.Rows[0]["default_ducan"].ToString() + "' AND sifra='" + dg(i, "sifra") + "' AND id_stol='" + _odabraniStol + "' AND br='" + dg(i, "br") + "'";
-                                classSQL.delete(sql);
-                            }
-                        }
-
-                        dgw.Rows.Clear();
-                        PaintRows(dgw);
+                        string sql = "DELETE FROM na_stol WHERE broj_narudzbe='" + dg(i, "runda") + "' AND id_poslovnica='" + DTpostavke.Rows[0]["default_ducan"].ToString() + "' AND sifra='" + dg(i, "sifra") + "' AND id_stol='" + _odabraniStol + "' AND br='" + dg(i, "br") + "'";
+                        classSQL.delete(sql);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Krivi unos!");
-                }
+
+                dgw.Rows.Clear();
+                PaintRows(dgw);
             }
 
             Control conGrupa = (Control)sender;
@@ -912,7 +878,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 {
                     PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
                     PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
-}
+                }
 
                 if (printer2Naziv != "Nije instaliran" && printer2Naziv != "")
                 {
@@ -935,38 +901,14 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
 
         private void btnDellAll_Click(object sender, EventArgs e)
         {
-            if (!File.Exists("belveder"))
-            {
-                if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    classSQL.delete("DELETE FROM na_stol WHERE id_stol='" + _odabraniStol + "'");
-                    SetStolovi();
-                    IscrtajZidove();
-                }
-            }
-            else
-            {
-                Caffe.Dodaci.frmVracaNekuVrijednost v = new Dodaci.frmVracaNekuVrijednost();
-                Properties.Settings.Default.privremena_vrijednost = "";
-                v.txtBroj.PasswordChar = '*';
-                v._title = "Unesite ključ:";
-                v.ShowDialog();
 
-                string key = File.ReadAllText("belveder");
-                if (Properties.Settings.Default.privremena_vrijednost == key)
-                {
-                    if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        classSQL.delete("DELETE FROM na_stol WHERE id_stol='" + _odabraniStol + "'");
-                        SetStolovi();
-                        IscrtajZidove();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Krivi unos!");
-                }
+            if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                classSQL.delete("DELETE FROM na_stol WHERE id_stol='" + _odabraniStol + "'");
+                SetStolovi();
+                IscrtajZidove();
             }
+
         }
 
         private void btnIspisNarudzbe_Click(object sender, EventArgs e)
@@ -1219,7 +1161,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
             }
         }
 
-        
+
 
         private void btnKoristiUds_Click(object sender, EventArgs e)
         {
