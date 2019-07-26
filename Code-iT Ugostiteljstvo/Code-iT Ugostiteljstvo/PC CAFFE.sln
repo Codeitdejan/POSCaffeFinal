@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC CAFFE", "PC CAFFE\PC CAFFE.csproj", "{F92B694A-66F9-40C6-9176-5CA2D7306642}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC POS Update", "PC POS Update\PC POS Update.csproj", "{2B6279AA-533B-42C6-A4D3-2943C6AE5736}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESORT", "RESORT\RESORT.csproj", "{EE766858-0BC2-414A-B9DB-B5EC3D11EBA5}"
 EndProject
@@ -29,12 +27,6 @@ Global
 		{F92B694A-66F9-40C6-9176-5CA2D7306642}.Release|Any CPU.ActiveCfg = Release|x86
 		{F92B694A-66F9-40C6-9176-5CA2D7306642}.Release|x86.ActiveCfg = Release|x86
 		{F92B694A-66F9-40C6-9176-5CA2D7306642}.Release|x86.Build.0 = Release|x86
-		{2B6279AA-533B-42C6-A4D3-2943C6AE5736}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{2B6279AA-533B-42C6-A4D3-2943C6AE5736}.Debug|x86.ActiveCfg = Debug|x86
-		{2B6279AA-533B-42C6-A4D3-2943C6AE5736}.Debug|x86.Build.0 = Debug|x86
-		{2B6279AA-533B-42C6-A4D3-2943C6AE5736}.Release|Any CPU.ActiveCfg = Release|x86
-		{2B6279AA-533B-42C6-A4D3-2943C6AE5736}.Release|x86.ActiveCfg = Release|x86
-		{2B6279AA-533B-42C6-A4D3-2943C6AE5736}.Release|x86.Build.0 = Release|x86
 		{EE766858-0BC2-414A-B9DB-B5EC3D11EBA5}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{EE766858-0BC2-414A-B9DB-B5EC3D11EBA5}.Debug|x86.ActiveCfg = Debug|x86
 		{EE766858-0BC2-414A-B9DB-B5EC3D11EBA5}.Debug|x86.Build.0 = Debug|x86
@@ -60,5 +52,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2B60F0A-447E-41CD-AB48-48AF6CCACABE}
 	EndGlobalSection
 EndGlobal

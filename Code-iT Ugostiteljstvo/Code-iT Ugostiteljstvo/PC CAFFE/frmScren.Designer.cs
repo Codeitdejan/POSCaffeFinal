@@ -471,7 +471,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(521, 64);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(196, 17);
+            this.label4.Size = new System.Drawing.Size(352, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Verzija programa: 1.3";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

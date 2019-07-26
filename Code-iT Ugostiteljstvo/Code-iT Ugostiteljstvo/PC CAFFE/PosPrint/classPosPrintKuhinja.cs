@@ -273,66 +273,6 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
         public static void PrintOnPrinter3(DataTable DTartikli)
         {
             PrintOnPrinter2(DTartikli, true);
-            //ima_stavke_za_kuhinju = false;
-            //tekst = "";
-            //try
-            //{
-            //    DTrac = DTartikli;
-
-            //    DataTable DTt = classSQL.select("SELECT ime+' '+prezime AS zaposlenik FROM zaposlenici WHERE id_zaposlenik='" + Properties.Settings.Default.id_zaposlenik + "'", "zaposlenici").Tables[0];
-
-            //    PrintReceiptHeader(DateTime.Now, DTt.Rows[0]["zaposlenik"].ToString(), DTrac.Rows[0]["stol"].ToString());
-
-            //    string jelo = "";
-            //    //int a = 20;
-
-            //    for (int i = 0; i < DTrac.Rows.Count; i++)
-            //    {
-            //        DataTable DT = classSQL.select("SELECT naziv,mpc FROM roba " +
-            //            " LEFT JOIN grupa ON grupa.id_grupa=roba.id_grupa " +
-            //            " WHERE sifra='" + DTrac.Rows[i]["sifra_robe"].ToString() + "' AND grupa.printer3 = '1'", "roba").Tables[0];
-
-            //        if (DT.Rows.Count > 0)
-            //        {
-            //            if (DTrac.Rows[i]["jelo"].ToString() != jelo)
-            //            {
-            //                jelo = DTrac.Rows[i]["jelo"].ToString();
-            //                PrintTextLine("\r\n" + DTrac.Rows[i]["jelo"].ToString().ToUpper() + ":", false);
-            //            }
-            //            ima_stavke_za_kuhinju = true;
-            //            string artikl = DT.Rows[0]["naziv"].ToString();
-
-            //            //PrintLineItem(DTrac.Rows[i]["sifra_robe"].ToString() + " " + artikl, Convert.ToDecimal(DT.Rows[0]["mpc"].ToString()).ToString("#0.00"), DTrac.Rows[i]["kolicina"].ToString());
-            //            PrintLineItem(DTrac.Rows[i]["kolicina"].ToString(), DTrac.Rows[i]["sifra_robe"].ToString() + " " + artikl, true);
-            //        }
-            //    }
-
-            //    PrintTextLine(new string('=', RecLineChars), false);
-
-            //    for (int i = 0; i < Convert.ToInt16(DTsetting.Rows[0]["linija_praznih_bottom"].ToString()); i++)
-            //    {
-            //        tekst += Environment.NewLine;
-            //    }
-
-            //    _2 = tekst;
-            //}
-            //finally
-            //{
-            //    if (ima_stavke_za_kuhinju == true)
-            //    {
-            //        if (DTpostavke.Rows[0]["bool_direct_print_kuhinja"].ToString() == "1")
-            //        {
-            //            printaj(3);
-            //        }
-            //        else
-            //        {
-            //            if (MessageBox.Show("Želite li poslati narudžbu u kuhinju?", "Kuhinja", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //            {
-            //                printaj(3);
-            //            }
-            //        }
-            //    }
-            //}
         }
 
 
@@ -343,10 +283,8 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
 
         private static void PrintLineItem(string kolicina, string artikl, bool b)
         {
-            int a = 24; //artikl
-            //          int j = 8; //cijena
-            int k = 5; //kolicina
-            //a += 8;
+            int a = 24; 
+            int k = 5;
 
             PrintText(TruncateAt(kolicina.PadRight(k), k, false), false);
             try
@@ -364,8 +302,6 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
             {
                 PrintText(TruncateAt(artikl.PadRight(a), a, true), true);
             }
-
-            //PrintText(TruncateAt(jmj.PadLeft(j), j));
 
             PrintText("\r\n", false);
             if (b)
@@ -402,18 +338,7 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
         private static void PrintReceiptHeader(DateTime dateTime, string cashierName, string stol, string title = null)
         {
             DataTable DT = classSQL.select("SELECT naziv FROM stolovi WHERE id_stol='" + stol + "'", "stolovi").Tables[0];
-            //if (broj_narudzbe != null) {
-            //    DataTable dtNarudzbe = classSQL.select("select mjesto, ulica, kbr, telefon from caffe_narudzbe where id_stol = '" + stol + "' and broj_narudzbe = '" + broj_narudzbe + "';", "caffe_narudzbe").Tables[0];
-            //    if (dtNarudzbe != null && dtNarudzbe.Rows.Count > 0) {
-            //        PrintTextLine("Narudžba: " + broj_narudzbe, false);
 
-            //        PrintTextLine("Mjesto: " + dtNarudzbe.Rows[0]["mjesto"], false);
-            //        PrintTextLine("Ulica: " + dtNarudzbe.Rows[0]["ulica"], false);
-            //        PrintTextLine("K. broj: " + dtNarudzbe.Rows[0]["kbr"], false);
-            //        PrintTextLine("Telefon: " + dtNarudzbe.Rows[0]["telefon"], false);
-
-            //    }
-            //}
             if (title != null)
             {
                 PrintTextLine(title, false);
@@ -453,8 +378,9 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
             PrintText("\r\n", false);
             PrintTextLine(new string('=', RecLineChars), false);
 
-            broj_narudzbe = null;
+            //broj_narudzbe = null;
         }
+        
 
         private static void PrintText(string text, bool artikl)
         {

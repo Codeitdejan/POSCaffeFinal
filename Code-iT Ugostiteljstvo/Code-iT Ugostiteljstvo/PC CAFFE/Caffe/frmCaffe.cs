@@ -9,6 +9,7 @@ using System.Threading;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
+using PCPOS.PosPrint;
 using System.Resources;
 
 namespace PCPOS.Caffe
@@ -1740,6 +1741,7 @@ namespace PCPOS.Caffe
             }
 
             brRac = brojRacuna();
+            classPosPrintKuhinja.broj_narudzbe = brRac;
 
             string sql = "INSERT INTO racuni (broj_racuna,id_kupac,datum_racuna,id_ducan,id_kasa,id_blagajnik," +
                 "ukupno_gotovina,ukupno_kartice,ukupno,storno,dobiveno_gotovina,id_stol,novo,godina,nacin_placanja,popust_cijeli_racun, popust_racun_kartica_kupca, napomena" + (Class.Postavke.is_beauty ? ", beauty_partner" : "") + ") " +
@@ -1946,11 +1948,11 @@ sql);
 
                 ///OVO POKREČE SINKRONIZACIJU SA WEBOM///
                 ///
-                if (!Util.Korisno.RadimSinkronizaciju)
+                /*if (!Util.Korisno.RadimSinkronizaciju)
                 {
                     Util.Korisno.RadimSinkronizaciju = true;
                     bgSinkronizacija.RunWorkerAsync();
-                }
+                }*/
             }
 
             lblKupac.Text = "";
@@ -1967,16 +1969,16 @@ sql);
             return MessageBox.Show(message, "Obavijest", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+        //private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            //PokretacSinkronizacije.PokreniSinkronizaciju(false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
         }
 
         private void bgSinkronizacija_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Util.Korisno.RadimSinkronizaciju = false;
+            //Util.Korisno.RadimSinkronizaciju = false;
         }
 
         private int getBrojNarudzbe(string id_ducan)

@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using PCPOS.Sinkronizacija;
 using PCPOS.Until;
 using System;
 using System.Collections.Generic;
@@ -657,6 +656,33 @@ namespace PCPOS
             Application.Restart();
         }
 
+<<<<<<< HEAD
+=======
+      /*  private void btnNadogradi_Click(object sender, EventArgs e)
+        {
+            string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
+            string fileName = @"NadogradnjaPrograma.exe";
+            string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
+            using (WebClient req = new WebClient())
+            {
+                req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
+                byte[] fileData = req.DownloadData(url);
+
+                using (FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"{fileName}")))
+                {
+                    file.Write(fileData, 0, fileData.Length);
+                }
+            }
+
+            MessageBox.Show($@"Program će se automatski ažurirati. Molimo pričekajte 10 - 20 sekundi.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Threading.Thread.Sleep(500); // Potrebno zbog toga što environment.Exit() prekida sve procese iako se izvršavaju. Pa dajemo
+                                                // programu još PUNO vremena (gledajući iz perspektive procesora) da se sve završi.
+            Process.Start("NadogradnjaPrograma.exe"); // Pokretanje programa za update
+            Environment.Exit(0); // Izlaz iz trenutnog programa
+        }
+        */
+
+>>>>>>> 52f867df95f8abefa2a11875b309ca28bc6175c9
         private static string GetApplicationPath()
         {
             return System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
@@ -1007,14 +1033,14 @@ namespace PCPOS
         {
             if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1" && System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
             {
-                Sinkronizacija.uzmi_sve_artikle.synArtikli a = new Sinkronizacija.uzmi_sve_artikle.synArtikli();
-                a.UzmiPodatkeSaWeba();
+                //Sinkronizacija.uzmi_sve_artikle.synArtikli a = new Sinkronizacija.uzmi_sve_artikle.synArtikli();
+               // a.UzmiPodatkeSaWeba();
 
-                Sinkronizacija.uzmi_sve_artikle.synNormativ n = new Sinkronizacija.uzmi_sve_artikle.synNormativ();
-                n.UzmiPodatkeSaWeba();
+//Sinkronizacija.uzmi_sve_artikle.synNormativ n = new Sinkronizacija.uzmi_sve_artikle.synNormativ();
+              //  n.UzmiPodatkeSaWeba();
 
-                Sinkronizacija.uzmi_sve_artikle.synRobaProdaja rp = new Sinkronizacija.uzmi_sve_artikle.synRobaProdaja();
-                rp.UzmiPodatkeSaWeba();
+              //  Sinkronizacija.uzmi_sve_artikle.synRobaProdaja rp = new Sinkronizacija.uzmi_sve_artikle.synRobaProdaja();
+              //  rp.UzmiPodatkeSaWeba();
 
                 MessageBox.Show("Izvršeno");
             }
@@ -1026,7 +1052,7 @@ namespace PCPOS
 
         private void btnPosaljiNaWeb_Click(object sender, EventArgs e)
         {
-            synRacuni Racuni = new synRacuni(true);
+           /* synRacuni Racuni = new synRacuni(true);
             synPrimka Primka = new synPrimka(true);
             synGrupe Grupe = new synGrupe(true);
             synZaposlenici Zaposlenici = new synZaposlenici(true);
@@ -1079,7 +1105,7 @@ namespace PCPOS
                     Util.Korisno.RadimSinkronizaciju = false;
                     MessageBox.Show("Izvršeno");
                 }
-            }
+            }*/
         }
 
         private void btnBrisiSve_Click(object sender, EventArgs e)
@@ -1554,7 +1580,7 @@ namespace PCPOS
                 {
                     return;
                 }
-                synRacuni Racuni = new synRacuni(true);
+                /*synRacuni Racuni = new synRacuni(true);
                 synPrimka Primka = new synPrimka(true);
                 synGrupe Grupe = new synGrupe(true);
                 synZaposlenici Zaposlenici = new synZaposlenici(true);
@@ -1570,7 +1596,7 @@ namespace PCPOS
                 synArtikli ProdajnaRoba = new synArtikli(true);
                 synRobaProdaja Repromaterijal = new synRobaProdaja(true);
                 synPredracuni Predracuni = new synPredracuni(true);
-                synSkladiste Skladista = new synSkladiste(true);
+                synSkladiste Skladista = new synSkladiste(true);*/
 
                 if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1" && System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
                 {
@@ -1578,7 +1604,7 @@ namespace PCPOS
                     {
                         Util.Korisno.RadimSinkronizaciju = true;
 
-                        ProdajnaRoba.UzmiPodatkeSaWeba();
+                        /*ProdajnaRoba.UzmiPodatkeSaWeba();
                         Repromaterijal.UzmiPodatkeSaWeba();
 
                         Racuni.UzmiPodatkeSaWeba();
@@ -1598,7 +1624,7 @@ namespace PCPOS
                         //Predracuni.UzmiPodatkeSaWeba();
                         //Skladista.UzmiPodatkeSaWeba();
                         Util.Korisno.RadimSinkronizaciju = false;
-                        MessageBox.Show("Izvršeno");
+                        MessageBox.Show("Izvršeno");*/
                     }
                 }
             }
@@ -1890,8 +1916,13 @@ order by x.naziv;", cbDucan.SelectedValue, dRow[0].ToString());
 
         private void buttonNadograditiProgram_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
             string fileName = @"NadogradnjaPrograma.exe";
+=======
+           // string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
+            string fileName = $@"NadogradnjaPrograma.exe";
+>>>>>>> 52f867df95f8abefa2a11875b309ca28bc6175c9
             string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
             using (WebClient req = new WebClient())
             {

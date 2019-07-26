@@ -449,8 +449,8 @@ namespace PCPOS.Caffe
 
         private void btnSinkronizacija_Click(object sender, EventArgs e)
         {
-            frmSinkronizacija s = new frmSinkronizacija();
-            s.ShowDialog();
+           // frmSinkronizacija s = new frmSinkronizacija();
+           // s.ShowDialog();
         }
 
         private void btnUnosNormativa_KeyDown(object sender, KeyEventArgs e)

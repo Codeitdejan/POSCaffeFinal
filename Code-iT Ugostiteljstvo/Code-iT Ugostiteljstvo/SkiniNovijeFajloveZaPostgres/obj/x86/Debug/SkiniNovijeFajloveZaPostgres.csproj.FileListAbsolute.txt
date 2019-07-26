@@ -57,3 +57,13 @@ D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\SkiniNovijeF
 D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.csproj.CoreCompileInputs.cache
 D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.exe
 D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.pdb
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\bin\Debug\SkiniNovijeFajloveZaPostgres.exe.config
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\bin\Debug\SkiniNovijeFajloveZaPostgres.exe
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\bin\Debug\SkiniNovijeFajloveZaPostgres.pdb
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.csprojAssemblyReference.cache
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.frmDownloadPostgres.resources
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.Properties.Resources.resources
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.csproj.GenerateResource.cache
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.exe
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\SkiniNovijeFajloveZaPostgres\obj\x86\Debug\SkiniNovijeFajloveZaPostgres.pdb

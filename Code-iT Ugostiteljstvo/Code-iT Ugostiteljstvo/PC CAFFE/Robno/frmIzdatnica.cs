@@ -425,11 +425,11 @@ namespace PCPOS.Robno
             }
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+       // private //Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true);
+      //      PokretacSinkronizacije.PokreniSinkronizaciju(false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true);
         }
 
         private DataTable DTpostavke = classSQL.select_settings("SELECT * FROM postavke", "postavke").Tables[0];
