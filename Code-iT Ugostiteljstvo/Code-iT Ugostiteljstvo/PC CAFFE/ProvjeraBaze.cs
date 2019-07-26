@@ -1045,6 +1045,11 @@ alter table partners add column hormonalni_nadomjestak character varying (500);"
                 sql = @"ALTER TABLE povrat_robe ADD COLUMN zakljucano boolean DEFAULT false;";
                 classSQL.insert(sql);
             }
+            if (DTremote.Select("table_name='na_stol' AND column_name='id'").Length == 0)
+            {
+                sql = @"ALTER TABLE na_stol ADD COLUMN id SERIAL";
+                classSQL.insert(sql);
+            }
             if (DTremote.Select("table_name='promjena_cijene' AND column_name='zakljucano'").Length == 0)
             {
                 sql = @"ALTER TABLE promjena_cijene ADD COLUMN zakljucano boolean DEFAULT false;";

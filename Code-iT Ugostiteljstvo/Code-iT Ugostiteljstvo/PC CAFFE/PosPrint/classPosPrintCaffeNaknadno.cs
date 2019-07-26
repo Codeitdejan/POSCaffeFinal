@@ -474,7 +474,7 @@ namespace PCPOS.PosPrint
             string center = "";
             for (int i = 0; i < (RecLineChars - codeIt.Length) / 2; i++)
                 center += " ";
-            _6 += endline + "\r\n" + center + codeIt;
+            _6 = endline + "\r\n" + center + codeIt;
 
             tekst = "";
         }

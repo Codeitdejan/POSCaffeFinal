@@ -48,6 +48,8 @@
             this.comboBoxStol2Prebaci = new System.Windows.Forms.ComboBox();
             this.labelStol2Prebaci = new System.Windows.Forms.Label();
             this.comboBoxStol1Prebaci = new System.Windows.Forms.ComboBox();
+            this.buttonPrebaciDesnoSve = new System.Windows.Forms.Button();
+            this.buttonPrebaciLijevoSve = new System.Windows.Forms.Button();
             this.panelSpojiStolove.SuspendLayout();
             this.panelPrebaciStolove.SuspendLayout();
             this.SuspendLayout();
@@ -164,6 +166,8 @@
             // panelPrebaciStolove
             // 
             this.panelPrebaciStolove.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPrebaciStolove.Controls.Add(this.buttonPrebaciLijevoSve);
+            this.panelPrebaciStolove.Controls.Add(this.buttonPrebaciDesnoSve);
             this.panelPrebaciStolove.Controls.Add(this.buttonPrebaciDesno);
             this.panelPrebaciStolove.Controls.Add(this.buttonPrebaciLijevo);
             this.panelPrebaciStolove.Controls.Add(this.listBoxStol2);
@@ -180,7 +184,7 @@
             // 
             // buttonPrebaciDesno
             // 
-            this.buttonPrebaciDesno.Location = new System.Drawing.Point(221, 125);
+            this.buttonPrebaciDesno.Location = new System.Drawing.Point(221, 89);
             this.buttonPrebaciDesno.Name = "buttonPrebaciDesno";
             this.buttonPrebaciDesno.Size = new System.Drawing.Size(32, 29);
             this.buttonPrebaciDesno.TabIndex = 23;
@@ -190,7 +194,7 @@
             // 
             // buttonPrebaciLijevo
             // 
-            this.buttonPrebaciLijevo.Location = new System.Drawing.Point(221, 160);
+            this.buttonPrebaciLijevo.Location = new System.Drawing.Point(221, 124);
             this.buttonPrebaciLijevo.Name = "buttonPrebaciLijevo";
             this.buttonPrebaciLijevo.Size = new System.Drawing.Size(32, 29);
             this.buttonPrebaciLijevo.TabIndex = 22;
@@ -268,6 +272,26 @@
             this.comboBoxStol1Prebaci.TabIndex = 17;
             this.comboBoxStol1Prebaci.SelectedIndexChanged += new System.EventHandler(this.comboBoxStol1Prebaci_SelectedIndexChanged);
             // 
+            // buttonPrebaciDesnoSve
+            // 
+            this.buttonPrebaciDesnoSve.Location = new System.Drawing.Point(221, 159);
+            this.buttonPrebaciDesnoSve.Name = "buttonPrebaciDesnoSve";
+            this.buttonPrebaciDesnoSve.Size = new System.Drawing.Size(32, 29);
+            this.buttonPrebaciDesnoSve.TabIndex = 24;
+            this.buttonPrebaciDesnoSve.Text = ">>";
+            this.buttonPrebaciDesnoSve.UseVisualStyleBackColor = true;
+            this.buttonPrebaciDesnoSve.Click += new System.EventHandler(this.buttonPrebaciDesnoSve_Click);
+            // 
+            // buttonPrebaciLijevoSve
+            // 
+            this.buttonPrebaciLijevoSve.Location = new System.Drawing.Point(221, 194);
+            this.buttonPrebaciLijevoSve.Name = "buttonPrebaciLijevoSve";
+            this.buttonPrebaciLijevoSve.Size = new System.Drawing.Size(32, 29);
+            this.buttonPrebaciLijevoSve.TabIndex = 25;
+            this.buttonPrebaciLijevoSve.Text = "<<";
+            this.buttonPrebaciLijevoSve.UseVisualStyleBackColor = true;
+            this.buttonPrebaciLijevoSve.Click += new System.EventHandler(this.buttonPrebaciLijevoSve_Click);
+            // 
             // frmStoloviNapredno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +338,7 @@
         private System.Windows.Forms.ListBox listBoxStol2;
         private System.Windows.Forms.ListBox listBoxStol1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonPrebaciLijevoSve;
+        private System.Windows.Forms.Button buttonPrebaciDesnoSve;
     }
 }

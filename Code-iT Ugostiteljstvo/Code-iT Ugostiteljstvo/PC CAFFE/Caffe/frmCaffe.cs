@@ -1946,24 +1946,18 @@ sql);
                 if (DTpostavkePrinter.Rows[0]["windows_printer_name3"].ToString() != "Nije instaliran")
                     PosPrint.classPosPrintKuhinja.PrintOnPrinter3(DTsend);
 
-                ///OVO POKREČE SINKRONIZACIJU SA WEBOM///
-                ///
-                /*if (!Util.Korisno.RadimSinkronizaciju)
-                {
-                    Util.Korisno.RadimSinkronizaciju = true;
-                    bgSinkronizacija.RunWorkerAsync();
-                }*/
+                //Ako postoji uopce koja grupa da je ozancena za 4. printer u postavkama POS opreme
+                classPosPrintKuhinja.NapuniListuOznacenimGrupama();
+                //Ako je instaliran printer && ako ima bilo koja oznacena grupa u POS Postavke && Ako ima artikl na racunu koji se nalazi u oznacenoj grupi
+                if (DTpostavkePrinter.Rows[0][29].ToString()!="Nije instaliran" &&  classPosPrintKuhinja.listaOznacenihGrupa.Count>0 && classPosPrintKuhinja.ArtiklIzOznaceneGrupePostojan)
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter10(DTsend);
             }
 
             lblKupac.Text = "";
             popust_na_cijeli_racun = 0;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
+
         private DialogResult ShowConfirmDialog(string message)
         {
             return MessageBox.Show(message, "Obavijest", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -27,7 +28,50 @@ namespace PCPOS.PosPrint
 
         //private static Image img_barcode = null;
 
-        public static void PrintOnPrinter2(DataTable DTartikli, bool koristiPrinter3 = false, bool pijaca_i_trgovacka = false)
+        //Printer Pizzerija
+        public static List<string> listaOznacenihGrupa;
+
+
+        public static void NapuniListuOznacenimGrupama()
+        {
+            listaOznacenihGrupa = new List<string>();
+            string sqlQuery = "SELECT id_grupa FROM grupa WHERE printer3=1";
+            DataTable DTOznaceneGrupe = classSQL.select(sqlQuery, "grupe").Tables[0];
+            foreach (DataRow row in DTOznaceneGrupe.Rows)
+            {
+                listaOznacenihGrupa.Add(row[0].ToString());
+            }
+        }
+
+        public static bool ArtiklIzOznaceneGrupePostojan = false;
+        //Provjeravamo ako postoji artikl koji spada u označenu grupu u POS Postavkama
+        public static bool PrintOnPrinter4(DataTable DTRac)
+        {
+            bool artiklPostojan = false;
+            for (int i = 0; !artiklPostojan && i < DTrac.Rows.Count; i++)
+            {
+                //IDovi grupa artikala
+                for (int j = 0; j < listaOznacenihGrupa.Count; j++)
+                {
+                    string sql = $@"SELECT naziv FROM roba WHERE sifra='{DTrac.Rows[i]["sifra_robe"].ToString()}' 
+                                    AND id_grupa={listaOznacenihGrupa[j]}";
+                    DataTable DTx = classSQL.select(sql, "roba").Tables[0];
+                    if (DTx.Rows.Count > 0)
+                        artiklPostojan = true;
+                }
+            }
+            return artiklPostojan;
+        }
+
+        public static string PronadjiIDGrupePremaArtiklovomNazivu(string ime)
+        {
+            string id;
+            string sqlQuery = $"SELECT id_grupa FROM roba WHERE naziv='{ime}'";
+            DataTable DTIme = classSQL.select(sqlQuery, "roba").Tables[0];
+            return DTIme.Rows[0][0].ToString();
+        }
+
+        public static void PrintOnPrinter2(DataTable DTartikli, bool koristiPrinter3 = false, bool pijaca_i_trgovacka = false, bool koristiPrinter4 = false, bool printNarudzbeNaF4 = false)
         {
             ima_stavke_za_kuhinju = false;
             tekst = "";
@@ -98,124 +142,157 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
                     DTrac = DTartikli;
                 }
 
-
-                if (DTrac == null || DTrac.Rows.Count == 0)
+                if (koristiPrinter4 || printNarudzbeNaF4)
                 {
-                    return;
+                    DTrac = DTartikli;
                 }
+                else
+                {
+                    if (DTrac == null || DTrac.Rows.Count == 0)
+                    {
+                        return;
+                    }
+                }
+
 
                 DataTable DTt = classSQL.select("SELECT ime+' '+prezime AS zaposlenik FROM zaposlenici WHERE id_zaposlenik='" + Properties.Settings.Default.id_zaposlenik + "'", "zaposlenici").Tables[0];
 
                 string title = "Kuhinja";
-                if (pijaca_i_trgovacka)
-                {
-                    title = "Šank";
-                }
-                else if (!pijaca_i_trgovacka && koristiPrinter3)
+
+                if (koristiPrinter4)
                 {
                     title = "Pizzerija";
                 }
-
+                else
+                {
+                    if (pijaca_i_trgovacka)
+                    {
+                        title = "Šank";
+                    }
+                }
 
                 PrintReceiptHeader(DateTime.Now, DTt.Rows[0]["zaposlenik"].ToString(), DTrac.Rows[0]["stol"].ToString(), title);
-
+                if (!ArtiklIzOznaceneGrupePostojan)
+                {
+                    NapuniListuOznacenimGrupama();
+                    ArtiklIzOznaceneGrupePostojan = PrintOnPrinter4(DTrac);
+                }
                 string jelo = "";
                 int polindex = -1;
                 for (int i = 0; i < DTrac.Rows.Count; i++)
                 {
-                    string sql = string.Format(@"SELECT naziv, mpc
-                                FROM roba
-                                WHERE sifra = '{0}' AND " + (pijaca_i_trgovacka ? "id_podgrupa != '2'" : "id_podgrupa = '2'") + "; ", DTrac.Rows[i]["sifra_robe"].ToString());
-
-                    DataTable DT = classSQL.select(sql, "roba").Tables[0];
-                    if (DT.Rows.Count > 0 && Convert.ToInt32(DTrac.Rows[i]["dod"]) < 2)
+                    string sql = $@"SELECT naziv, mpc FROM roba WHERE sifra='{DTrac.Rows[i]["sifra_robe"].ToString()}' 
+                                    AND {(pijaca_i_trgovacka ? "id_podgrupa!='2'" : "id_podgrupa='2'")}";
+                    bool artiklFound = true;
+                    if (koristiPrinter4)
                     {
-                        if (DTrac.Rows[i]["jelo"].ToString() != jelo)
+                        //Potrebno je provjeriti ako artikl koji je na računu ima 
+                        string idGrupe = PronadjiIDGrupePremaArtiklovomNazivu(DTrac.Rows[i][10].ToString());
+                        foreach (var idGrupeIzListe in listaOznacenihGrupa)
                         {
-                            jelo = DTrac.Rows[i]["jelo"].ToString();
-                            PrintTextLine("\r\n" + DTrac.Rows[i]["jelo"].ToString().ToUpper() + ":", false);
-                        }
-                        ima_stavke_za_kuhinju = true;
-                        string artikl = DT.Rows[0]["naziv"].ToString();
-
-                        int polaPolaIndex1 = -1, polaPolaIndex2 = -1;
-                        int.TryParse(DTrac.Rows[i]["pol"].ToString(), out polaPolaIndex1);
-                        if (i + 1 < DTrac.Rows.Count)
-                        {
-                            int.TryParse(DTrac.Rows[i + 1]["pol"].ToString(), out polaPolaIndex2);
-                        }
-                        if (((i + 1) <= (DTrac.Rows.Count - 1) && DTrac.Rows[i]["dod"].ToString() == "0" && DTrac.Rows[i + 1]["dod"].ToString() == "0") && (polaPolaIndex1 != polaPolaIndex2 || polaPolaIndex1 == -1 || DTrac.Rows[i]["pol"].ToString() == ""))
-                        {
-                            PrintLineItem(DTrac.Rows[i]["kolicina"].ToString(), artikl, true);
-                        }
-                        else
-                        {
-                            string kolicina = DTrac.Rows[i]["kolicina"].ToString();
-                            if (DTrac.Rows[i]["dod"].ToString() == "1") //DODATAK
+                            artiklFound = true;
+                            if (idGrupe == idGrupeIzListe)
                             {
-                                if (kolicina.Length == 1)
-                                {
-                                    kolicina += "  + ";
-                                }
-                                else if (kolicina.Length == 2)
-                                {
-                                    kolicina += " + ";
-                                }
-                                else
-                                {
-                                    kolicina += "+ ";
-                                }
+                                sql = $@"SELECT naziv, mpc FROM roba WHERE sifra='{DTrac.Rows[i]["sifra_robe"].ToString()}' AND id_grupa={idGrupe} ";
+                                break;
                             }
-                            else if (DTrac.Rows[i]["dod"].ToString() == "2") //NAPOMENA
-                            {
-                                kolicina = napomenaKolicina;
-                            }
+                            artiklFound = false;
+                        }
+                    }
 
-                            if ((i + 1) <= (DTrac.Rows.Count - 1) && (Convert.ToInt32(DTrac.Rows[i + 1]["dod"].ToString()) > 0 || (Int32.TryParse(DTrac.Rows[i + 1]["pol"].ToString(), out polaPolaIndex1) && polaPolaIndex1 > -1)))
+
+                    if ((koristiPrinter4 && artiklFound) || !koristiPrinter4)
+                    {
+                        DataTable DT = classSQL.select(sql, "roba").Tables[0];
+                        if (DT.Rows.Count > 0 && Convert.ToInt32(DTrac.Rows[i]["dod"]) < 2)
+                        {
+                            if (DTrac.Rows[i]["jelo"].ToString() != jelo)
                             {
-                                //PrintLineItem(kolicina, DTrac.Rows[i]["sifra_robe"].ToString() + " " + artikl, false);
-                                PrintLineItem(kolicina, artikl, false);
+                                jelo = DTrac.Rows[i]["jelo"].ToString();
+                                PrintTextLine("\r\n" + DTrac.Rows[i]["jelo"].ToString().ToUpper() + ":", false);
+                            }
+                            ima_stavke_za_kuhinju = true;
+                            string artikl = DT.Rows[0]["naziv"].ToString();
+
+                            int polaPolaIndex1 = -1, polaPolaIndex2 = -1;
+                            int.TryParse(DTrac.Rows[i]["pol"].ToString(), out polaPolaIndex1);
+                            if (i + 1 < DTrac.Rows.Count)
+                            {
+                                int.TryParse(DTrac.Rows[i + 1]["pol"].ToString(), out polaPolaIndex2);
+                            }
+                            if (((i + 1) <= (DTrac.Rows.Count - 1) && DTrac.Rows[i]["dod"].ToString() == "0" && DTrac.Rows[i + 1]["dod"].ToString() == "0") && (polaPolaIndex1 != polaPolaIndex2 || polaPolaIndex1 == -1 || DTrac.Rows[i]["pol"].ToString() == ""))
+                            {
+                                PrintLineItem(DTrac.Rows[i]["kolicina"].ToString(), artikl, true);
                             }
                             else
                             {
-                                //PrintLineItem(kolicina, DTrac.Rows[i]["sifra_robe"].ToString() + " " + artikl, true);
-                                int a = -1, b = -1;
-                                if (polindex >= 0 && i + 1 < DTrac.Rows.Count && Int32.TryParse(DTrac.Rows[i + 1]["pol"].ToString(), out a) && Int32.TryParse(DTrac.Rows[polindex]["pol"].ToString(), out b) && a == b && a > -1)
+                                string kolicina = DTrac.Rows[i]["kolicina"].ToString();
+                                if (DTrac.Rows[i]["dod"].ToString() == "1") //DODATAK
                                 {
+                                    if (kolicina.Length == 1)
+                                    {
+                                        kolicina += "  + ";
+                                    }
+                                    else if (kolicina.Length == 2)
+                                    {
+                                        kolicina += " + ";
+                                    }
+                                    else
+                                    {
+                                        kolicina += "+ ";
+                                    }
+                                }
+                                else if (DTrac.Rows[i]["dod"].ToString() == "2") //NAPOMENA
+                                {
+                                    kolicina = napomenaKolicina;
+                                }
+
+                                if ((i + 1) <= (DTrac.Rows.Count - 1) && (Convert.ToInt32(DTrac.Rows[i + 1]["dod"].ToString()) > 0 || (Int32.TryParse(DTrac.Rows[i + 1]["pol"].ToString(), out polaPolaIndex1) && polaPolaIndex1 > -1)))
+                                {
+                                    //PrintLineItem(kolicina, DTrac.Rows[i]["sifra_robe"].ToString() + " " + artikl, false);
                                     PrintLineItem(kolicina, artikl, false);
                                 }
                                 else
                                 {
-                                    PrintLineItem(kolicina, artikl, true);
+                                    //PrintLineItem(kolicina, DTrac.Rows[i]["sifra_robe"].ToString() + " " + artikl, true);
+                                    int a = -1, b = -1;
+                                    if (polindex >= 0 && i + 1 < DTrac.Rows.Count && Int32.TryParse(DTrac.Rows[i + 1]["pol"].ToString(), out a) && Int32.TryParse(DTrac.Rows[polindex]["pol"].ToString(), out b) && a == b && a > -1)
+                                    {
+                                        PrintLineItem(kolicina, artikl, false);
+                                    }
+                                    else
+                                    {
+                                        PrintLineItem(kolicina, artikl, true);
+                                    }
                                 }
                             }
+                            int polpol = -1;
+                            if (int.TryParse(DTrac.Rows[i]["pol"].ToString(), out polpol))
+                            {
+                                polindex = i;
+                            }
                         }
-                        int polpol = -1;
-                        if (int.TryParse(DTrac.Rows[i]["pol"].ToString(), out polpol))
+                        else if (Convert.ToInt32(DTrac.Rows[i]["dod"]) == 2)
                         {
-                            polindex = i;
-                        }
-                    }
-                    else if (Convert.ToInt32(DTrac.Rows[i]["dod"]) == 2)
-                    {
-                        //string kolicina = "   o ";
-                        if (i + 1 < DTrac.Rows.Count && Convert.ToInt32(DTrac.Rows[i + 1]["dod"]) == 0)
-                        {
-                            PrintLineItem(napomenaKolicina, DTrac.Rows[i]["ime"].ToString(), true);
-                        }
-                        else
-                        {
-                            PrintLineItem(napomenaKolicina, DTrac.Rows[i]["ime"].ToString(), false);
+                            //string kolicina = "   o ";
+                            if (i + 1 < DTrac.Rows.Count && Convert.ToInt32(DTrac.Rows[i + 1]["dod"]) == 0)
+                            {
+                                PrintLineItem(napomenaKolicina, DTrac.Rows[i]["ime"].ToString(), true);
+                            }
+                            else
+                            {
+                                PrintLineItem(napomenaKolicina, DTrac.Rows[i]["ime"].ToString(), false);
+                            }
                         }
                     }
                 }
 
                 PrintTextLine(new string('=', RecLineChars), false);
 
-                for (int i = 0; i < Convert.ToInt16(DTsetting.Rows[0]["linija_praznih_bottom"].ToString()); i++)
+               /* for (int i = 0; i < Convert.ToInt16(DTsetting.Rows[0]["linija_praznih_bottom"].ToString()); i++)
                 {
                     tekst += Environment.NewLine;
-                }
+                }*/
 
                 _2 = tekst;
 
@@ -247,10 +324,10 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
                             ttl = "Šank";
                         }
 
-                        if (!pijaca_i_trgovacka && koristiPrinter3)
+                        if (koristiPrinter4 && listaOznacenihGrupa.Count > 0)
                         {
-                            msg = "Želite li poslati narudžbu u pizzeriju?";
-                            ttl = "Pizzerija";
+                            msg = "Zelite li poslati narudzbu u piceriju?";
+                            ttl = "4. Printer";
                         }
 
                         if (MessageBox.Show(msg, ttl, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -262,7 +339,12 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
                                 if (koristiPrinter3)
                                     printaj(3);
                                 else
-                                    printaj(2);
+                                {
+                                    if (koristiPrinter4)
+                                        printaj(10);
+                                    else
+                                        printaj(2);
+                                }
                             }
                         }
                     }
@@ -281,9 +363,15 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
             PrintOnPrinter2(DTartikli, true, true);
         }
 
+        public static void PrintOnPrinter10(DataTable DTartikli) // Pošto su sjebani svi brojevi printera do sad, uzimam broj 10 => to je printer
+                                                                 // koji printa određene grupe.
+        {
+            PrintOnPrinter2(DTartikli, false, false, true);
+        }
+
         private static void PrintLineItem(string kolicina, string artikl, bool b)
         {
-            int a = 24; 
+            int a = 24;
             int k = 5;
 
             PrintText(TruncateAt(kolicina.PadRight(k), k, false), false);
@@ -367,9 +455,9 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
             tekst = "";
 
             int a = 24; //artikl
-            //          int j = 8;  //cijena
+                        //          int j = 8;  //cijena
             int k = 5;  //kolicina
-            //a += 8;
+                        //a += 8;
 
             PrintTextLine(String.Empty, false);
             PrintText(TruncateAt("KOL".PadRight(k), k, false), false);
@@ -380,7 +468,7 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
 
             //broj_narudzbe = null;
         }
-        
+
 
         private static void PrintText(string text, bool artikl)
         {
@@ -473,16 +561,17 @@ left join grupa on roba.id_grupa = grupa.id_grupa where roba.sifra = '{0}';", DT
         /// <param name="brojPrintera"></param>
         private static void printaj(int brojPrintera)
         {
+            //SVI IDovi su sjebani do kraja. 
+            // 4 - Sank
+            // 3 - Kuhinja
+            // 10 - Picerija
             string printerName = "";
             if (brojPrintera == 4)
                 printerName = DTsetting.Rows[0]["windows_printer_sank"].ToString();
-            else if (brojPrintera == 3)
-                printerName = DTsetting.Rows[0]["windows_printer_name3"].ToString();
-            else if (brojPrintera == 2)
+            else if (brojPrintera == 3 || brojPrintera==2) 
                 printerName = DTsetting.Rows[0]["windows_printer_name2"].ToString();
-            else
-                printerName = DTsetting.Rows[0]["windows_printer_name"].ToString();
-
+            else if (brojPrintera == 10)
+                printerName = DTsetting.Rows[0]["windows_printer_name3"].ToString();
             PrintDocument printDoc = new PrintDocument();
 
             printDoc.PrinterSettings.PrinterName = printerName;

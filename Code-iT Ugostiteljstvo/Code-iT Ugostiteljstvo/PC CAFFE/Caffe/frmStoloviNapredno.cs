@@ -149,6 +149,7 @@ namespace PCPOS.Caffe
         private void comboBoxStol1Prebaci_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxStol1.Items.Clear();
+            listBoxStol1.Items.Clear();
             LoadItemsIntoListBox(comboBoxStol1Prebaci, listBoxStol1);
         }
 
@@ -222,6 +223,44 @@ namespace PCPOS.Caffe
             TransferItem(listBoxStol2, false);
         }
 
+
+        private void buttonPrebaciDesnoSve_Click(object sender, EventArgs e)
+        {
+            //Checks
+            if (!CheckIfComboBoxesAreSelected(comboBoxStol1Prebaci.SelectedIndex, comboBoxStol2Prebaci.SelectedIndex))
+            {
+                MessageBox.Show("Morate odabrati oba stola.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (CheckIfSameTablesAreSelected(comboBoxStol1Prebaci.Text, comboBoxStol2Prebaci.Text))
+            {
+                MessageBox.Show("Ne možete prebacivati na istom stolu.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            TransferAllItems(true);
+        }
+
+        private void buttonPrebaciLijevoSve_Click(object sender, EventArgs e)
+        {          
+            //Checks
+            if (!CheckIfComboBoxesAreSelected(comboBoxStol1Prebaci.SelectedIndex, comboBoxStol2Prebaci.SelectedIndex))
+            {
+                MessageBox.Show("Morate odabrati oba stola.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (CheckIfSameTablesAreSelected(comboBoxStol1Prebaci.Text, comboBoxStol2Prebaci.Text))
+            {
+                MessageBox.Show("Ne možete prebacivati na istom stolu.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            TransferAllItems(false);
+
+        }
+
         private void buttonPrebaci_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Završeno prebacivanje s stola na stol.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -237,6 +276,18 @@ namespace PCPOS.Caffe
             string listBoxSelectedItem_Sifra = listBoxSelectedItem.Split('?')[1];
 
             string sqlQuery = $"UPDATE na_stol SET id_stol={(stol1NaStol2 ? idStol_2 : idStol_1)} WHERE id=(SELECT id FROM na_stol WHERE id_stol={(stol1NaStol2 ? idStol_1 : idStol_2)} AND sifra='{listBoxSelectedItem_Sifra}' LIMIT 1);";
+            classSQL.update(sqlQuery);
+
+            MessageBox.Show("Prebačeno!", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshListBox();
+        }
+
+        private void TransferAllItems(bool stol1NaStol2)
+        {   
+            string idStol_1 = comboBoxStol1Prebaci.Text.Split('|')[0];
+            string idStol_2 = comboBoxStol2Prebaci.Text.Split('|')[0];
+
+            string sqlQuery = $"UPDATE na_stol SET id_stol={(stol1NaStol2?idStol_2:idStol_1)} WHERE id_stol={(stol1NaStol2?idStol_1:idStol_2)}";
             classSQL.update(sqlQuery);
 
             MessageBox.Show("Prebačeno!", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -265,5 +316,6 @@ namespace PCPOS.Caffe
             return false;
         }
         #endregion
+
     }
 }

@@ -472,7 +472,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     row["broj_racuna"] = brRac;
                     row["sifra_robe"] = sifra;
                     row["id_skladiste"] = dg(i, "id_skladiste");
-                    row["mpc"] = DTroba?.Rows.Count > 0 ? DTroba.Rows[0]["mpc"].ToString().Replace('.', ',') : dg(i, "cijena");
+                    row["mpc"] = dg(i, "cijena");
                     row["porez"] = dg(i, "porez");
                     row["kolicina"] = dg(i, "kolicina");
                     row["vpc"] = dg(i, "vpc");
@@ -869,7 +869,21 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     }
                 }
 
-                string printer1Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name"].ToString();
+                if (DTpostavkePrinter.Rows[0]["windows_printer_sank"].ToString() != "Nije instaliran")
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
+
+                if (DTpostavkePrinter.Rows[0]["windows_printer_name2"].ToString() != "Nije instaliran")
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter2(DTsend);
+
+                if (DTpostavkePrinter.Rows[0]["windows_printer_name3"].ToString() != "Nije instaliran")
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter3(DTsend);
+
+                //Ako postoji uopce koja grupa da je ozancena za 4. printer u postavkama POS opreme
+                PosPrint.classPosPrintKuhinja.NapuniListuOznacenimGrupama();
+                //Ako je instaliran printer && ako ima bilo koja oznacena grupa u POS Postavke && Ako ima artikl na racunu koji se nalazi u oznacenoj grupi
+                if (DTpostavkePrinter.Rows[0][29].ToString() != "Nije instaliran" && PosPrint.classPosPrintKuhinja.listaOznacenihGrupa.Count > 0 && PosPrint.classPosPrintKuhinja.ArtiklIzOznaceneGrupePostojan)
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter10(DTsend);
+                /*string printer1Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name"].ToString();
                 string printer2Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name2"].ToString();
                 string printer3Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name3"].ToString();
                 string printer4Naziv = DTpostavkePrinter.Rows[0]["windows_printer_sank"].ToString();
@@ -883,7 +897,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 if (printer2Naziv != "Nije instaliran" && printer2Naziv != "")
                 {
                     PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
-                    PosPrint.classPosPrintKuhinja.PrintOnPrinter2(DTsend);
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
                 }
 
                 if (printer3Naziv != "Nije instaliran" && printer3Naziv != "")
@@ -894,8 +908,8 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 if (printer4Naziv != "Nije instaliran" && printer4Naziv != "")
                 {
                     PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
-                    PosPrint.classPosPrintKuhinja.PrintOnPrinter2(DTsend);
-                }
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
+                }*/
             }
         }
 
