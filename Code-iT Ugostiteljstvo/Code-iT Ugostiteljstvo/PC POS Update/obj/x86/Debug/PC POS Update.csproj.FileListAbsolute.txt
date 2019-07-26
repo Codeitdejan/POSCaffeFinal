@@ -1,0 +1,155 @@
+C:\Users\HP\Desktop\PC POS\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\HP\Desktop\PC POS\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\HP\Desktop\PC POS\PC POS Update\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\HP\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\HP\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\HP\Desktop\PC POS\PC POS Update\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\HP\Desktop\PC POS\PC POS Update\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\HP\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\HP\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\Korisnik01\Desktop\PC POS\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\PRO\Desktop\PC POS\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\PRO\Desktop\PC POS\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\PRO\Desktop\PC POS\PC POS Update\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PRO\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\PRO\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\PRO\Desktop\PC POS\PC POS Update\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\PRO\Desktop\PC POS\PC POS Update\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\PRO\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\PRO\Desktop\PC POS\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\PRO\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\DrazenPC\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\POWER\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+C:\Users\ProBook\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\POWER\Desktop\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\Programer\Desktop\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\bin\Debug\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\bin\Debug\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\bin\Debug\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\obj\x86\Debug\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\bin\Debug\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\bin\Debug\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\obj\x86\Debug\PC POS Update.exe
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE GIT\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.cache
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\obj\x86\Debug\PC POS Update.csproj.CoreCompileInputs.cache
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\Dejan Vibović\Desktop\Projekt Caffe\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.exe
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.pdb
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csprojResolveAssemblyReference.cache
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.CoreCompileInputs.cache
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.exe
+D:\Code - iT\Novo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.exe
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.pdb
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.CoreCompileInputs.cache
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.exe
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\Code - iT\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csprojAssemblyReference.cache
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.exe
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.pdb
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.cache
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.CoreCompileInputs.cache
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.exe
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\Code - iT\Code-iT Ugostiteljstvo - Rework\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csprojAssemblyReference.cache
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.exe
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.pdb
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csprojAssemblyReference.cache
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.cache
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.CoreCompileInputs.cache
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.exe
+C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.pdb
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.exe
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\bin\Debug\PC POS Update.pdb
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.frmUpdate.resources
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC_POS_Update.Properties.Resources.resources
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.GenerateResource.Cache
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.csproj.CoreCompileInputs.cache
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.exe
+D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC POS Update\obj\x86\Debug\PC POS Update.pdb
