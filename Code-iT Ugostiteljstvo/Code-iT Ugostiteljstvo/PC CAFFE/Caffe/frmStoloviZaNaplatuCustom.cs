@@ -202,7 +202,26 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
             decimal u = 0;
             for (int i = 0; i < DT.Rows.Count; i++)
             {
-                dgw.Rows.Add(DT.Rows[i]["broj_narudzbe"].ToString(),
+                int index = dgw.Rows.Add();
+                dgw.Rows[index].Cells["runda"].Value = DT.Rows[i]["broj_narudzbe"].ToString();
+                dgw.Rows[index].Cells["naziv"].Value = DT.Rows[i]["naziv"].ToString();
+                dgw.Rows[index].Cells["kolicina"].Value = DT.Rows[i]["kom"].ToString();
+                dgw.Rows[index].Cells["cijena"].Value = DT.Rows[i]["mpc"].ToString();
+                dgw.Rows[index].Cells["chb_naplati"].Value = true;
+                dgw.Rows[index].Cells["id_podgrupa"].Value = "";
+                dgw.Rows[index].Cells["sifra"].Value = DT.Rows[i]["sifra"].ToString();
+                dgw.Rows[index].Cells["porez"].Value = DT.Rows[i]["porez"].ToString();
+                dgw.Rows[index].Cells["porez_potrosnja"].Value = DT.Rows[i]["porez_potrosnja"].ToString();
+                dgw.Rows[index].Cells["vpc"].Value = DT.Rows[i]["vpc"].ToString();
+                dgw.Rows[index].Cells["br"].Value = DT.Rows[i]["br"].ToString();
+                dgw.Rows[index].Cells["jelo"].Value = DT.Rows[i]["jelo"].ToString();
+                dgw.Rows[index].Cells["skinuto"].Value = DT.Rows[i]["skinuto"].ToString();
+                dgw.Rows[index].Cells["id_zaposlenik"].Value = DT.Rows[i]["id_zaposlenik"].ToString();
+                dgw.Rows[index].Cells["dod"].Value = DT.Rows[i]["dod"].ToString();
+                dgw.Rows[index].Cells["polapola"].Value = DT.Rows[i]["pol"].ToString();
+                dgw.Rows[index].Cells["rabat"].Value = DT.Rows[i]["rabat"].ToString();
+
+               /* dgw.Rows.Add(DT.Rows[i]["broj_narudzbe"].ToString(),
                     DT.Rows[i]["naziv"].ToString(),
                     DT.Rows[i]["kom"].ToString(),
                     Convert.ToDouble(DT.Rows[i]["mpc"].ToString()),
@@ -220,8 +239,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     DT.Rows[i]["pol"].ToString(),
                     DT.Rows[i]["rabat"].ToString()
                     );
-
-                this.dgw.Rows[i].Cells["chb_naplati"].Value = true;
+                    */
             }
 
             PaintRows(dgw);
