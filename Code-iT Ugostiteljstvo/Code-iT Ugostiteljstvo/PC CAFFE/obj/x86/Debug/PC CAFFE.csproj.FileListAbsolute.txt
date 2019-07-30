@@ -3573,7 +3573,9 @@ D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE
 D:\Projects\POSCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PC POS.pdb
 =======
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.frmNewInfo.resources
+<<<<<<< HEAD
 C:\Users\Korisnik\Desktop\PCPosCaffeFinal\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\obj\x86\Debug\PCPOS.Caffe.frmStoloviNapredno.resources
+=======
 C:\Users\Dino\Desktop\PCPosCaffe\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\bin\Debug\database.sdf
 C:\Users\Dino\Desktop\PCPosCaffe\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\bin\Debug\PC POS.exe.config
 C:\Users\Dino\Desktop\PCPosCaffe\Code-iT Ugostiteljstvo\Code-iT Ugostiteljstvo\PC CAFFE\bin\Debug\PC POS.exe
