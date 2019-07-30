@@ -61,7 +61,6 @@ namespace PCPOS.SQL
                         decimal.TryParse(DT.Rows[i]["porez"].ToString(), out por);
                         decimal.TryParse(DT.Rows[i]["mpc"].ToString(), out mpc);
                         decimal.TryParse(DT.Rows[i]["povratna_naknada"].ToString(), out povratna_naknada);
-
                         string sql = "INSERT INTO inventura_stavke (broj_inventure,sifra_robe,jmj,kolicina,kolicina_koja_je_bila_na_skl,cijena,naziv,porez,mpc,povratna_naknada)" +
                         " VALUES (" +
                         "'" + DT.Rows[i]["broj_inventure"].ToString() + "'," +
@@ -75,7 +74,6 @@ namespace PCPOS.SQL
                         "'" + mpc.ToString("#0.00").Replace(",", ".") + "'," +
                         "'" + povratna_naknada.ToString("#0.00").Replace(",", ".") + "'" +
                         ");";
-
                         NpgsqlCommand comm = new NpgsqlCommand(sql, classSQL.remoteConnection);
                         comm.ExecuteNonQuery();
                     }
@@ -97,14 +95,14 @@ namespace PCPOS.SQL
         {
             if (classSQL.remoteConnectionString == "")
             {
-                if (classSQL.connection.State.ToString() == "Closed") { classSQL.connection.Open(); }
-
+                if (classSQL.connection.State.ToString() == "Closed")
+                {
+                    classSQL.connection.Open();
+                }
                 SqlCeCommand nonqueryCommand = classSQL.connection.CreateCommand();
-
                 try
                 {
                     nonqueryCommand.CommandText = "UPDATE inventura_stavke SET broj_inventure=@broj_inventure,sifra_robe=@sifra_robe,jmj=@jmj,kolicina=@kolicina,cijena=@cijena,naziv=@naziv,porez=@porez WHERE broj_inventure=@broj_inventure AND sifra_robe=@sifra_robe";
-
                     nonqueryCommand.Parameters.Add("@broj_inventure", SqlDbType.NVarChar, 15);
                     nonqueryCommand.Parameters.Add("@sifra_robe", SqlDbType.NVarChar, 20);
                     nonqueryCommand.Parameters.Add("@jmj", SqlDbType.NVarChar, 15);
@@ -112,9 +110,7 @@ namespace PCPOS.SQL
                     nonqueryCommand.Parameters.Add("@cijena", SqlDbType.Money, 8);
                     nonqueryCommand.Parameters.Add("@naziv", SqlDbType.NVarChar, 5);
                     nonqueryCommand.Parameters.Add("@porez", SqlDbType.NVarChar, 5);
-
                     nonqueryCommand.Prepare();
-
                     for (int i = 0; i < DT.Rows.Count; i++)
                     {
                         nonqueryCommand.Parameters["@broj_inventure"].Value = DT.Rows[i]["broj_inventure"].ToString();
@@ -124,7 +120,6 @@ namespace PCPOS.SQL
                         nonqueryCommand.Parameters["@cijena"].Value = Convert.ToDecimal(DT.Rows[i]["cijena"].ToString());
                         nonqueryCommand.Parameters["@naziv"].Value = DT.Rows[i]["naziv"].ToString();
                         nonqueryCommand.Parameters["@porez"].Value = DT.Rows[i]["porez"].ToString();
-
                         nonqueryCommand.ExecuteNonQuery();
                     }
                 }
@@ -142,9 +137,7 @@ namespace PCPOS.SQL
             else
             {
                 if (classSQL.remoteConnection.State.ToString() == "Closed") { classSQL.remoteConnection.Open(); }
-
                 NpgsqlCommand nonqueryCommand = classSQL.remoteConnection.CreateCommand();
-
                 try
                 {
                     for (int i = 0; i < DT.Rows.Count; i++)
@@ -153,7 +146,6 @@ namespace PCPOS.SQL
                         decimal.TryParse(DT.Rows[i]["porez"].ToString(), out por);
                         decimal.TryParse(DT.Rows[i]["mpc"].ToString(), out mpc);
                         decimal.TryParse(DT.Rows[i]["povratna_naknada"].ToString(), out povratna_naknada);
-
                         string sql = "UPDATE inventura_stavke SET " +
                         " broj_inventure='" + DT.Rows[i]["broj_inventure"].ToString() + "', " +
                         " sifra_robe='" + DT.Rows[i]["sifra_robe"].ToString() + "'," +
@@ -166,7 +158,6 @@ namespace PCPOS.SQL
                         " mpc='" + mpc.ToString("#0.00").Replace(",", ".") + "'," +
                         " povratna_naknada='" + povratna_naknada.ToString("#0.00").Replace(",", ".") + "'" +
                         " WHERE broj_inventure='" + DT.Rows[i]["broj_inventure"].ToString() + "' AND sifra_robe='" + DT.Rows[i]["sifra_robe"].ToString() + "'";
-
                         NpgsqlCommand comm = new NpgsqlCommand(sql, classSQL.remoteConnection);
                         comm.ExecuteNonQuery();
                     }

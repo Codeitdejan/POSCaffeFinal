@@ -23,10 +23,7 @@ namespace PCPOS
             DodajPotrosni_materijal(DTremote);
             Porezi();
 
-            string sql = @"SELECT pg_namespace.nspname, pg_proc.proname
-    FROM pg_proc, pg_namespace
-    WHERE pg_proc.pronamespace=pg_namespace.oid
-       AND pg_proc.proname LIKE '%dblink%';";
+            string sql = @"SELECT pg_namespace.nspname, pg_proc.proname FROM pg_proc, pg_namespace WHERE pg_proc.pronamespace=pg_namespace.oid AND pg_proc.proname LIKE '%dblink%';";
             DataSet dsDbLink = classSQL.select(sql, "dblink");
 
             if (dsDbLink == null || dsDbLink.Tables.Count == 0 || dsDbLink.Tables[0] == null || dsDbLink.Tables[0].Rows.Count == 0)

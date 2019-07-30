@@ -766,6 +766,7 @@ namespace PCPOS
             this.uskladaRobeNaSkladištuToolStripMenuItem.Name = "uskladaRobeNaSkladištuToolStripMenuItem";
             this.uskladaRobeNaSkladištuToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
             this.uskladaRobeNaSkladištuToolStripMenuItem.Text = "Usklada robe na skladištu";
+            this.uskladaRobeNaSkladištuToolStripMenuItem.Click += new System.EventHandler(this.uskladaRobeNaSkladištuToolStripMenuItem_Click);
             // 
             // kasaToolStripMenuItem
             // 
@@ -1076,7 +1077,7 @@ namespace PCPOS
             // 
             // serialPort1
             // 
-            this.serialPort1.PortName = "COM3";
+            this.serialPort1.PortName = "COM2";
             // 
             // timerGodina
             // 
@@ -1106,8 +1107,8 @@ namespace PCPOS
             // 
             // bgSinkronizacija
             // 
-            this.bgSinkronizacija.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgSinkronizacija_DoWork);
-            this.bgSinkronizacija.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgSinkronizacija_RunWorkerCompleted);
+            //this.bgSinkronizacija.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgSinkronizacija_DoWork);
+            //this.bgSinkronizacija.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgSinkronizacija_RunWorkerCompleted);
             // 
             // timerBackupSvakih2Sata
             // 

@@ -918,9 +918,8 @@ namespace PCPOS.Caffe
                         naziv_artikla = naziv_artikla.Replace("Đ", "D");
                         naziv_artikla = naziv_artikla.Replace("š", "s");
                         naziv_artikla = naziv_artikla.Replace("Š", "S");
-
                         spLineDisplay.Write(Convert.ToString((char)12));
-                        spLineDisplay.WriteLine(naziv_artikla + " " + mpc.ToString("#0.00") + " kn");
+                        spLineDisplay.WriteLine(mpc.ToString("#0.00") + " kn");
                     }
                 }
                 catch { }

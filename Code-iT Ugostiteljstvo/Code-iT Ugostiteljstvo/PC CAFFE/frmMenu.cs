@@ -1252,7 +1252,7 @@ namespace PCPOS
             sk.MdiParent = this;
             sk.Show();
         }
-
+        /*
         private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
         private string iskljucenZbogDugovanja = "";
 
@@ -1267,7 +1267,7 @@ namespace PCPOS
 
             PokretacSinkronizacije.PokreniSinkronizaciju(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
         }
-
+        */
         private void getKontrola()
         {
             try
@@ -1817,6 +1817,14 @@ namespace PCPOS
         public void SetSkipPrijava(bool prijava)
         {
             skipPrijava = prijava;
+        }
+
+        private void uskladaRobeNaSkladištuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UskladaRobeNaSkladistuForm uskladaSkladista = new UskladaRobeNaSkladistuForm();
+            uskladaSkladista.MdiParent = this;
+            uskladaSkladista.Dock = DockStyle.Fill;
+            uskladaSkladista.Show();
         }
     }
 }

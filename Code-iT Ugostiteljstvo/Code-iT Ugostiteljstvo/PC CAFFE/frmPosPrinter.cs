@@ -2,6 +2,9 @@
 using System.Data;
 using System.Drawing.Printing;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Text;
+using System.IO.Ports;
 
 namespace PCPOS
 {
@@ -305,14 +308,49 @@ namespace PCPOS
         {
             try
             {
+                /*
                 spLineDisplay.PortName = txtPrekoPorta.Text;
                 spLineDisplay.Open();
-                spLineDisplay.Write(Convert.ToString((char)12));
-                spLineDisplay.WriteLine("TEST OK");
+                string a = "000";
+                //MessageBox.Show("111111");
+                //spLineDisplay.Write(Convert.ToChar(a),0,a.Length);
+                //spLineDisplay.WriteLine("11111111");
+                /*List<int> array1 = new List<int>();
+                array1.Add(1);
+                array1.Add(666);
+                array1.Add(int.MaxValue);
+                
+                //spLineDisplay.Write(data, 0, data.Length);
+                //spLineDisplay.Write("");
+                //spLineDisplay.WriteTimeout = 2000;
+                byte[] byteArray = new byte[1];
+                byteArray[0] = 0x7a;
+                spLineDisplay.Write(byteArray,0,1);
+                //spLineDisplay.WriteLine(a);
                 spLineDisplay.Close();
+                
+                spLineDisplay.Open();
+                byte[] mBuffer = new byte[1];
+                mBuffer[0] = 0x74; //ASCII letter "t".
+                spLineDisplay.Write(mBuffer, 0, mBuffer.Length);
+                spLineDisplay.Close();
+                */
+                SerialPort _serialport = new SerialPort("COM2", 19200, Parity.None, 8);
+                _serialport.Handshake = Handshake.None;
+                _serialport.Open();
+                _serialport.Write("4.20");
+                _serialport.Close();
             }
             catch (Exception ex)
             {
+                if (!(spLineDisplay.IsOpen))
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("0000");
+                }
                 MessageBox.Show(ex.ToString());
             }
         }

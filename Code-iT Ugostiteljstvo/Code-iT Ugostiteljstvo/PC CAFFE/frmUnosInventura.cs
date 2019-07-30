@@ -615,7 +615,6 @@ namespace PCPOS
                 }
                 catch { }
             }
-
             provjera_sql(classSQL.insert("INSERT INTO aktivnost_zaposlenici (id_zaposlenik,datum,radnja) VALUES ('" + Properties.Settings.Default.id_zaposlenik + "','" + DateTime.Now.ToString("yyyy-MM-dd H:mm:ss") + "','Nova inventura br." + txtBrojInventure.Text + "')"));
             SQL.SQLinventura.InsertStavke(DTsend);
             deleteFields();
@@ -664,7 +663,6 @@ namespace PCPOS
             objForm2.MainForm = this;
             objForm2.ShowDialog();
             this.TopMost = true;
-
             if (broj_inventure_edit != null)
             {
                 fillInventura();
