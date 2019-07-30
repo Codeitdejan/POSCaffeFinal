@@ -656,33 +656,7 @@ namespace PCPOS
             Application.Restart();
         }
 
-<<<<<<< HEAD
-=======
-      /*  private void btnNadogradi_Click(object sender, EventArgs e)
-        {
-            string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
-            string fileName = @"NadogradnjaPrograma.exe";
-            string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
-            using (WebClient req = new WebClient())
-            {
-                req.Credentials = new NetworkCredential("codeadmin", "Eqws64%2");
-                byte[] fileData = req.DownloadData(url);
 
-                using (FileStream file = File.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"{fileName}")))
-                {
-                    file.Write(fileData, 0, fileData.Length);
-                }
-            }
-
-            MessageBox.Show($@"Program će se automatski ažurirati. Molimo pričekajte 10 - 20 sekundi.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            System.Threading.Thread.Sleep(500); // Potrebno zbog toga što environment.Exit() prekida sve procese iako se izvršavaju. Pa dajemo
-                                                // programu još PUNO vremena (gledajući iz perspektive procesora) da se sve završi.
-            Process.Start("NadogradnjaPrograma.exe"); // Pokretanje programa za update
-            Environment.Exit(0); // Izlaz iz trenutnog programa
-        }
-        */
-
->>>>>>> 52f867df95f8abefa2a11875b309ca28bc6175c9
         private static string GetApplicationPath()
         {
             return System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
@@ -1916,13 +1890,11 @@ order by x.naziv;", cbDucan.SelectedValue, dRow[0].ToString());
 
         private void buttonNadograditiProgram_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
             string fileName = @"NadogradnjaPrograma.exe";
-=======
-           // string nadogradnjaProgramaPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $@"NadogradnjaPrograma.exe");
-            string fileName = $@"NadogradnjaPrograma.exe";
->>>>>>> 52f867df95f8abefa2a11875b309ca28bc6175c9
+
+
             string url = $"ftp://5.189.154.50/CodeCaffe/{fileName}";
             using (WebClient req = new WebClient())
             {
