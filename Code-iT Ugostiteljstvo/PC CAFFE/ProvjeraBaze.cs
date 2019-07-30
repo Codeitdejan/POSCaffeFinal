@@ -1,4 +1,4 @@
-﻿using PCPOS.Sinkronizacija;
+﻿
 using System;
 using System.Data;
 using System.IO;
@@ -1011,11 +1011,11 @@ alter table partners add column hormonalni_nadomjestak character varying (500);"
             {
                 sql = @"ALTER TABLE promjena_cijene_stavke ADD COLUMN kolicina numeric;";
                 classSQL.insert(sql);
-                Sinkronizacija.pomagala_syn Pomagala = new pomagala_syn();
+              //  Sinkronizacija.pomagala_syn Pomagala = new pomagala_syn();
                 sql = "SELECT * FROM promjena_cijene WHERE oib = '" + Util.Korisno.oibTvrtke + "' and poslovnica = '" + Util.Korisno.getPoslovnicaNaziv() + "';";
-                DataTable DTWeb = Pomagala.MyWebRequestXML("sql=" + sql + "&godina=" + Util.Korisno.GodinaKojaSeKoristiUbazi, Util.Korisno.domena_za_sinkronizaciju + "uzmi_podatke_xml/web_request.php");
+               // DataTable DTWeb = Pomagala.MyWebRequestXML("sql=" + sql + "&godina=" + Util.Korisno.GodinaKojaSeKoristiUbazi, Util.Korisno.domena_za_sinkronizaciju + "uzmi_podatke_xml/web_request.php");
 
-                sql = "";
+               /* sql = "";
                 if (DTWeb != null && DTWeb.Rows.Count > 0)
                 {
                     foreach (DataRow dr in DTWeb.Rows)
@@ -1023,7 +1023,7 @@ alter table partners add column hormonalni_nadomjestak character varying (500);"
                         sql += "UPDATE promjena_cijene_stavke SET kolicina = '" + dr["kolicina"] + "' WHERE broj = '" + dr["broj"] + "' AND sifra = '" + dr["sifra"] + "';\n";
                     }
                     classSQL.insert(sql);
-                }
+                }*/
             }
 
             //zakljucavanje dokumenata
@@ -1040,6 +1040,11 @@ alter table partners add column hormonalni_nadomjestak character varying (500);"
             if (DTremote.Select("table_name='povrat_robe' AND column_name='zakljucano'").Length == 0)
             {
                 sql = @"ALTER TABLE povrat_robe ADD COLUMN zakljucano boolean DEFAULT false;";
+                classSQL.insert(sql);
+            }
+            if (DTremote.Select("table_name='na_stol' AND column_name='id'").Length == 0)
+            {
+                sql = @"ALTER TABLE na_stol ADD COLUMN id SERIAL";
                 classSQL.insert(sql);
             }
             if (DTremote.Select("table_name='promjena_cijene' AND column_name='zakljucano'").Length == 0)

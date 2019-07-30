@@ -129,20 +129,20 @@ namespace PCPOS.Caffe
             button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             button1.Location = new System.Drawing.Point(x, y);
             button1.Name = id_stol;
-            button1.Text = naziv_stola + "\r\n" + Convert.ToDouble(ukupno).ToString("#0.00") + " kn";
+            button1.Text = id_stol + "|" + naziv_stola + "\r\n" + Convert.ToDouble(ukupno).ToString("#0.00") + " kn";
             button1.Size = new System.Drawing.Size(150 - (int)((decimal)150 * postotakSmanji / 100m), 80);
 
             button1.TabIndex = i;
             button1.UseVisualStyleBackColor = false;
             button1.Click += new System.EventHandler(this.btnTable_Click);
-            button1.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            button1.Font = new System.Drawing.Font("Arial Narrow", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AllKeyDown);
             return button1;
         }
 
         private void SetArtDgw(string id_stol)
         {
-            string sql = "SELECT racun_stavke.sifra_robe,racun_stavke.kolicina,roba.naziv,racuni.broj_racuna,racun_stavke.mpc FROM racuni " +
+            string sql = "SELECT racun_stavke.sifra_robe,racun_stavke.kolicina,roba.naziv,roba.id_podgrupa,racuni.broj_racuna,racun_stavke.mpc FROM racuni " +
                 " LEFT JOIN racun_stavke ON racun_stavke.broj_racuna=racuni.broj_racuna AND racuni.id_ducan=racun_stavke.id_ducan " +
                 " AND racuni.id_kasa=racun_stavke.id_blagajna LEFT JOIN roba ON roba.sifra=racun_stavke.sifra_robe " +
                 " WHERE racuni.ukupno_gotovina='0' AND racuni.ukupno_kartice='0' AND id_stol='" + id_stol + "'";
@@ -202,7 +202,26 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
             decimal u = 0;
             for (int i = 0; i < DT.Rows.Count; i++)
             {
-                dgw.Rows.Add(DT.Rows[i]["broj_narudzbe"].ToString(),
+                int index = dgw.Rows.Add();
+                dgw.Rows[index].Cells["runda"].Value = DT.Rows[i]["broj_narudzbe"].ToString();
+                dgw.Rows[index].Cells["naziv"].Value = DT.Rows[i]["naziv"].ToString();
+                dgw.Rows[index].Cells["kolicina"].Value = DT.Rows[i]["kom"].ToString();
+                dgw.Rows[index].Cells["cijena"].Value = DT.Rows[i]["mpc"].ToString();
+                dgw.Rows[index].Cells["chb_naplati"].Value = true;
+                dgw.Rows[index].Cells["id_podgrupa"].Value = "";
+                dgw.Rows[index].Cells["sifra"].Value = DT.Rows[i]["sifra"].ToString();
+                dgw.Rows[index].Cells["porez"].Value = DT.Rows[i]["porez"].ToString();
+                dgw.Rows[index].Cells["porez_potrosnja"].Value = DT.Rows[i]["porez_potrosnja"].ToString();
+                dgw.Rows[index].Cells["vpc"].Value = DT.Rows[i]["vpc"].ToString();
+                dgw.Rows[index].Cells["br"].Value = DT.Rows[i]["br"].ToString();
+                dgw.Rows[index].Cells["jelo"].Value = DT.Rows[i]["jelo"].ToString();
+                dgw.Rows[index].Cells["skinuto"].Value = DT.Rows[i]["skinuto"].ToString();
+                dgw.Rows[index].Cells["id_zaposlenik"].Value = DT.Rows[i]["id_zaposlenik"].ToString();
+                dgw.Rows[index].Cells["dod"].Value = DT.Rows[i]["dod"].ToString();
+                dgw.Rows[index].Cells["polapola"].Value = DT.Rows[i]["pol"].ToString();
+                dgw.Rows[index].Cells["rabat"].Value = DT.Rows[i]["rabat"].ToString();
+
+               /* dgw.Rows.Add(DT.Rows[i]["broj_narudzbe"].ToString(),
                     DT.Rows[i]["naziv"].ToString(),
                     DT.Rows[i]["kom"].ToString(),
                     Convert.ToDouble(DT.Rows[i]["mpc"].ToString()),
@@ -220,8 +239,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     DT.Rows[i]["pol"].ToString(),
                     DT.Rows[i]["rabat"].ToString()
                     );
-
-                this.dgw.Rows[i].Cells["chb_naplati"].Value = true;
+                    */
             }
 
             PaintRows(dgw);
@@ -472,7 +490,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     row["broj_racuna"] = brRac;
                     row["sifra_robe"] = sifra;
                     row["id_skladiste"] = dg(i, "id_skladiste");
-                    row["mpc"] = DTroba?.Rows.Count > 0 ? DTroba.Rows[0]["mpc"].ToString().Replace('.', ',') : dg(i, "cijena");
+                    row["mpc"] = dg(i, "cijena");
                     row["porez"] = dg(i, "porez");
                     row["kolicina"] = dg(i, "kolicina");
                     row["vpc"] = dg(i, "vpc");
@@ -534,53 +552,19 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!File.Exists("belveder"))
+            if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                for (int i = 0; i < dgw.Rows.Count; i++)
                 {
-                    for (int i = 0; i < dgw.Rows.Count; i++)
+                    if (dgw.Rows[i].Cells["chb_naplati"].FormattedValue.ToString() == "False")
                     {
-                        if (dgw.Rows[i].Cells["chb_naplati"].FormattedValue.ToString() == "False")
-                        {
-                            string sql = "DELETE FROM na_stol WHERE broj_narudzbe='" + dg(i, "runda") + "' AND id_poslovnica='" + DTpostavke.Rows[0]["default_ducan"].ToString() + "' AND sifra='" + dg(i, "sifra") + "' AND id_stol='" + _odabraniStol + "' AND br='" + dg(i, "br") + "'";
-                            classSQL.delete(sql);
-                        }
-                    }
-
-                    dgw.Rows.Clear();
-                    PaintRows(dgw);
-                }
-            }
-            else
-            {
-                Caffe.Dodaci.frmVracaNekuVrijednost v = new Dodaci.frmVracaNekuVrijednost();
-                Properties.Settings.Default.privremena_vrijednost = "";
-                v.txtBroj.PasswordChar = '*';
-                v._title = "Unesite ključ:";
-                v.ShowDialog();
-
-                string key = File.ReadAllText("belveder");
-                if (Properties.Settings.Default.privremena_vrijednost == key)
-                {
-                    if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        for (int i = 0; i < dgw.Rows.Count; i++)
-                        {
-                            if (dgw.Rows[i].Cells["chb_naplati"].FormattedValue.ToString() == "False")
-                            {
-                                string sql = "DELETE FROM na_stol WHERE broj_narudzbe='" + dg(i, "runda") + "' AND id_poslovnica='" + DTpostavke.Rows[0]["default_ducan"].ToString() + "' AND sifra='" + dg(i, "sifra") + "' AND id_stol='" + _odabraniStol + "' AND br='" + dg(i, "br") + "'";
-                                classSQL.delete(sql);
-                            }
-                        }
-
-                        dgw.Rows.Clear();
-                        PaintRows(dgw);
+                        string sql = "DELETE FROM na_stol WHERE broj_narudzbe='" + dg(i, "runda") + "' AND id_poslovnica='" + DTpostavke.Rows[0]["default_ducan"].ToString() + "' AND sifra='" + dg(i, "sifra") + "' AND id_stol='" + _odabraniStol + "' AND br='" + dg(i, "br") + "'";
+                        classSQL.delete(sql);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Krivi unos!");
-                }
+
+                dgw.Rows.Clear();
+                PaintRows(dgw);
             }
 
             Control conGrupa = (Control)sender;
@@ -870,6 +854,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 DTsend.Columns.Add("jelo");
                 DTsend.Columns.Add("dod");
                 DTsend.Columns.Add("pol");
+                DTsend.Columns.Add("id_podgrupa");
                 DataRow row;
 
                 for (int i = 0; i < dgw.Rows.Count; i++)
@@ -896,14 +881,30 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                             row["jelo"] = dg(i, "jelo");
                             row["dod"] = dg(i, "dod");
                             row["pol"] = dg(i, "polapola");
+                            row["id_podgrupa"] = dg(i, "id_podgrupa");
                             DTsend.Rows.Add(row);
                         }
                     }
                 }
 
-                string printer1Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name"].ToString();
+                if (DTpostavkePrinter.Rows[0]["windows_printer_sank"].ToString() != "Nije instaliran")
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
+
+                if (DTpostavkePrinter.Rows[0]["windows_printer_name2"].ToString() != "Nije instaliran")
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter2(DTsend);
+
+                if (DTpostavkePrinter.Rows[0]["windows_printer_name3"].ToString() != "Nije instaliran")
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter3(DTsend);
+
+                //Ako postoji uopce koja grupa da je ozancena za 4. printer u postavkama POS opreme
+                PosPrint.classPosPrintKuhinja.NapuniListuOznacenimGrupama();
+                //Ako je instaliran printer && ako ima bilo koja oznacena grupa u POS Postavke && Ako ima artikl na racunu koji se nalazi u oznacenoj grupi
+                if (DTpostavkePrinter.Rows[0][29].ToString() != "Nije instaliran" && PosPrint.classPosPrintKuhinja.listaOznacenihGrupa.Count > 0 && PosPrint.classPosPrintKuhinja.ArtiklIzOznaceneGrupePostojan)
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter10(DTsend);
+                /*string printer1Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name"].ToString();
                 string printer2Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name2"].ToString();
                 string printer3Naziv = DTpostavkePrinter.Rows[0]["windows_printer_name3"].ToString();
+                string printer4Naziv = DTpostavkePrinter.Rows[0]["windows_printer_sank"].ToString();
 
                 if (printer1Naziv != "Nije instaliran" && printer1Naziv != "")
                 {
@@ -914,7 +915,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                 if (printer2Naziv != "Nije instaliran" && printer2Naziv != "")
                 {
                     PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
-                    PosPrint.classPosPrintKuhinja.PrintOnPrinter2(DTsend);
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
                 }
 
                 if (printer3Naziv != "Nije instaliran" && printer3Naziv != "")
@@ -922,43 +923,24 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
                     PosPrint.classPosPrintKuhinja.PrintOnPrinter3(DTsend);
                 }
+                if (printer4Naziv != "Nije instaliran" && printer4Naziv != "")
+                {
+                    PosPrint.classPosPrintKuhinja.broj_narudzbe = broj_narudzbe;
+                    PosPrint.classPosPrintKuhinja.PrintOnPrinter1(DTsend);
+                }*/
             }
         }
 
         private void btnDellAll_Click(object sender, EventArgs e)
         {
-            if (!File.Exists("belveder"))
-            {
-                if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    classSQL.delete("DELETE FROM na_stol WHERE id_stol='" + _odabraniStol + "'");
-                    SetStolovi();
-                    IscrtajZidove();
-                }
-            }
-            else
-            {
-                Caffe.Dodaci.frmVracaNekuVrijednost v = new Dodaci.frmVracaNekuVrijednost();
-                Properties.Settings.Default.privremena_vrijednost = "";
-                v.txtBroj.PasswordChar = '*';
-                v._title = "Unesite ključ:";
-                v.ShowDialog();
 
-                string key = File.ReadAllText("belveder");
-                if (Properties.Settings.Default.privremena_vrijednost == key)
-                {
-                    if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        classSQL.delete("DELETE FROM na_stol WHERE id_stol='" + _odabraniStol + "'");
-                        SetStolovi();
-                        IscrtajZidove();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Krivi unos!");
-                }
+            if (MessageBox.Show("Dali ste sigurni da želite obrisati cijeli stol?", "Brisanje sa cijelog stola!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                classSQL.delete("DELETE FROM na_stol WHERE id_stol='" + _odabraniStol + "'");
+                SetStolovi();
+                IscrtajZidove();
             }
+
         }
 
         private void btnIspisNarudzbe_Click(object sender, EventArgs e)
@@ -1211,7 +1193,7 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
             }
         }
 
-        
+
 
         private void btnKoristiUds_Click(object sender, EventArgs e)
         {
@@ -1335,6 +1317,16 @@ where id= (select id_adresa_dostave from na_stol where id_stol = '" + _odabraniS
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmStoloviNapredno frm = new frmStoloviNapredno();
+            frm.ShowDialog();
+            //Refresh
+            SetStolovi();
+            IscrtajZidove();
+            this.Paint += new PaintEventHandler(Class.Postavke.changeBackground);
         }
     }
 }

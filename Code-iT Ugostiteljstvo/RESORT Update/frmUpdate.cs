@@ -42,7 +42,7 @@ namespace RESORT_Update {
             }
 
             string sUrlToDnldFile;
-            sUrlToDnldFile = "http://www.pc1.hr/update/resort/RESORT.exe";
+            sUrlToDnldFile = "";//http://www.pc1.hr/update/resort/RESORT.exe";
 
 
             try {

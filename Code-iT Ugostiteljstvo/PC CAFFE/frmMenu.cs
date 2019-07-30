@@ -120,7 +120,7 @@ namespace PCPOS
             //OVO MORA BITI NA VRHU
             Util.Korisno.VratiDucanIBlagajnu();
             Util.Korisno.getKarticaKupca();
-            Util.Korisno.getDomenaZaSinkronizaciju();
+           // Util.Korisno.getDomenaZaSinkronizaciju();
             Util.Korisno.getOib();
             Class.Registracija.getPodaci();
             Class.PodaciTvrtka.getPodaci();
@@ -156,12 +156,12 @@ namespace PCPOS
             //////////////////////////////////////////SINKRONIZACIJA ARTIKALA SA WEBOM/////////////////////////////////
             try
             {
-                if (System.Environment.MachineName == "POWER-RAC" && !Util.Korisno.domena_za_sinkronizaciju.Contains("localhost"))
+               /* if (System.Environment.MachineName == "POWER-RAC" && !Util.Korisno.domena_za_sinkronizaciju.Contains("localhost"))
                 {
                     string newDomena = Util.Korisno.domena_za_sinkronizaciju.Replace("//", "//localhost/");
                     Util.Korisno.domena_za_sinkronizaciju = newDomena;
                     classSQL.Setings_Update("update postavke set domena_za_sinkronizaciju = '" + Util.Korisno.domena_za_sinkronizaciju + "';");
-                }
+                }*/
 
                 this.Text = DTtvrtka.Rows[0]["ime_tvrtke"].ToString();
                 kor.ProvjeriVrijemeUpozoriKorisnika(5);
@@ -176,17 +176,17 @@ namespace PCPOS
                     MessageBox.Show("Molimo obratite pozornost na aktivnost fiskalizacije.\r\nU postavkama fiskalizacije fiskalizacija je isključena.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                if (!Util.Korisno.RadimSinkronizaciju)
+               /* if (!Util.Korisno.RadimSinkronizaciju)
                 {
                     Util.Korisno.RadimSinkronizaciju = true;
                     bgSinkronizacija.RunWorkerAsync();
-                }
+                }*/
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-
+            
             timerBackupSvakih2Sata.Start();
 
             CultureInfo before = System.Threading.Thread.CurrentThread.CurrentCulture;
@@ -934,7 +934,11 @@ namespace PCPOS
                     if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
                     {
                         //PCPOS.Until.classDownloadFiles down = new Until.classDownloadFiles();
-                        //down.SkiniDatoteku("http://pc1.hr/podrska/help.doc", Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Podrška POWER COMPUTERS.exe");
+                        //down.SkiniDatoteku("http://
+                        
+                        
+                        
+                       // /podrska/help.doc", Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Podrška POWER COMPUTERS.exe");
                     }
                 }
             }
@@ -1252,8 +1256,13 @@ namespace PCPOS
             sk.MdiParent = this;
             sk.Show();
         }
+<<<<<<< HEAD:Code-iT Ugostiteljstvo/PC CAFFE/frmMenu.cs
         /*
         private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+=======
+
+       /* private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+>>>>>>> b8226d8259bf74409bf745215002edc9f4792cfe:Code-iT Ugostiteljstvo/Code-iT Ugostiteljstvo/PC CAFFE/frmMenu.cs
         private string iskljucenZbogDugovanja = "";
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
@@ -1309,13 +1318,13 @@ namespace PCPOS
             {
             }
         }
-
+        
         private DataSet DS_aktivacija;
         private newSql SqlPostgres = new newSql();
 
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Sinkronizacija.frmPoruka msg = new Sinkronizacija.frmPoruka();
+            /*Sinkronizacija.frmPoruka msg = new Sinkronizacija.frmPoruka();
             if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1")
             {
                 msg.Show();
@@ -1330,7 +1339,7 @@ namespace PCPOS
             if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1")
             {
                 msg.Close();
-            }
+            }*/
         }
 
         private void timerBackupSvakih2Sata_Tick(object sender, EventArgs e)
@@ -1377,7 +1386,7 @@ namespace PCPOS
 
         private void bgSinkronizacija_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Util.Korisno.RadimSinkronizaciju = false;
+           // Util.Korisno.RadimSinkronizaciju = false;
         }
 
         private void novaMeđuskladišnicaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1471,7 +1480,7 @@ namespace PCPOS
 
         private void timerSinkronizacijaPoPeriodu_Tick(object sender, EventArgs e)
         {
-            try
+            /*try
             {
                 timerSinkronizacijaPoPeriodu.Stop();
                 timerSinkronizacijaPoPeriodu.Interval = 300000;
@@ -1486,7 +1495,7 @@ namespace PCPOS
             {
                 timerSinkronizacijaPoPeriodu.Start();
                 throw;
-            }
+            }*/
         }
 
         private void timerRestartNovaGodina_Tick(object sender, EventArgs e)

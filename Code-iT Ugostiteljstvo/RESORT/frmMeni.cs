@@ -1027,7 +1027,7 @@ namespace RESORT
             return System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
         }
 
-        private void timerBackup_Tick(object sender, EventArgs e)
+   /*     private void timerBackup_Tick(object sender, EventArgs e)
         {
             try
             {
@@ -1055,7 +1055,7 @@ namespace RESORT
             catch (Exception)
             {
             }
-        }
+        }*/
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {

@@ -325,7 +325,7 @@
             this.btnProvjeriNadogradnju.TabIndex = 1;
             this.btnProvjeriNadogradnju.Text = "Provjeri dali postoji nadogradnja";
             this.btnProvjeriNadogradnju.UseVisualStyleBackColor = true;
-            this.btnProvjeriNadogradnju.Click += new System.EventHandler(this.btnProvjeriNadogradnju_Click);
+         //   this.btnProvjeriNadogradnju.Click += new System.EventHandler(this.btnProvjeriNadogradnju_Click);
             // 
             // groupBox1
             // 

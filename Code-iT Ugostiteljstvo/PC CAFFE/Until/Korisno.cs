@@ -1,5 +1,4 @@
-﻿using PCPOS.Sinkronizacija;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -692,14 +691,14 @@ where dokumenat in ('POČETNO STANJE', 'POZAJMNICA', 'POCETNI POLOG BLAGAJNE', '
                     DateTime.TryParse(datum, out _dt_);
                 }
 
-                synRacuni Racuni = new synRacuni(true, _dt_.AddHours(-1).ToString(""));
-                Racuni.gasenje = true;
+               // synRacuni Racuni = new synRacuni(true, _dt_.AddHours(-1).ToString(""));
+                //Racuni.gasenje = true;
                 if (DTpostavke.Rows[0]["posalji_dokumente_na_web"].ToString() == "1" && System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
                 {
                     if (!Util.Korisno.RadimSinkronizaciju)
                     {
                         Util.Korisno.RadimSinkronizaciju = true;
-                        Racuni.Send();
+                        //Racuni.Send();
                         Util.Korisno.RadimSinkronizaciju = false;
                         File.WriteAllText("ZadnjaProvjeraRacuna", DateTime.Now.ToString());
                     }

@@ -229,6 +229,7 @@ WHERE broj_racuna = '{0}' AND racuni.id_kasa = '{1}' AND racuni.id_ducan = '{2}'
 
         private void btnZavrsiRacun_Click(object sender, EventArgs e)
         {
+
             zavrseno = false;
 
             try

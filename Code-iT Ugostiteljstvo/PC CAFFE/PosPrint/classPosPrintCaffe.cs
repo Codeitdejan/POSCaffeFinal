@@ -274,12 +274,7 @@ namespace PCPOS.PosPrint
                         double.TryParse(DTstavke.Rows[i]["vpc"].ToString().Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture, out double VPC);
                         double.TryParse(DTstavke.Rows[i]["mpc"].ToString().Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture, out double mpc);
                         double.TryParse(DTstavke.Rows[i]["rabat"].ToString().Replace(',', '.'), NumberStyles.Any, CultureInfo.InvariantCulture, out double rabat);
-                        //double kolicina = Convert.ToDouble(DTstavke.Rows[i]["kolicina"].ToString());
-                        //double PP = Convert.ToDouble(DTstavke.Rows[i]["porez_potrosnja"].ToString().Replace(',', '.'));
-                        //double PDV = Convert.ToDouble(DTstavke.Rows[i]["porez"].ToString());
-                        //double VPC = Convert.ToDouble(DTstavke.Rows[i]["vpc"].ToString());
-                        //double mpc = Math.Round(((VPC * (PP + PDV) / 100) + VPC), 3);
-                        //double mpc = Convert.ToDouble(DTstavke.Rows[i]["mpc"].ToString());
+
                         if (Class.Postavke.UDSGame && karticaIznosZaOduzeti != 0)
                         {
                             VPC = VPC * (double)Math.Round(koeficijent, 10, MidpointRounding.AwayFromZero);
@@ -288,7 +283,7 @@ namespace PCPOS.PosPrint
                         double MPC = Math.Round(((VPC * (PP + PDV) / 100) + VPC), 3);
                         double ukupnoStavka = mpc * kolicina;
 
-                        rabat = Convert.ToDouble(DTstavke.Rows[i]["rabat"].ToString());
+                        //rabat = Convert.ToDouble(DTstavke.Rows[i]["rabat"].ToString());
                         ukupno_rabat = (ukupnoStavka * rabat / 100) + ukupno_rabat;
                         ukupnoStavka = Math.Round((ukupnoStavka - (ukupnoStavka * rabat / 100)), 3);
 
@@ -588,7 +583,7 @@ namespace PCPOS.PosPrint
             }
 
             string[] lines = DTsetting.Rows[0]["bottom_text"].ToString().Split('\n');
-            tekst += Environment.NewLine + Environment.NewLine;
+            // tekst += Environment.NewLine + Environment.NewLine;
 
             foreach (string line in lines)
             {
@@ -618,10 +613,10 @@ namespace PCPOS.PosPrint
             }
 
             id_adresa_dostave = 0;
-            for (int i = 0; i < Convert.ToInt16(DTsetting.Rows[0]["linija_praznih_bottom"].ToString()); i++)
+            /*for (int i = 0; i < Convert.ToInt16(DTsetting.Rows[0]["linija_praznih_bottom"].ToString()); i++)
             {
                 tekst += Environment.NewLine;
-            }
+            }*/
 
             // Code-iT verzija programa bottom text
             string codeIt = $"Code-iT verzija programa: {Properties.Settings.Default.verzija_programa.ToString()}";
@@ -719,11 +714,14 @@ namespace PCPOS.PosPrint
 
                 foreach (string line in lines)
                 {
-                    int brojText = line.Trim().Length;
-                    int brojOstatak = (RecLineChars - brojText) / 2;
-                    string praznaMjesta = "";
-                    for (int _br = 0; _br < brojOstatak; _br++) { praznaMjesta += " "; }
-                    tekst += praznaMjesta + line.Trim().ToUpper() + "\r\n";
+                    if (line != "")
+                    {
+                        int brojText = line.Trim().Length;
+                        int brojOstatak = (RecLineChars - brojText) / 2;
+                        string praznaMjesta = "";
+                        for (int _br = 0; _br < brojOstatak; _br++) { praznaMjesta += " "; }
+                        tekst += praznaMjesta + line.Trim().ToUpper() + "\r\n";
+                    }
                 }
             }
             else

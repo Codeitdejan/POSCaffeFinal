@@ -102,11 +102,11 @@ namespace PCPOS
                     }
                 }
 
-                if (!Util.Korisno.RadimSinkronizaciju)
+               /* if (!Util.Korisno.RadimSinkronizaciju)
                 {
                     Util.Korisno.RadimSinkronizaciju = true;
                     bgSinkronizacija.RunWorkerAsync();
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -126,16 +126,16 @@ namespace PCPOS
             }
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+      //  private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false);
+      //      PokretacSinkronizacije.PokreniSinkronizaciju(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false);
         }
 
         private void bgSinkronizacija_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Util.Korisno.RadimSinkronizaciju = false;
+       //     Util.Korisno.RadimSinkronizaciju = false;
         }
 
         private void frmMiniOtpremnica_Load(object sender, EventArgs e)

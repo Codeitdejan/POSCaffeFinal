@@ -49,11 +49,13 @@
             this.btnNaplati = new System.Windows.Forms.Button();
             this.btnESC = new System.Windows.Forms.Button();
             this.lblDostava = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.runda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chb_naplati = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id_podgrupa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sifra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_skladiste = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porez = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +89,7 @@
             this.kolicina,
             this.cijena,
             this.chb_naplati,
+            this.id_podgrupa,
             this.sifra,
             this.id_skladiste,
             this.porez,
@@ -109,13 +112,13 @@
             this.dgw.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgw.EnableHeadersVisualStyles = false;
             this.dgw.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(170)))), ((int)(((byte)(180)))));
-            this.dgw.Location = new System.Drawing.Point(673, 71);
+            this.dgw.Location = new System.Drawing.Point(695, 71);
             this.dgw.Name = "dgw";
             this.dgw.ReadOnly = true;
             this.dgw.RowHeadersVisible = false;
             this.dgw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgw.Size = new System.Drawing.Size(308, 384);
+            this.dgw.Size = new System.Drawing.Size(310, 384);
             this.dgw.TabIndex = 136;
             this.dgw.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_CellClick);
             this.dgw.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AllKeyDown);
@@ -145,7 +148,7 @@
             this.btnAdresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnAdresa.ForeColor = System.Drawing.Color.Black;
             this.btnAdresa.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAdresa.Location = new System.Drawing.Point(499, 9);
+            this.btnAdresa.Location = new System.Drawing.Point(517, 9);
             this.btnAdresa.Name = "btnAdresa";
             this.btnAdresa.Size = new System.Drawing.Size(76, 56);
             this.btnAdresa.TabIndex = 145;
@@ -168,7 +171,7 @@
             this.btnDodajPopust.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnDodajPopust.ForeColor = System.Drawing.Color.Black;
             this.btnDodajPopust.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnDodajPopust.Location = new System.Drawing.Point(370, 9);
+            this.btnDodajPopust.Location = new System.Drawing.Point(388, 9);
             this.btnDodajPopust.Name = "btnDodajPopust";
             this.btnDodajPopust.Size = new System.Drawing.Size(124, 56);
             this.btnDodajPopust.TabIndex = 143;
@@ -192,7 +195,7 @@
             this.btnIspisNarudzbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnIspisNarudzbe.ForeColor = System.Drawing.Color.Black;
             this.btnIspisNarudzbe.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnIspisNarudzbe.Location = new System.Drawing.Point(677, 9);
+            this.btnIspisNarudzbe.Location = new System.Drawing.Point(695, 9);
             this.btnIspisNarudzbe.Name = "btnIspisNarudzbe";
             this.btnIspisNarudzbe.Size = new System.Drawing.Size(111, 56);
             this.btnIspisNarudzbe.TabIndex = 142;
@@ -216,7 +219,7 @@
             this.btnPredRacun.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btnPredRacun.ForeColor = System.Drawing.Color.Black;
             this.btnPredRacun.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPredRacun.Location = new System.Drawing.Point(673, 461);
+            this.btnPredRacun.Location = new System.Drawing.Point(691, 461);
             this.btnPredRacun.Name = "btnPredRacun";
             this.btnPredRacun.Size = new System.Drawing.Size(157, 58);
             this.btnPredRacun.TabIndex = 139;
@@ -241,7 +244,7 @@
             this.btnSveUKuhinju.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnSveUKuhinju.ForeColor = System.Drawing.Color.Black;
             this.btnSveUKuhinju.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnSveUKuhinju.Location = new System.Drawing.Point(580, 9);
+            this.btnSveUKuhinju.Location = new System.Drawing.Point(598, 9);
             this.btnSveUKuhinju.Name = "btnSveUKuhinju";
             this.btnSveUKuhinju.Size = new System.Drawing.Size(92, 56);
             this.btnSveUKuhinju.TabIndex = 147;
@@ -266,7 +269,7 @@
             this.btnOtpremnica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnOtpremnica.ForeColor = System.Drawing.Color.Black;
             this.btnOtpremnica.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnOtpremnica.Location = new System.Drawing.Point(240, 9);
+            this.btnOtpremnica.Location = new System.Drawing.Point(258, 9);
             this.btnOtpremnica.Name = "btnOtpremnica";
             this.btnOtpremnica.Size = new System.Drawing.Size(124, 56);
             this.btnOtpremnica.TabIndex = 149;
@@ -290,7 +293,7 @@
             this.btnUdsGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnUdsGame.ForeColor = System.Drawing.Color.Black;
             this.btnUdsGame.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnUdsGame.Location = new System.Drawing.Point(137, 9);
+            this.btnUdsGame.Location = new System.Drawing.Point(52, 10);
             this.btnUdsGame.Name = "btnUdsGame";
             this.btnUdsGame.Size = new System.Drawing.Size(97, 56);
             this.btnUdsGame.TabIndex = 150;
@@ -315,7 +318,7 @@
             this.btnKoristiUds.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnKoristiUds.ForeColor = System.Drawing.Color.Black;
             this.btnKoristiUds.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnKoristiUds.Location = new System.Drawing.Point(11, 9);
+            this.btnKoristiUds.Location = new System.Drawing.Point(29, 9);
             this.btnKoristiUds.Name = "btnKoristiUds";
             this.btnKoristiUds.Size = new System.Drawing.Size(120, 56);
             this.btnKoristiUds.TabIndex = 151;
@@ -335,7 +338,7 @@
             this.panelStolovi.BackColor = System.Drawing.Color.Silver;
             this.panelStolovi.Location = new System.Drawing.Point(11, 71);
             this.panelStolovi.Name = "panelStolovi";
-            this.panelStolovi.Size = new System.Drawing.Size(656, 520);
+            this.panelStolovi.Size = new System.Drawing.Size(674, 520);
             this.panelStolovi.TabIndex = 144;
             // 
             // btnDellAll
@@ -352,7 +355,7 @@
             this.btnDellAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnDellAll.ForeColor = System.Drawing.Color.White;
             this.btnDellAll.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnDellAll.Location = new System.Drawing.Point(793, 9);
+            this.btnDellAll.Location = new System.Drawing.Point(811, 9);
             this.btnDellAll.Name = "btnDellAll";
             this.btnDellAll.Size = new System.Drawing.Size(93, 56);
             this.btnDellAll.TabIndex = 141;
@@ -374,11 +377,11 @@
             this.btnPosaljiUKuhinju.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btnPosaljiUKuhinju.ForeColor = System.Drawing.Color.Black;
             this.btnPosaljiUKuhinju.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnPosaljiUKuhinju.Location = new System.Drawing.Point(832, 462);
+            this.btnPosaljiUKuhinju.Location = new System.Drawing.Point(850, 462);
             this.btnPosaljiUKuhinju.Name = "btnPosaljiUKuhinju";
             this.btnPosaljiUKuhinju.Size = new System.Drawing.Size(149, 57);
             this.btnPosaljiUKuhinju.TabIndex = 140;
-            this.btnPosaljiUKuhinju.Text = "Pošalji u kuhinju F4";
+            this.btnPosaljiUKuhinju.Text = "Pošalji narudžbe F4";
             this.btnPosaljiUKuhinju.UseVisualStyleBackColor = false;
             this.btnPosaljiUKuhinju.Click += new System.EventHandler(this.btnPosaljiUKuhinju_Click);
             this.btnPosaljiUKuhinju.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AllKeyDown);
@@ -397,7 +400,7 @@
             this.btnObrisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btnObrisi.ForeColor = System.Drawing.Color.White;
             this.btnObrisi.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnObrisi.Location = new System.Drawing.Point(673, 524);
+            this.btnObrisi.Location = new System.Drawing.Point(691, 524);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(157, 69);
             this.btnObrisi.TabIndex = 140;
@@ -420,7 +423,7 @@
             this.btnNaplati.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btnNaplati.ForeColor = System.Drawing.Color.Black;
             this.btnNaplati.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnNaplati.Location = new System.Drawing.Point(832, 524);
+            this.btnNaplati.Location = new System.Drawing.Point(850, 524);
             this.btnNaplati.Name = "btnNaplati";
             this.btnNaplati.Size = new System.Drawing.Size(150, 69);
             this.btnNaplati.TabIndex = 138;
@@ -443,7 +446,7 @@
             this.btnESC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnESC.ForeColor = System.Drawing.Color.White;
             this.btnESC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnESC.Location = new System.Drawing.Point(890, 9);
+            this.btnESC.Location = new System.Drawing.Point(908, 9);
             this.btnESC.Name = "btnESC";
             this.btnESC.Size = new System.Drawing.Size(91, 56);
             this.btnESC.TabIndex = 124;
@@ -460,6 +463,28 @@
             this.lblDostava.Size = new System.Drawing.Size(50, 13);
             this.lblDostava.TabIndex = 146;
             this.lblDostava.Text = "Dostava:";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(53)))), ((int)(((byte)(79)))));
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button1.Location = new System.Drawing.Point(156, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 56);
+            this.button1.TabIndex = 152;
+            this.button1.Text = "Stolovi - Napredno";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // runda
             // 
@@ -507,12 +532,20 @@
             this.chb_naplati.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.chb_naplati.Width = 60;
             // 
+            // id_podgrupa
+            // 
+            this.id_podgrupa.HeaderText = "id_podgrupa";
+            this.id_podgrupa.Name = "id_podgrupa";
+            this.id_podgrupa.ReadOnly = true;
+            this.id_podgrupa.Visible = false;
+            // 
             // sifra
             // 
+            this.sifra.FillWeight = 30F;
             this.sifra.HeaderText = "sifra";
             this.sifra.Name = "sifra";
             this.sifra.ReadOnly = true;
-            this.sifra.Visible = false;
+            this.sifra.Width = 30;
             // 
             // id_skladiste
             // 
@@ -596,7 +629,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(999, 603);
+            this.ClientSize = new System.Drawing.Size(1017, 603);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnKoristiUds);
             this.Controls.Add(this.btnUdsGame);
             this.Controls.Add(this.btnOtpremnica);
@@ -646,11 +680,13 @@
         private System.Windows.Forms.Button btnOtpremnica;
         private System.Windows.Forms.Button btnUdsGame;
         private System.Windows.Forms.Button btnKoristiUds;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn runda;
         private System.Windows.Forms.DataGridViewTextBoxColumn naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicina;
         private System.Windows.Forms.DataGridViewTextBoxColumn cijena;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chb_naplati;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_podgrupa;
         private System.Windows.Forms.DataGridViewTextBoxColumn sifra;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_skladiste;
         private System.Windows.Forms.DataGridViewTextBoxColumn porez;

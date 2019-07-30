@@ -1088,11 +1088,11 @@ namespace PCPOS.Caffe
             robno.PostaviStanjeSkladista();
             try
             {
-                if (!Util.Korisno.RadimSinkronizaciju)
+               /* if (!Util.Korisno.RadimSinkronizaciju)
                 {
                     Util.Korisno.RadimSinkronizaciju = true;
                     bgSinkronizacija.RunWorkerAsync();
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -1100,16 +1100,16 @@ namespace PCPOS.Caffe
             }
         }
 
-        private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
+       // private Sinkronizacija.synPokretac PokretacSinkronizacije = new Sinkronizacija.synPokretac();
 
         private void bgSinkronizacija_DoWork(object sender, DoWorkEventArgs e)
         {
-            PokretacSinkronizacije.PokreniSinkronizaciju(true, true, true, true, true, true, true, true, true, true, false, true, true, true, true, true, false, false, false);
+          //  PokretacSinkronizacije.PokreniSinkronizaciju(true, true, true, true, true, true, true, true, true, true, false, true, true, true, true, true, false, false, false);
         }
 
         private void bgSinkronizacija_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Util.Korisno.RadimSinkronizaciju = false;
+          //  Util.Korisno.RadimSinkronizaciju = false;
         }
 
         protected override CreateParams CreateParams
