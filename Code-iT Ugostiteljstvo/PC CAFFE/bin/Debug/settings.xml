@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <database_compact>
+    <path_database path="D:\PROJEKTI NE BRISATI\WINDOWS\PC CAFFE -  F45\PC CAFFE\bin\Debug\database.sdf" />
+  </database_compact>
+  <database_remote>
+<<<<<<< HEAD:Code-iT Ugostiteljstvo/Code-iT Ugostiteljstvo/PC CAFFE/bin/Debug/settings.xml
+    <postgree server="localhost" port="5432" username="postgres" database="miva2019" active="1" />
+=======
+  <postgree server="localhost" port="5432" username="postgres" database="miva2019" active="1" />
+>>>>>>> 24eb4ad7c6c4993148333f7389e5f147ac303189:Code-iT Ugostiteljstvo/PC CAFFE/bin/Debug/settings.xml
+  </database_remote>
+  <program>
+    <run_progam run="caffe" />
+  </program>
+</settings>
