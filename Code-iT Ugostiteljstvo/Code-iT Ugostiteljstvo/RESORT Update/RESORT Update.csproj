@@ -65,9 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmUpdate.cs" />
     <Compile Include="frmUpdate.Designer.cs">
       <DependentUpon>frmUpdate.cs</DependentUpon>
     </Compile>

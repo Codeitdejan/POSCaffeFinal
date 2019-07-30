@@ -127,301 +127,203 @@
     <Compile Include="classNumberToLetter.cs" />
     <Compile Include="ClassProvjeraBaze.cs" />
     <Compile Include="Class\Postavke.cs" />
-    <Compile Include="Forme\frmSveOtpremnice.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmSveOtpremnice.cs" />
     <Compile Include="Forme\frmSveOtpremnice.Designer.cs">
       <DependentUpon>frmSveOtpremnice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\izvjestaji\UkupnoPoNacinimaPlacanja\frmUkupnoPoNacinimaPlacanja.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\izvjestaji\UkupnoPoNacinimaPlacanja\frmUkupnoPoNacinimaPlacanja.cs" />
     <Compile Include="Forme\izvjestaji\UkupnoPoNacinimaPlacanja\frmUkupnoPoNacinimaPlacanja.Designer.cs">
       <DependentUpon>frmUkupnoPoNacinimaPlacanja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmIzbornikR.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmIzbornikR.cs" />
     <Compile Include="Forme\sifarnici\frmIzbornikR.Designer.cs">
       <DependentUpon>frmIzbornikR.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmIzbornik.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmIzbornik.cs" />
     <Compile Include="Forme\frmIzbornik.Designer.cs">
       <DependentUpon>frmIzbornik.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmOdaberiSobuZaNaplatiti.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmOdaberiSobuZaNaplatiti.cs" />
     <Compile Include="Forme\frmOdaberiSobuZaNaplatiti.Designer.cs">
       <DependentUpon>frmOdaberiSobuZaNaplatiti.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmOdaberiUnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmOdaberiUnos.cs" />
     <Compile Include="Forme\frmOdaberiUnos.Designer.cs">
       <DependentUpon>frmOdaberiUnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\OLD_frmUpisGosta.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\OLD_frmUpisGosta.cs" />
     <Compile Include="Forme\OLD_frmUpisGosta.Designer.cs">
       <DependentUpon>OLD_frmUpisGosta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmAvans.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmAvans.cs" />
     <Compile Include="Forme\frmAvans.designer.cs">
       <DependentUpon>frmAvans.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmAvansStorno.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmAvansStorno.cs" />
     <Compile Include="Forme\frmAvansStorno.designer.cs">
       <DependentUpon>frmAvansStorno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmKasaPrijava.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmKasaPrijava.cs" />
     <Compile Include="Forme\frmKasaPrijava.designer.cs">
       <DependentUpon>frmKasaPrijava.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmPopisSoba.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmPopisSoba.cs" />
     <Compile Include="Forme\frmPopisSoba.Designer.cs">
       <DependentUpon>frmPopisSoba.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmPopisUnosa.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmPopisUnosa.cs" />
     <Compile Include="Forme\frmPopisUnosa.Designer.cs">
       <DependentUpon>frmPopisUnosa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmPopis_cijena_po_datumima.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmPopis_cijena_po_datumima.cs" />
     <Compile Include="Forme\frmPopis_cijena_po_datumima.Designer.cs">
       <DependentUpon>frmPopis_cijena_po_datumima.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\FrmSviAvansi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\FrmSviAvansi.cs" />
     <Compile Include="Forme\FrmSviAvansi.designer.cs">
       <DependentUpon>FrmSviAvansi.cs</DependentUpon>
     </Compile>
     <Compile Include="Fiskalizacija\classFiskalizacija.cs" />
-    <Compile Include="Fiskalizacija\frmNeupjeleTransakcije.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Fiskalizacija\frmNeupjeleTransakcije.cs" />
     <Compile Include="Fiskalizacija\frmNeupjeleTransakcije.designer.cs">
       <DependentUpon>frmNeupjeleTransakcije.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fiskalizacija\frmPodaciFiskalizacija.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Fiskalizacija\frmPodaciFiskalizacija.cs" />
     <Compile Include="Fiskalizacija\frmPodaciFiskalizacija.Designer.cs">
       <DependentUpon>frmPodaciFiskalizacija.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fiskalizacija\frmPoslovniProstor.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Fiskalizacija\frmPoslovniProstor.cs" />
     <Compile Include="Fiskalizacija\frmPoslovniProstor.designer.cs">
       <DependentUpon>frmPoslovniProstor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fiskalizacija\frmPregledNefiskaliziranog.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Fiskalizacija\frmPregledNefiskaliziranog.cs" />
     <Compile Include="Fiskalizacija\frmPregledNefiskaliziranog.designer.cs">
       <DependentUpon>frmPregledNefiskaliziranog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmFaktura.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmFaktura.cs" />
     <Compile Include="Forme\frmFaktura.designer.cs">
       <DependentUpon>frmFaktura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmOnama.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmOnama.cs" />
     <Compile Include="Forme\frmOnama.Designer.cs">
       <DependentUpon>frmOnama.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmSveFakture.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmSveFakture.cs" />
     <Compile Include="Forme\frmSveFakture.designer.cs">
       <DependentUpon>frmSveFakture.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmTestColor.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmTestColor.cs" />
     <Compile Include="Forme\frmTestColor.Designer.cs">
       <DependentUpon>frmTestColor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmUnosRezervacije.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmUnosRezervacije.cs" />
     <Compile Include="Forme\frmUnosRezervacije.Designer.cs">
       <DependentUpon>frmUnosRezervacije.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\izvjestaji\Avansi\repAvans.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\izvjestaji\Avansi\repAvans.cs" />
     <Compile Include="Forme\izvjestaji\Avansi\repAvans.designer.cs">
       <DependentUpon>repAvans.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\izvjestaji\Faktura\repFaktura.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\izvjestaji\Faktura\repFaktura.cs" />
     <Compile Include="Forme\izvjestaji\Faktura\repFaktura.designer.cs">
       <DependentUpon>repFaktura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\izvjestaji\Prometi\frmPrometiOdabir.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\izvjestaji\Prometi\frmPrometiOdabir.cs" />
     <Compile Include="Forme\izvjestaji\Prometi\frmPrometiOdabir.designer.cs">
       <DependentUpon>frmPrometiOdabir.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\izvjestaji\Prometi\repPrometi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\izvjestaji\Prometi\repPrometi.cs" />
     <Compile Include="Forme\izvjestaji\Prometi\repPrometi.designer.cs">
       <DependentUpon>repPrometi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\izvjestaji\Statisticki_pregled\frmStatistikaOdabir.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\izvjestaji\Statisticki_pregled\frmStatistikaOdabir.cs" />
     <Compile Include="Forme\izvjestaji\Statisticki_pregled\frmStatistikaOdabir.designer.cs">
       <DependentUpon>frmStatistikaOdabir.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\izvjestaji\Statisticki_pregled\repStatistika.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\izvjestaji\Statisticki_pregled\repStatistika.cs" />
     <Compile Include="Forme\izvjestaji\Statisticki_pregled\repStatistika.designer.cs">
       <DependentUpon>repStatistika.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\Ponude\frmPonude.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\Ponude\frmPonude.cs" />
     <Compile Include="Forme\Ponude\frmPonude.designer.cs">
       <DependentUpon>frmPonude.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\Ponude\frmSvePonude.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\Ponude\frmSvePonude.cs" />
     <Compile Include="Forme\Ponude\frmSvePonude.designer.cs">
       <DependentUpon>frmSvePonude.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmCijene_soba.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmCijene_soba.cs" />
     <Compile Include="Forme\sifarnici\frmCijene_soba.Designer.cs">
       <DependentUpon>frmCijene_soba.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmNoviGrad.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmNoviGrad.cs" />
     <Compile Include="Forme\sifarnici\frmNoviGrad.designer.cs">
       <DependentUpon>frmNoviGrad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmValute.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmValute.cs" />
     <Compile Include="Forme\sifarnici\frmValute.designer.cs">
       <DependentUpon>frmValute.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmZaposlenici.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmZaposlenici.cs" />
     <Compile Include="Forme\sifarnici\frmZaposlenici.Designer.cs">
       <DependentUpon>frmZaposlenici.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmAddPartners.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmAddPartners.cs" />
     <Compile Include="Forme\sifarnici\frmAddPartners.designer.cs">
       <DependentUpon>frmAddPartners.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmAgencije.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmAgencije.cs" />
     <Compile Include="Forme\sifarnici\frmAgencije.Designer.cs">
       <DependentUpon>frmAgencije.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmBoravisnaPristojba.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmBoravisnaPristojba.cs" />
     <Compile Include="Forme\sifarnici\frmBoravisnaPristojba.Designer.cs">
       <DependentUpon>frmBoravisnaPristojba.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmNovaDrzava.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmNovaDrzava.cs" />
     <Compile Include="Forme\sifarnici\frmNovaDrzava.designer.cs">
       <DependentUpon>frmNovaDrzava.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmPartnerTrazi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmPartnerTrazi.cs" />
     <Compile Include="Forme\sifarnici\frmPartnerTrazi.designer.cs">
       <DependentUpon>frmPartnerTrazi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmSobe.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmSobe.cs" />
     <Compile Include="Forme\sifarnici\frmSobe.Designer.cs">
       <DependentUpon>frmSobe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmTipSobe.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmTipSobe.cs" />
     <Compile Include="Forme\sifarnici\frmTipSobe.Designer.cs">
       <DependentUpon>frmTipSobe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\sifarnici\frmVrstaUsluge.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\sifarnici\frmVrstaUsluge.cs" />
     <Compile Include="Forme\sifarnici\frmVrstaUsluge.Designer.cs">
       <DependentUpon>frmVrstaUsluge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forme\frmPodaci_tvrtka.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmPodaci_tvrtka.cs" />
     <Compile Include="Forme\frmPodaci_tvrtka.designer.cs">
       <DependentUpon>frmPodaci_tvrtka.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOdabir.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmOdabir.cs" />
     <Compile Include="frmOdabir.Designer.cs">
       <DependentUpon>frmOdabir.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPostavke.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmPostavke.cs" />
     <Compile Include="frmPostavke.Designer.cs">
       <DependentUpon>frmPostavke.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistracija.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmRegistracija.cs" />
     <Compile Include="frmRegistracija.designer.cs">
       <DependentUpon>frmRegistracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Funkcije.cs" />
     <Compile Include="IniFiles.cs" />
     <Compile Include="RemoteDB.cs" />
-    <Compile Include="Forme\frmUpisGosta.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forme\frmUpisGosta.cs" />
     <Compile Include="Forme\frmUpisGosta.Designer.cs">
       <DependentUpon>frmUpisGosta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMeni.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmMeni.cs" />
     <Compile Include="frmMeni.Designer.cs">
       <DependentUpon>frmMeni.cs</DependentUpon>
     </Compile>

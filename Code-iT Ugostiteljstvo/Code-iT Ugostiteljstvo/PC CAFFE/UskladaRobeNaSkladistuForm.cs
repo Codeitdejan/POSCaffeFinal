@@ -27,21 +27,21 @@ namespace PCPOS
 
         private void frm_Load(object sender, EventArgs e)
         {
-            PaintRows(dgw);
+            PaintRows(dgwArtikliUsklade);
             SetCB();
             numeric();
             txtBrojInventure.Text = brojInventure();
             txtSifra_robe.Enabled = false;
             ControlDisableEnable(1, 0, 0, 1, 0);
             if (broj_inventure_edit != null) { fillInventura(); }
-            dgw.Columns[5].Visible = false;
-            dgw.Columns[6].Visible = false;
+            dgwArtikliUsklade.Columns[5].Visible = false;
+            dgwArtikliUsklade.Columns[6].Visible = false;
 
             if (DTtvrtka.Rows[0]["oib"].ToString() == "05593216962" || DTtvrtka.Rows[0]["oib"].ToString() == "77566209058")
             {
                 txtSifra_robe.ReadOnly = true;
                 pictureBox1.Enabled = false;
-                dgw.Columns[5].ReadOnly = true;
+                dgwArtikliUsklade.Columns[5].ReadOnly = true;
             }
             this.Paint += new PaintEventHandler(Class.Postavke.changeBackground);
         }
@@ -53,27 +53,27 @@ namespace PCPOS
             {
                 if (keyData == Keys.Enter)
                 {
-                    MainForm.EnterDGW(MainForm.dgw);
+                    MainForm.EnterDGW(MainForm.dgwArtikliUsklade);
                     return true;
                 }
                 else if (keyData == Keys.Right)
                 {
-                    MainForm.RightDGW(MainForm.dgw);
+                    MainForm.RightDGW(MainForm.dgwArtikliUsklade);
                     return true;
                 }
                 else if (keyData == Keys.Left)
                 {
-                    MainForm.LeftDGW(MainForm.dgw);
+                    MainForm.LeftDGW(MainForm.dgwArtikliUsklade);
                     return true;
                 }
                 else if (keyData == Keys.Up)
                 {
-                    MainForm.UpDGW(MainForm.dgw);
+                    MainForm.UpDGW(MainForm.dgwArtikliUsklade);
                     return true;
                 }
                 else if (keyData == Keys.Down)
                 {
-                    MainForm.DownDGW(MainForm.dgw);
+                    MainForm.DownDGW(MainForm.dgwArtikliUsklade);
                     return true;
                 }
                 return base.ProcessCmdKey(ref msg, keyData);
@@ -84,7 +84,7 @@ namespace PCPOS
         {
             if (d.CurrentCell.ColumnIndex == 4)
             {
-                d.CurrentCell = dgw.Rows[d.CurrentRow.Index].Cells[5];
+                d.CurrentCell = dgwArtikliUsklade.Rows[d.CurrentRow.Index].Cells[5];
                 d.BeginEdit(true);
             }
             else if (d.CurrentCell.ColumnIndex == 5)
@@ -103,7 +103,7 @@ namespace PCPOS
             }
             else if (d.CurrentCell.ColumnIndex == 5)
             {
-                d.CurrentCell = dgw.Rows[d.CurrentRow.Index].Cells[4];
+                d.CurrentCell = dgwArtikliUsklade.Rows[d.CurrentRow.Index].Cells[4];
                 d.BeginEdit(true);
             }
         }
@@ -112,7 +112,7 @@ namespace PCPOS
         {
             if (d.CurrentCell.ColumnIndex == 4)
             {
-                d.CurrentCell = dgw.Rows[d.CurrentRow.Index].Cells[5];
+                d.CurrentCell = dgwArtikliUsklade.Rows[d.CurrentRow.Index].Cells[5];
                 d.BeginEdit(true);
             }
             else if (d.CurrentCell.ColumnIndex == 5)
@@ -131,12 +131,12 @@ namespace PCPOS
             }
             else if (curent == 0)
             {
-                d.CurrentCell = dgw.Rows[d.CurrentRow.Index].Cells[4];
+                d.CurrentCell = dgwArtikliUsklade.Rows[d.CurrentRow.Index].Cells[4];
                 d.BeginEdit(true);
             }
             else
             {
-                d.CurrentCell = dgw.Rows[d.CurrentRow.Index - 1].Cells[4];
+                d.CurrentCell = dgwArtikliUsklade.Rows[d.CurrentRow.Index - 1].Cells[4];
                 d.BeginEdit(true);
             }
         }
@@ -150,12 +150,12 @@ namespace PCPOS
             }
             else if (curent == d.RowCount - 1)
             {
-                d.CurrentCell = dgw.Rows[d.CurrentRow.Index].Cells[4];
+                d.CurrentCell = dgwArtikliUsklade.Rows[d.CurrentRow.Index].Cells[4];
                 d.BeginEdit(true);
             }
             else
             {
-                d.CurrentCell = dgw.Rows[d.CurrentRow.Index + 1].Cells[4];
+                d.CurrentCell = dgwArtikliUsklade.Rows[d.CurrentRow.Index + 1].Cells[4];
                 d.BeginEdit(true);
             }
         }
@@ -290,9 +290,9 @@ namespace PCPOS
                     }
                 }
 
-                for (int y = 0; y < dgw.Rows.Count; y++)
+                for (int y = 0; y < dgwArtikliUsklade.Rows.Count; y++)
                 {
-                    if (txtSifra_robe.Text == dgw.Rows[y].Cells["sifra"].FormattedValue.ToString().Trim())
+                    if (txtSifra_robe.Text == dgwArtikliUsklade.Rows[y].Cells["sifra"].FormattedValue.ToString().Trim())
                     {
                         MessageBox.Show("Artikl ili usluga već postoje u ovoj uskladi.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -308,9 +308,9 @@ namespace PCPOS
                 {
                     txtSifra_robe.BackColor = Color.White;
                     SetRoba();
-                    dgw.Select();
-                    dgw.CurrentCell = dgw.Rows[dgw.Rows.Count - 1].Cells[4];
-                    dgw.BeginEdit(true);
+                    dgwArtikliUsklade.Select();
+                    dgwArtikliUsklade.CurrentCell = dgwArtikliUsklade.Rows[dgwArtikliUsklade.Rows.Count - 1].Cells[4];
+                    dgwArtikliUsklade.BeginEdit(true);
                     txtBrojInventure.ReadOnly = true;
                     nmGodinaInventure.ReadOnly = true;
                 }
@@ -372,21 +372,21 @@ namespace PCPOS
 
         private void SetRoba()
         {
-            dgw.Rows.Add();
-            int br = dgw.Rows.Count - 1;
+            dgwArtikliUsklade.Rows.Add();
+            int br = dgwArtikliUsklade.Rows.Count - 1;
 
-            dgw.Rows[br].Cells[0].Value = dgw.RowCount;
-            dgw.Rows[br].Cells["sifra"].Value = DTRoba.Rows[0]["sifra"].ToString();
-            dgw.Rows[br].Cells["naziv"].Value = DTRoba.Rows[0]["naziv"].ToString();
-            dgw.Rows[br].Cells["jmj"].Value = DTRoba.Rows[0]["mjera"].ToString();
-            dgw.Rows[br].Cells["kolicina"].Value = "1";
-            dgw.Rows[br].Cells["cijena"].Value = Convert.ToDouble(DTRoba.Rows[0]["nc"].ToString()).ToString("#0.00");
-            dgw.Rows[br].Cells["KolicinaNaSk"].Value = DTRoba.Rows[0]["kolicina"].ToString();
-            dgw.Rows[br].Cells["iznos"].Value = Convert.ToDouble(DTRoba.Rows[0]["nc"].ToString()).ToString("#0.00");
-            dgw.Rows[br].Cells["porez"].Value = DTRoba.Rows[0]["ulazni_porez"].ToString();
-            dgw.Rows[br].Cells["mpc"].Value = DTRoba.Rows[0]["mpc"].ToString();
-            dgw.Rows[br].Cells["povratna_naknada"].Value = DTRoba.Rows[0]["povratna_naknada"].ToString();
-            PaintRows(dgw);
+            dgwArtikliUsklade.Rows[br].Cells[0].Value = dgwArtikliUsklade.RowCount;
+            dgwArtikliUsklade.Rows[br].Cells["sifra"].Value = DTRoba.Rows[0]["sifra"].ToString();
+            dgwArtikliUsklade.Rows[br].Cells["naziv"].Value = DTRoba.Rows[0]["naziv"].ToString();
+            dgwArtikliUsklade.Rows[br].Cells["jmj"].Value = DTRoba.Rows[0]["mjera"].ToString();
+            dgwArtikliUsklade.Rows[br].Cells["kolicina"].Value = "1";
+            dgwArtikliUsklade.Rows[br].Cells["cijena"].Value = Convert.ToDouble(DTRoba.Rows[0]["nc"].ToString()).ToString("#0.00");
+            dgwArtikliUsklade.Rows[br].Cells["KolicinaNaSk"].Value = DTRoba.Rows[0]["kolicina"].ToString();
+            dgwArtikliUsklade.Rows[br].Cells["iznos"].Value = Convert.ToDouble(DTRoba.Rows[0]["nc"].ToString()).ToString("#0.00");
+            dgwArtikliUsklade.Rows[br].Cells["porez"].Value = DTRoba.Rows[0]["ulazni_porez"].ToString();
+            dgwArtikliUsklade.Rows[br].Cells["mpc"].Value = DTRoba.Rows[0]["mpc"].ToString();
+            dgwArtikliUsklade.Rows[br].Cells["povratna_naknada"].Value = DTRoba.Rows[0]["povratna_naknada"].ToString();
+            PaintRows(dgwArtikliUsklade);
         }
 
         private void dgw_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -400,7 +400,7 @@ namespace PCPOS
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                dgw.CurrentRow.Cells["iznos"].Value = String.Format("{0:0.00}", (Convert.ToDouble(dgw.CurrentRow.Cells["kolicina"].FormattedValue.ToString()) * Convert.ToDouble(dgw.CurrentRow.Cells["cijena"].FormattedValue.ToString())));
+                dgwArtikliUsklade.CurrentRow.Cells["iznos"].Value = String.Format("{0:0.00}", (Convert.ToDouble(dgwArtikliUsklade.CurrentRow.Cells["kolicina"].FormattedValue.ToString()) * Convert.ToDouble(dgwArtikliUsklade.CurrentRow.Cells["cijena"].FormattedValue.ToString())));
                 txtSifra_robe.Select();
                 base.OnKeyDown(e);
             }
@@ -416,30 +416,30 @@ namespace PCPOS
         private void dgw_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             decimal kol, cijena;
-            if (dgw.CurrentCell.ColumnIndex == 4 && dgw.CurrentCell.FormattedValue.ToString() != "")
+            if (dgwArtikliUsklade.CurrentCell.ColumnIndex == 4 && dgwArtikliUsklade.CurrentCell.FormattedValue.ToString() != "")
             {
-                decimal.TryParse(dgw.CurrentRow.Cells["kolicina"].FormattedValue.ToString(), out kol);
-                dgw.CurrentRow.Cells["kolicina"].Value = Math.Round(kol, 5).ToString("#0.0000");
+                decimal.TryParse(dgwArtikliUsklade.CurrentRow.Cells["kolicina"].FormattedValue.ToString(), out kol);
+                dgwArtikliUsklade.CurrentRow.Cells["kolicina"].Value = Math.Round(kol, 5).ToString("#0.0000");
                 
-                if (decimal.TryParse(dgw.CurrentRow.Cells["cijena"].FormattedValue.ToString(), out cijena))
+                if (decimal.TryParse(dgwArtikliUsklade.CurrentRow.Cells["cijena"].FormattedValue.ToString(), out cijena))
                 {
-                    dgw.CurrentRow.Cells["iznos"].Value = Math.Round((kol * cijena), 5).ToString("#0.0000");
+                    dgwArtikliUsklade.CurrentRow.Cells["iznos"].Value = Math.Round((kol * cijena), 5).ToString("#0.0000");
                 }
                 else
                 {
                 
                     MessageBox.Show("Greška kod upisa količine.", "Greška");
-                    dgw.CurrentCell.Value = 0;
+                    dgwArtikliUsklade.CurrentCell.Value = 0;
                 }
             }
-            else if (dgw.CurrentCell.ColumnIndex == 5)
+            else if (dgwArtikliUsklade.CurrentCell.ColumnIndex == 5)
             {
                 decimal nab;
-                decimal.TryParse(dgw.CurrentRow.Cells["cijena"].FormattedValue.ToString(), out nab);
-                dgw.CurrentRow.Cells["cijena"].Value = Math.Round(nab, 5).ToString("#0.0000");
+                decimal.TryParse(dgwArtikliUsklade.CurrentRow.Cells["cijena"].FormattedValue.ToString(), out nab);
+                dgwArtikliUsklade.CurrentRow.Cells["cijena"].Value = Math.Round(nab, 5).ToString("#0.0000");
                 txtSifra_robe.Text = "";
                 txtSifra_robe.Select();
-                dgw.ClearSelection();
+                dgwArtikliUsklade.ClearSelection();
             }
         }
 
@@ -450,9 +450,9 @@ namespace PCPOS
             roba_trazi.ShowDialog();
             this.TopMost = true;
             string propertis_sifra = Properties.Settings.Default.id_roba.Replace(" ", "");
-            for (int y = 0; y < dgw.Rows.Count; y++)
+            for (int y = 0; y < dgwArtikliUsklade.Rows.Count; y++)
             {
-                if (propertis_sifra == dgw.Rows[y].Cells["sifra"].FormattedValue.ToString().Trim())
+                if (propertis_sifra == dgwArtikliUsklade.Rows[y].Cells["sifra"].FormattedValue.ToString().Trim())
                 {
                     MessageBox.Show("Artikl ili usluga već postoje u ovoj uskladi robe", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -470,9 +470,9 @@ namespace PCPOS
             {
                 txtSifra_robe.BackColor = Color.White;
                 SetRoba();
-                dgw.Select();
-                dgw.CurrentCell = dgw.Rows[dgw.Rows.Count - 1].Cells[4];
-                dgw.BeginEdit(true);
+                dgwArtikliUsklade.Select();
+                dgwArtikliUsklade.CurrentCell = dgwArtikliUsklade.Rows[dgwArtikliUsklade.Rows.Count - 1].Cells[4];
+                dgwArtikliUsklade.BeginEdit(true);
                 txtBrojInventure.ReadOnly = true;
                 nmGodinaInventure.ReadOnly = true;
             }
@@ -484,22 +484,22 @@ namespace PCPOS
 
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (dgw.CurrentRow.Cells["id_stavka"].Value != null && dgw.CurrentRow.Cells["id_stavka"].Value.ToString() != "")
+            if (dgwArtikliUsklade.CurrentRow.Cells["id_stavka"].Value != null && dgwArtikliUsklade.CurrentRow.Cells["id_stavka"].Value.ToString() != "")
             {
                 classSQL.update("UPDATE inventura SET editirano='1' WHERE broj_inventure='" + txtBrojInventure.Text + "' AND id_skladiste='" + cbSkladiste.SelectedValue.ToString() + "'");
-                classSQL.delete("DELETE FROM inventura_stavke WHERE id_stavke='" + dgw.CurrentRow.Cells["id_stavka"].FormattedValue.ToString() + "'");
+                classSQL.delete("DELETE FROM inventura_stavke WHERE id_stavke='" + dgwArtikliUsklade.CurrentRow.Cells["id_stavka"].FormattedValue.ToString() + "'");
                 provjera_sql(classSQL.insert("INSERT INTO aktivnost_zaposlenici (id_zaposlenik,datum,radnja) VALUES ('" + Properties.Settings.Default.id_zaposlenik + "','" + DateTime.Now.ToString("yyyy-MM-dd H:mm:ss") + "','Brisanje stavke.Inventura br." + txtBrojInventure.Text + "')"));
             }
 
-            dgw.Rows.RemoveAt(dgw.CurrentRow.Index);
+            dgwArtikliUsklade.Rows.RemoveAt(dgwArtikliUsklade.CurrentRow.Index);
             MessageBox.Show("Obrisano.");
         }
 
         private void dgw_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgw.CurrentCell.ColumnIndex == 4 || dgw.CurrentCell.ColumnIndex == 5)
+            if (dgwArtikliUsklade.CurrentCell.ColumnIndex == 4 || dgwArtikliUsklade.CurrentCell.ColumnIndex == 5)
             {
-                dgw.BeginEdit(true);
+                dgwArtikliUsklade.BeginEdit(true);
             }
         }
 
@@ -523,7 +523,7 @@ namespace PCPOS
 
         private void deleteFields()
         {
-            dgw.Rows.Clear();
+            dgwArtikliUsklade.Rows.Clear();
             //txtBrojInventure.Text = brojInventure();
             nmGodinaInventure.Value = Convert.ToInt16(DateTime.Now.Year.ToString());
             rtbNapomena.Text = "";
@@ -531,7 +531,7 @@ namespace PCPOS
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            if (dgw.RowCount == 0)
+            if (dgwArtikliUsklade.RowCount == 0)
             {
                 MessageBox.Show("Nemate niti jednu stavku za spremiti.", "Greška");
                 return;
@@ -572,7 +572,7 @@ namespace PCPOS
             classSQL.insert(sql);
 
             decimal kol;
-            for (int i = 0; i < dgw.RowCount; i++)
+            for (int i = 0; i < dgwArtikliUsklade.RowCount; i++)
             {
                 decimal.TryParse(dg(i, "kolicina"), out kol);
 
@@ -615,7 +615,7 @@ namespace PCPOS
 
         private string dg(int row, string cell)
         {
-            return dgw.Rows[row].Cells[cell].FormattedValue.ToString();
+            return dgwArtikliUsklade.Rows[row].Cells[cell].FormattedValue.ToString();
         }
 
         private void btnNoviUnos_Click(object sender, EventArgs e)
@@ -684,7 +684,7 @@ namespace PCPOS
             }
 
             edit = true;
-            dgw.Rows.Clear();
+            dgwArtikliUsklade.Rows.Clear();
 
             if (DTinventura.Rows.Count == 0)
             {
@@ -704,22 +704,22 @@ namespace PCPOS
 
             for (int br = 0; br < DTinventura_stavke.Rows.Count; br++)
             {
-                dgw.Rows.Add();
+                dgwArtikliUsklade.Rows.Add();
 
-                dgw.Rows[br].Cells[0].Value = dgw.RowCount;
-                dgw.Rows[br].Cells["sifra"].Value = DTinventura_stavke.Rows[br]["sifra_robe"].ToString();
-                dgw.Rows[br].Cells["porez"].Value = DTinventura_stavke.Rows[br]["porez"].ToString();
-                dgw.Rows[br].Cells["naziv"].Value = DTinventura_stavke.Rows[br]["naziv"].ToString();
-                dgw.Rows[br].Cells["jmj"].Value = DTinventura_stavke.Rows[br]["jmj"].ToString();
-                dgw.Rows[br].Cells["kolicina"].Value = DTinventura_stavke.Rows[br]["kolicina"].ToString();
-                dgw.Rows[br].Cells["KolicinaNaSk"].Value = DTinventura_stavke.Rows[br]["kolicina_koja_je_bila_na_skl"].ToString();
-                dgw.Rows[br].Cells["id_stavka"].Value = DTinventura_stavke.Rows[br]["id_stavke"].ToString();
-                dgw.Rows[br].Cells["cijena"].Value = String.Format("{0:0.00}", Convert.ToDouble(DTinventura_stavke.Rows[br]["cijena"].ToString()));
-                dgw.Rows[br].Cells["iznos"].Value = String.Format("{0:0.00}", Convert.ToDouble(DTinventura_stavke.Rows[br]["cijena"].ToString()) * Convert.ToDouble(DTinventura_stavke.Rows[br]["kolicina"].ToString()));
-                dgw.Rows[br].Cells["mpc"].Value = DTinventura_stavke.Rows[br]["mpc"].ToString();
-                dgw.Rows[br].Cells["povratna_naknada"].Value = DTinventura_stavke.Rows[br]["povratna_naknada"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells[0].Value = dgwArtikliUsklade.RowCount;
+                dgwArtikliUsklade.Rows[br].Cells["sifra"].Value = DTinventura_stavke.Rows[br]["sifra_robe"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["porez"].Value = DTinventura_stavke.Rows[br]["porez"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["naziv"].Value = DTinventura_stavke.Rows[br]["naziv"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["jmj"].Value = DTinventura_stavke.Rows[br]["jmj"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["kolicina"].Value = DTinventura_stavke.Rows[br]["kolicina"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["KolicinaNaSk"].Value = DTinventura_stavke.Rows[br]["kolicina_koja_je_bila_na_skl"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["id_stavka"].Value = DTinventura_stavke.Rows[br]["id_stavke"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["cijena"].Value = String.Format("{0:0.00}", Convert.ToDouble(DTinventura_stavke.Rows[br]["cijena"].ToString()));
+                dgwArtikliUsklade.Rows[br].Cells["iznos"].Value = String.Format("{0:0.00}", Convert.ToDouble(DTinventura_stavke.Rows[br]["cijena"].ToString()) * Convert.ToDouble(DTinventura_stavke.Rows[br]["kolicina"].ToString()));
+                dgwArtikliUsklade.Rows[br].Cells["mpc"].Value = DTinventura_stavke.Rows[br]["mpc"].ToString();
+                dgwArtikliUsklade.Rows[br].Cells["povratna_naknada"].Value = DTinventura_stavke.Rows[br]["povratna_naknada"].ToString();
             }
-            PaintRows(dgw);
+            PaintRows(dgwArtikliUsklade);
             ControlDisableEnable(0, 1, 1, 0, 1);
         }
 
@@ -777,9 +777,9 @@ namespace PCPOS
              " WHERE broj_inventure='" + txtBrojInventure.Text + "'";
             classSQL.update(sql);
 
-            for (int i = 0; i < dgw.Rows.Count; i++)
+            for (int i = 0; i < dgwArtikliUsklade.Rows.Count; i++)
             {
-                if (dgw.Rows[i].Cells["id_stavka"].Value != null)
+                if (dgwArtikliUsklade.Rows[i].Cells["id_stavka"].Value != null)
                 {
                     row = DTsend.NewRow();
                     row["broj_inventure"] = txtBrojInventure.Text;

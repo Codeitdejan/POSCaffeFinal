@@ -44,9 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classDownloadFiles.cs" />
-    <Compile Include="frmDownloadPostgres.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmDownloadPostgres.cs" />
     <Compile Include="frmDownloadPostgres.Designer.cs">
       <DependentUpon>frmDownloadPostgres.cs</DependentUpon>
     </Compile>

@@ -32,7 +32,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UskladaRobeNaSkladistuForm));
             this.txtSifra_robe = new System.Windows.Forms.TextBox();
-            this.dgw = new PCPOS.UskladaRobeNaSkladistuForm.MyDataGrid();
+            this.dgwArtikliUsklade = new PCPOS.UskladaRobeNaSkladistuForm.MyDataGrid();
+            this.br = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sifra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jmj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iznos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KolicinaNaSk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_stavka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porez = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mpc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.povratna_naknada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBrojInventure = new System.Windows.Forms.TextBox();
             this.nmGodinaInventure = new System.Windows.Forms.NumericUpDown();
@@ -54,19 +66,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bgSinkronizacija = new System.ComponentModel.BackgroundWorker();
             this.btnObrisi = new System.Windows.Forms.Button();
-            this.povratna_naknada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mpc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porez = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_stavka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KolicinaNaSk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iznos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jmj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sifra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.br = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwArtikliUsklade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmGodinaInventure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -82,15 +82,15 @@
             this.txtSifra_robe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSifra_robe_KeyDown);
             this.txtSifra_robe.Leave += new System.EventHandler(this.NAPUSTENI_Leave);
             // 
-            // dgw
+            // dgwArtikliUsklade
             // 
-            this.dgw.AllowUserToAddRows = false;
-            this.dgw.AllowUserToDeleteRows = false;
-            this.dgw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgwArtikliUsklade.AllowUserToAddRows = false;
+            this.dgwArtikliUsklade.AllowUserToDeleteRows = false;
+            this.dgwArtikliUsklade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgw.BackgroundColor = System.Drawing.Color.White;
+            this.dgwArtikliUsklade.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwArtikliUsklade.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -98,9 +98,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgwArtikliUsklade.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgwArtikliUsklade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwArtikliUsklade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.br,
             this.sifra,
             this.naziv,
@@ -113,20 +113,85 @@
             this.porez,
             this.mpc,
             this.povratna_naknada});
-            this.dgw.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgw.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgw.Location = new System.Drawing.Point(18, 239);
-            this.dgw.MultiSelect = false;
-            this.dgw.Name = "dgw";
-            this.dgw.RowHeadersWidth = 30;
+            this.dgwArtikliUsklade.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgwArtikliUsklade.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgwArtikliUsklade.Location = new System.Drawing.Point(18, 239);
+            this.dgwArtikliUsklade.MultiSelect = false;
+            this.dgwArtikliUsklade.Name = "dgwArtikliUsklade";
+            this.dgwArtikliUsklade.RowHeadersWidth = 30;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dgw.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgw.Size = new System.Drawing.Size(967, 244);
-            this.dgw.TabIndex = 49;
-            this.dgw.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_CellClick);
-            this.dgw.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_CellEndEdit);
-            this.dgw.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgw_EditingControlShowing);
+            this.dgwArtikliUsklade.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgwArtikliUsklade.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgwArtikliUsklade.Size = new System.Drawing.Size(967, 244);
+            this.dgwArtikliUsklade.TabIndex = 49;
+            this.dgwArtikliUsklade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_CellClick);
+            this.dgwArtikliUsklade.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_CellEndEdit);
+            this.dgwArtikliUsklade.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgw_EditingControlShowing);
+            // 
+            // br
+            // 
+            this.br.HeaderText = "Broj";
+            this.br.Name = "br";
+            // 
+            // sifra
+            // 
+            this.sifra.HeaderText = "Šifra";
+            this.sifra.Name = "sifra";
+            // 
+            // naziv
+            // 
+            this.naziv.HeaderText = "Naziv";
+            this.naziv.Name = "naziv";
+            // 
+            // jmj
+            // 
+            this.jmj.HeaderText = "JMJ";
+            this.jmj.Name = "jmj";
+            // 
+            // kolicina
+            // 
+            this.kolicina.HeaderText = "Količina";
+            this.kolicina.Name = "kolicina";
+            // 
+            // cijena
+            // 
+            this.cijena.HeaderText = "Nab cijena";
+            this.cijena.Name = "cijena";
+            // 
+            // iznos
+            // 
+            this.iznos.HeaderText = "Iznos";
+            this.iznos.Name = "iznos";
+            // 
+            // KolicinaNaSk
+            // 
+            this.KolicinaNaSk.HeaderText = "KolicinaNaSk";
+            this.KolicinaNaSk.Name = "KolicinaNaSk";
+            this.KolicinaNaSk.Visible = false;
+            // 
+            // id_stavka
+            // 
+            this.id_stavka.HeaderText = "id_stavka";
+            this.id_stavka.Name = "id_stavka";
+            this.id_stavka.Visible = false;
+            // 
+            // porez
+            // 
+            this.porez.HeaderText = "porez";
+            this.porez.Name = "porez";
+            this.porez.Visible = false;
+            // 
+            // mpc
+            // 
+            this.mpc.HeaderText = "mpc";
+            this.mpc.Name = "mpc";
+            this.mpc.Visible = false;
+            // 
+            // povratna_naknada
+            // 
+            this.povratna_naknada.HeaderText = "povratna_naknada";
+            this.povratna_naknada.Name = "povratna_naknada";
+            this.povratna_naknada.Visible = false;
             // 
             // label1
             // 
@@ -435,71 +500,6 @@
             this.btnObrisi.UseVisualStyleBackColor = false;
             this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
-            // povratna_naknada
-            // 
-            this.povratna_naknada.HeaderText = "povratna_naknada";
-            this.povratna_naknada.Name = "povratna_naknada";
-            this.povratna_naknada.Visible = false;
-            // 
-            // mpc
-            // 
-            this.mpc.HeaderText = "mpc";
-            this.mpc.Name = "mpc";
-            this.mpc.Visible = false;
-            // 
-            // porez
-            // 
-            this.porez.HeaderText = "porez";
-            this.porez.Name = "porez";
-            this.porez.Visible = false;
-            // 
-            // id_stavka
-            // 
-            this.id_stavka.HeaderText = "id_stavka";
-            this.id_stavka.Name = "id_stavka";
-            this.id_stavka.Visible = false;
-            // 
-            // KolicinaNaSk
-            // 
-            this.KolicinaNaSk.HeaderText = "KolicinaNaSk";
-            this.KolicinaNaSk.Name = "KolicinaNaSk";
-            this.KolicinaNaSk.Visible = false;
-            // 
-            // iznos
-            // 
-            this.iznos.HeaderText = "Iznos";
-            this.iznos.Name = "iznos";
-            // 
-            // cijena
-            // 
-            this.cijena.HeaderText = "Nab cijena";
-            this.cijena.Name = "cijena";
-            // 
-            // kolicina
-            // 
-            this.kolicina.HeaderText = "Količina";
-            this.kolicina.Name = "kolicina";
-            // 
-            // jmj
-            // 
-            this.jmj.HeaderText = "JMJ";
-            this.jmj.Name = "jmj";
-            // 
-            // naziv
-            // 
-            this.naziv.HeaderText = "Naziv";
-            this.naziv.Name = "naziv";
-            // 
-            // sifra
-            // 
-            this.sifra.HeaderText = "Šifra";
-            this.sifra.Name = "sifra";
-            // 
-            // br
-            // 
-            this.br.HeaderText = "Broj";
-            this.br.Name = "br";
-            // 
             // UskladaRobeNaSkladistuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,7 +527,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtSifra_robe);
-            this.Controls.Add(this.dgw);
+            this.Controls.Add(this.dgwArtikliUsklade);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -536,7 +536,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUnosInventura_FormClosing);
             this.Load += new System.EventHandler(this.frm_Load);
             this.Shown += new System.EventHandler(this.frmUnosInventura_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.dgw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwArtikliUsklade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmGodinaInventure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -547,7 +547,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtSifra_robe;
-        private MyDataGrid dgw;
+        private MyDataGrid dgwArtikliUsklade;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtBrojInventure;
         private System.Windows.Forms.NumericUpDown nmGodinaInventure;
